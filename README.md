@@ -3,7 +3,7 @@
 
 [![](https://raw.githubusercontent.com/Alplox/la-tele/master/preview.png)](https://alplox.github.io/la-tele/)
 
-## Listado canales
+## Listado canales disponibles junto a su fuente
 | Canales Nacionales                                                                                                                  | 📻 Radios y Música 🎵                                                                       |
 |-------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | [TV Senado](https://tv.senado.cl/) - [x](https://www.m3u.cl/iptv-chile.php)                                                         | [Cooperativa](http://programas.cooperativa.cl/showalairelibre/)                             |
@@ -75,3 +75,13 @@
 | [Cámara de Diputados YT 11](https://www.youtube.com/channel/UCYPKjGKq2yLbAnmth5rFZmQ)                                               |                                                                                             |
 | [Cámara de Diputados YT 12](https://www.youtube.com/channel/UCVOWFY-sgbDglBsfOap9okg)                                               |                                                                                             |
 | [Cámara de Diputados YT 13](https://www.youtube.com/channel/UC33MG3YdoQ16a8a3wODh6lw)                                               |                                                                                             |
+## Menciones
+```
+Favicon creado usando:  https://favicon.io/
+Sitio inspirado en:     https://github.com/Donchelox/tv-viewer
+Fuente utilizada:       https://fonts.google.com/specimen/Poppins
+Metatags generados con: https://metatags.io/
+```
+
+## Licencia
+⚖️ [MIT License](https://github.com/Alplox/la-tele/blob/main/LICENSE)

@@ -85,3 +85,5 @@ Metatags generados con: https://metatags.io/
 
 ## Licencia
 ⚖️ [MIT License](https://github.com/Alplox/la-tele/blob/main/LICENSE)
+
+[![Visits Badge](https://badges.pufler.dev/visits/Alplox/la-tele)](https://badges.pufler.dev)

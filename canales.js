@@ -276,16 +276,6 @@ let LosCanales = [{
 },
 {
     // REGIONALES / OTROS
-    'nombre': 'Halcón Parquemet, Cumbre',
-    'url': 'https://alplox.github.io/tele/m3u/parquemet-cumbre',
-    'fuente': 'https://halcon.parquemet.cl/index.html'
-},
-{
-    'nombre': 'Halcón Parquemet, Terraza',
-    'url': 'https://alplox.github.io/tele/m3u/parquemet-terraza',
-    'fuente': 'https://halcon.parquemet.cl/index.html'
-},
-{
     'nombre': 'Holvoet TV',
     'url': 'https://alplox.github.io/tele/m3u/holvoet-tv',
     'fuente': 'https://holvoet.cl/en-vivo/'
@@ -396,6 +386,16 @@ let LosCanales = [{
     'nombre': '📷 Galería CIMA',
     'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC4GOcOKkEefz5NamN4WyMFg&autoplay=1&modestbranding=1&showinfo=0',
     'fuente': 'https://www.youtube.com/channel/UC4GOcOKkEefz5NamN4WyMFg'
+},
+{
+    'nombre': '📷 Halcón Parquemet, Cumbre',
+    'url': 'https://g1.ipcamlive.com/player/player.php?alias=5a7084c9e0136&autoplay=true',
+    'fuente': 'https://halcon.parquemet.cl/index.html'
+},
+{
+    'nombre': '📷 Halcón Parquemet, Terraza',
+    'url': 'https://g1.ipcamlive.com/player/player.php?alias=5a7085fe914c0&autoplay=true',
+    'fuente': 'https://halcon.parquemet.cl/index.html'
 },
 {
     // SERIES

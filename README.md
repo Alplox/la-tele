@@ -36,8 +36,6 @@
 | [La Red](https://www.lared.cl/senal-online) - [x](https://github.com/AINMcl/AINMcl.github.io/tree/master/Monitores)                 |                                                                                             |
 | [La Red 2](https://www.lared.cl/senal-online) - [x](https://raw.githubusercontent.com/Televito/TDT-Mundo/main/IPTV)                 |                                                                                             |
 | [Stgo TV](https://www.santiagotelevision.cl/)                                                                                       |                                                                                             |
-| [Halcón Parquemet, Cumbre](https://halcon.parquemet.cl/index.html)                                                                  |                                                                                             |
-| [Halcón Parquemet, Terraza](https://halcon.parquemet.cl/index.html)                                                                 |                                                                                             |
 | [Holvoet TV](https://holvoet.cl/en-vivo/)                                                                                           |                                                                                             |
 | [TV Salud](https://tvsalud.cl/)                                                                                                     |                                                                                             |
 | [Antofagasta TV](https://www.antofagasta.tv/)                                                                                       |                                                                                             |
@@ -58,6 +56,8 @@
 | [Canal 33](http://www.canal33.cl/online.php)                                                                                        |                                                                                             |
 | [Contivision](http://w.contivision.cl/cvn/envivo.php)                                                                               |                                                                                             |
 | [Galería CIMA](https://www.youtube.com/channel/UC4GOcOKkEefz5NamN4WyMFg)                                                            |                                                                                             |
+| [Halcón Parquemet, Cumbre](https://halcon.parquemet.cl/index.html)                                                                  |                                                                                             |
+| [Halcón Parquemet, Terraza](https://halcon.parquemet.cl/index.html)                                                                 |                                                                                             |
 | [31 minutos - Todos los episodios](https://www.youtube.com/playlist?list=PLVI9tQggdGtFXgCwpjTM_d2pdH6ABeRFL)                        |                                                                                             |
 | [Diego y Glot - Temporada 1](https://www.youtube.com/watch?v=J3cLcZ1QhFE&list=PLnDONcPxnlq2s8zwIuJt8_JI4Tf3amd6u)                   |                                                                                             |
 | [Los Pulentos - Temporada 1](https://www.youtube.com/playlist?list=PLnDONcPxnlq2gZlH-OAXCnIeyPwMpQuUb)                              |                                                                                             |
@@ -75,6 +75,7 @@
 | [Cámara de Diputados YT 11](https://www.youtube.com/channel/UCYPKjGKq2yLbAnmth5rFZmQ)                                               |                                                                                             |
 | [Cámara de Diputados YT 12](https://www.youtube.com/channel/UCVOWFY-sgbDglBsfOap9okg)                                               |                                                                                             |
 | [Cámara de Diputados YT 13](https://www.youtube.com/channel/UC33MG3YdoQ16a8a3wODh6lw)                                               |                                                                                             |
+
 ## Menciones
 ```
 Favicon creado usando:  https://favicon.io/

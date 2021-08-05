@@ -1,7 +1,7 @@
 # la tele
 ## Sitio: https://alplox.github.io/la-tele/
 
-[![](https://raw.githubusercontent.com/Alplox/la-tele/master/preview.png)](https://alplox.github.io/la-tele/)
+[![](https://raw.githubusercontent.com/Alplox/la-tele/master/assets/images/preview.png)](https://alplox.github.io/la-tele/)
 
 ## Listado canales disponibles junto a su fuente
 | Canales Nacionales                                                                                                                  | 📻 Radios y Música 🎵                                                                       |
@@ -78,10 +78,18 @@
 
 ## Menciones
 ```
-Favicon creado usando:  https://favicon.io/
-Sitio inspirado en:     https://github.com/Donchelox/tv-viewer
-Fuente utilizada:       https://fonts.google.com/specimen/Poppins
-Metatags generados con: https://metatags.io/
+-Favicon creado con:     https://favicon.io/
+-Metatags generados con: https://metatags.io/
+-Sitio basado en:        https://github.com/Donchelox/tv-viewer
+                         https://github.com/Alplox/tele
+-Fuente utilizada:       https://fonts.google.com/specimen/Poppins
+    Licencia: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+-Estilo boton IPTV:      https://ui-snippets.dev/
+    Licencia: https://github.com/emilkowalski/ui-snippets/blob/master/LICENSE
+-Reproductor M3U8:       https://videojs.com/      
+    Licencia: https://github.com/videojs/video.js/blob/main/LICENSE          
+              http://www.apache.org/licenses/LICENSE-2.0
+-Canales M3U8:           https://www.m3u.cl/iptv-chile.php
 ```
 
 ## Licencia

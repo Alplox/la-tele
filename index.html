@@ -9,14 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>la tele</title>
     <meta name="description" content="Canales de Chile a un click." />
-    <link rel="stylesheet" href="style.css">
-    <script src="canales.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/videojs-7.11.4/video-js.css"/>
+    <script src="assets/js/canales.js"></script>
 
     <!--favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
 
     <!-- Primary Meta Tags -->
     <title>La tele</title>
@@ -28,14 +30,14 @@
     <meta property="og:url" content="https://alplox.github.io/la-tele/">
     <meta property="og:title" content="La tele">
     <meta property="og:description" content="Canales de Chile a un click.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/preview.png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/images/preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://alplox.github.io/la-tele/">
     <meta property="twitter:title" content="La tele">
     <meta property="twitter:description" content="Canales de Chile a un click.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/preview.png">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/images/preview.png">
 </head>
 
 <body>
@@ -47,14 +49,30 @@
     <main>
         <section class="grid">
             <div id="video-container" class="video-container">
-                <span class="recordatorio">Selecciona un canal</span>
-                <iframe id="player" src=""></iframe>
+                <span id="recordatorio" class="recordatorio">Selecciona un canal</span> 
+               
             </div>
 
             <aside class="channels-container">
+               <header>
                 <h2>Canales Nacionales 🇨🇱</h2>
-                <section id="channel-list" class="channel-list">
-                </section>
+                <button id="boton-iptv" class="boton-iptv"><span>Cambiar Señal</span></button>
+                </header>
+                <div class="channel-list">
+                    
+
+                    <div class="flip-container" id="flip-container">
+                        <div class="flipper" id="flipper">
+
+                            <div class="channel-btns front" id="channel-btns" > 
+                            </div>
+
+                            <div class="channel-btns-m3u back" id="channel-btns-m3u">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </aside>
         </section>
     </main>
@@ -67,5 +85,7 @@
             transmisiones</a>
     </footer>
 </body>
-<script src="script.js"></script>
+
+<script src="assets/videojs-7.11.4/video.min.js"></script>
+<script src="assets/js/script.js"></script>
 </html>

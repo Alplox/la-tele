@@ -7,31 +7,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_blank">
     <title>la tele</title>
     <meta name="description" content="Canales de Chile a un click." />
-    
     <link rel="stylesheet" href="assets/css/style.css"/>
-    <link rel="stylesheet" href="assets/videojs-7.11.4/video-js.css"/>
     <script src="assets/js/canales.js"></script>
-
+    <link rel="stylesheet" href="assets/videojs-7.11.4/video-js.css"/>
     <!--favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-
     <!-- Primary Meta Tags -->
     <title>La tele</title>
     <meta name="title" content="La tele">
     <meta name="description" content="Canales de Chile a un click.">
-
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alplox.github.io/la-tele/">
     <meta property="og:title" content="La tele">
     <meta property="og:description" content="Canales de Chile a un click.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/images/preview.png">
-
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://alplox.github.io/la-tele/">
@@ -39,37 +35,40 @@
     <meta property="twitter:description" content="Canales de Chile a un click.">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/images/preview.png">
 </head>
-
 <body>
+    <noscript>
+        <div class="no-js">
+            <p>⚠️ El sitio <b>no</b> funciona sin <b>JavaScript</b>.</p>
+            <p>Si lo has deshabilitado, por favor <b>vuelve a activarlo</b>.</p>
+            <div class="wave"></div>
+        </div>
+    </noscript>
     <header>
         <h1>¿Qué paso ahora?</h1>
         <p><strong>Probar otro visor: </strong><a href="https://alplox.github.io/tele/"
-                rel="nofollow noreferrer noopener">tele</a></p>
+                rel="nofollow noreferrer noopener" target="_self">tele</a></p>
     </header>
     <main>
         <section class="grid">
             <div id="video-container" class="video-container">
                 <span id="recordatorio" class="recordatorio">Selecciona un canal</span> 
-               
             </div>
-
             <aside class="channels-container">
-               <header>
-                <h2>Canales Nacionales 🇨🇱</h2>
-                <button id="boton-iptv" class="boton-iptv"><span>Cambiar Señal</span></button>
+                <header class="header-channels">
+                    <h2>Canales 🇨🇱</h2>
+                    <section class="btns-header">
+                    <button id="boton-iptv" class="boton-iptv"><span>Cambiar Señal</span></button>
+                    <label class="switch" title="nombre sobre transmisiones on/off">
+                        <input type="checkbox" id="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    </section>
                 </header>
                 <div class="channel-list">
-                    
-
                     <div class="flip-container" id="flip-container">
                         <div class="flipper" id="flipper">
-
-                            <div class="channel-btns front" id="channel-btns" > 
-                            </div>
-
-                            <div class="channel-btns-m3u back" id="channel-btns-m3u">
-                                
-                            </div>
+                            <div class="channel-btns front" id="channel-btns"></div>
+                            <div class="channel-btns-m3u back" id="channel-btns-m3u"></div>
                         </div>
                     </div>
                 </div>
@@ -84,8 +83,7 @@
         <a href="https://github.com/Alplox/la-tele#listado-canales" rel="nofollow noreferrer noopener">Ver fuente
             transmisiones</a>
     </footer>
-</body>
-
-<script src="assets/videojs-7.11.4/video.min.js"></script>
 <script src="assets/js/script.js"></script>
+<script src="assets/videojs-7.11.4/video.min.js"></script>
+</body>
 </html>

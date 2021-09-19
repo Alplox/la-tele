@@ -2,8 +2,7 @@
 *:before,
 *:after {
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+        -webkit-box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
@@ -48,6 +47,10 @@ header {
     width: 100%;
 }
 
+.header-channels{
+    padding: 0 20px;
+}
+
 .btns-header{
     width: 60%;
     display: flex;
@@ -62,7 +65,7 @@ main {
 
 .grid {
     display: grid;
-    grid-template-columns: 2fr 0.8fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 2fr;
     padding: 0 20px;
     gap: 10px;
@@ -115,7 +118,7 @@ main {
 
 .channel-list {
     height: 90%;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 /* listado canales */
@@ -153,6 +156,7 @@ main {
 }
 
 .boton-iptv {
+    font-size: .7rem;
     padding: 5px 12px;
     background-color: var(--white);
     color: var(--black);
@@ -259,8 +263,8 @@ main {
 .switch {
     position: relative;
     display: inline-block;
-    width: 3.5rem;
-    height: 2rem;
+    width: 2rem;
+    height: 1rem;
 }
 
 .switch input {
@@ -284,10 +288,10 @@ main {
 .slider:before {
     position: absolute;
     content: "";
-    height: 1.5rem;
-    width: 1.5rem;
-    left: 4px;
-    bottom: 4px;
+    height: 1rem;
+    width: 1rem;
+    left: -4px;
+    bottom: 0px;
     background-color: var(--white);
     -webkit-transition: .4s;
     transition: .4s;
@@ -351,7 +355,6 @@ footer span {
     color: var(--black);
     font-size: clamp(0.5rem, 10vw, 3rem);
     margin: 0 10%;
-    /* text-align: center; */
 }
 
 /* animacion de fondo cuando noscript esta activo */
@@ -399,18 +402,71 @@ footer span {
     .grid {
         grid-template-columns: 1fr;
         grid-template-rows: .2fr 1fr;
-        height: 95%;
-    }
-
-    .channel-list {
-        height: 80%;
     }
 }
 
 @media screen and (max-width:700px) {
-
     header,
     main {
         font-size: x-small;
+    }
+    main {
+        height: 100%;
+    }
+
+    .channel-list {
+        height: 800px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    header {
+font-size: .5rem;
+height: 30px;
+    }
+    .channel-btns,
+    .channel-btns-m3u {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+    }
+    footer {
+        font-size: .6rem;
+    }
+    footer span {
+        padding: .4rem;
+    }
+}
+
+
+@media (orientation:landscape) and (max-width:1024px) {
+    header {
+        height: 1rem;
+    }
+    header,
+    header>h1
+    header>a {
+        font-size: .5rem;
+    }
+    
+    main {
+        height: 100%;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: .2fr 1fr;
+    }
+
+    .header-channels{
+        padding: 20px 20px 0 20px;
+    }
+    
+    .channels-container {
+        height: 400px;
+    }
+
+    .channel-list {
+        height: 90%;
+        padding: 20px 20px 0 20px;
     }
 }

@@ -1,103 +1,8 @@
 const Canales = [{
-        'nombre': '🏛️ TV Senado',
-        'url': 'https://janus-tv.senado.cl/embed.php',
-        'fuente': 'https://tv.senado.cl/'
-    },
-    {
-        'nombre': '🏛️ TV Senado 2',
-        'm3u': 'https://janus-tv-ply.senado.cl/playlist/playlist.m3u8',
-        'fuente': 'https://tv.senado.cl/'
-    },
-    {
-        'nombre': '🏛️ TV Senado 3',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC4GJ43VNn4AYfiYa0RBCHQg&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UC4GJ43VNn4AYfiYa0RBCHQg'
-    },
-    {
-        'nombre': '🏛️ Cámara Diputados',
-        'm3u': 'https://camara.03.cl.cdnz.cl/camara19/live/playlist.m3u8',
-        'fuente': 'http://www.cdtv.cl//'
-    },
-    {
-        'nombre': '🏛️ Cámara Diputados 2',
-        'm3u': 'https://camara.02.cl.cdnz.cl/cdndvr/live/playlist.m3u8?DVR',
-        'fuente': 'http://webtv.camara.cl/'
-    },
-    {
-        'nombre': '🏛️ Cámara Diputados 3',
-        'm3u': 'https://camara.02.cl.cdnz.cl/cdndvr/live/playlist.m3u8',
-        'fuente': 'http://webtv.camara.cl/'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional',
-        'url': 'https://mdstrm.com/live-stream/60d476c14157440829d03cd7',
-        'fuente': 'https://www.convencion.tv/'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional 2',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCRlIWVAxQdAnCl4D4UR9r3Q&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCRlIWVAxQdAnCl4D4UR9r3Q'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional 3',
-        'm3u': 'https://mdstrm.com/live-stream-playlist-v/60d476c14157440829d03cd7.m3u8',
-        'fuente': 'https://www.convencion.tv/'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s1',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCc3koBbWMyvSyzRbG5eTgvQ&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCc3koBbWMyvSyzRbG5eTgvQ'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s2',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCKmKUwcjv6HJP7-z9Nnpp2w&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCKmKUwcjv6HJP7-z9Nnpp2w'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s3',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCeIlCkkBplhU0SrWM9B7u7Q&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCeIlCkkBplhU0SrWM9B7u7Q'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s4',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCkMWMYCPUGzf3UPAxcIaVqA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCkMWMYCPUGzf3UPAxcIaVqA'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s5',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UChNeKfZ0-wwuOCyUSu6BlcA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UChNeKfZ0-wwuOCyUSu6BlcA'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s6',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC-HPc8CLoGRSG0dgbzZbDWA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UC-HPc8CLoGRSG0dgbzZbDWA'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s7',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC9p2Hsom7SXdro9FhN4K59w&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UC9p2Hsom7SXdro9FhN4K59w'
-    },
-    {
-        'nombre': '🏛️ Convención Constitucional s8',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCFkkF0LKUOUOcQEwG4nTrHw&autoplay=1&mute=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCFkkF0LKUOUOcQEwG4nTrHw'
-    },
-    {
-        'nombre': '🏛️ Tribunal Constitucional',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCZaI-1N1oaGb-U8K2VNztjg&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCZaI-1N1oaGb-U8K2VNztjg'
-    },
-    {
-        'nombre': '🏛️ Poder Judicial',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCo0C1-ocUG9a0Yb3iO0V-xg&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCo0C1-ocUG9a0Yb3iO0V-xg'
-    },
-    {
         'nombre': '24 horas',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCTXNz3gjAypWp3EhlIATEJQ&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCTXNz3gjAypWp3EhlIATEJQ&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCTXNz3gjAypWp3EhlIATEJQ'
-    },
+    },    
     {
         'nombre': '24 Horas 2',
         'm3u': 'https://mdstrm.com/live-stream-playlist/57d1a22064f5d85712b20dab.m3u8',
@@ -107,6 +12,11 @@ const Canales = [{
         'nombre': '24 Horas 3',
         'm3u': 'https://mdstrm.com/live-stream-playlist-v/5346f657c1e6f5810b5b9df3.m3u8',
         'fuente': 'https://www.24horas.cl/envivo/'
+    },
+    {
+        'nombre': '24 horas 4',
+        'url': 'https://player.twitch.tv/?channel=24horas_tvn&parent=alplox.github.io',
+        'fuente': 'https://www.twitch.tv/24horas_tvn'
     },
     {
         'nombre': '24 Horas s2',
@@ -125,63 +35,63 @@ const Canales = [{
     },
     {
         'nombre': 'Meganoticias',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCkccyEbqhhM3uKOI6Shm-4Q&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCkccyEbqhhM3uKOI6Shm-4Q&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCkccyEbqhhM3uKOI6Shm-4Q'
     },
     {
+        'nombre': 'Meganoticias 2',
+        'url': 'https://player.twitch.tv/?channel=meganoticiascl&parent=alplox.github.io',
+        'fuente': 'https://www.twitch.tv/meganoticiascl'
+    },
+    {
         'nombre': 'T13',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCsRnhjcUCR78Q3Ud6OXCTNg&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCsRnhjcUCR78Q3Ud6OXCTNg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCsRnhjcUCR78Q3Ud6OXCTNg'
     },
     {
+        'nombre': 'T13 2',
+        'url': 'https://player.twitch.tv/?channel=t13envivo&parent=alplox.github.io',
+        'fuente': 'https://www.twitch.tv/t13envivo'
+    },
+    {
         'nombre': 'CNN Chile',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCpOAcjJNAp0Y0fhznRrXIJQ&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCpOAcjJNAp0Y0fhznRrXIJQ&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCpOAcjJNAp0Y0fhznRrXIJQ'
     },
     {
-        'nombre': 'CNN Chile 2',
-        'm3u': 'https://unlimited1-cl.dps.live/cnn/cnn.smil/playlist.m3u8',
-        'fuente': 'https://www.cnnchile.com/'
-    },
-    {
-        'nombre': 'CNN Chile 3',
-        'm3u': 'https://unlimited1-cl-isp.dps.live/cnn/cnn.smil/playlist.m3u8',
-        'fuente': 'https://www.cnnchile.com/'
-    },
-    {
         'nombre': 'Prensa Presidencia',
-        'url': 'https://mdstrm.com/live-stream/5dc17f8944795108a2a52a49',
+        'url': 'https://mdstrm.com/live-stream/5dc17f8944795108a2a52a49?autoplay=true&volume=0',
         'fuente': 'https://prensa.presidencia.cl/streaming.aspx'
     },
     {
-        'nombre': 'TV Chile',
-        'm3u': 'https://mdstrm.com/live-stream-playlist/533adcc949386ce765657d7c.m3u8',
-        'fuente': 'https://www.tvchile.cl/envivo/'
-    },
-    {
-        'nombre': 'TV Chile 2',
-        'm3u': 'https://mdstrm.com/live-stream-playlist-v/533adcc949386ce765657d7c.m3u8',
-        'fuente': ''
-    },
-    {
         'nombre': 'TVN',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCaVaCaiG6qRzDiJDuEGKOhQ&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': ''
-    },
-    {
-        'nombre': 'TVN 2',
-        'm3u': 'https://unlimited10-cl.dps.live/tvn/tvn.smil/tvn/livestream1/chunks.m3u8',
-        'fuente': 'https://www.tvchile.cl/envivo/'
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCaVaCaiG6qRzDiJDuEGKOhQ&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCaVaCaiG6qRzDiJDuEGKOhQ'
     },
     {
         'nombre': 'Canal 13',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCd4D3LfXC_9MY2zSv_3gMgw&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCd4D3LfXC_9MY2zSv_3gMgw&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCd4D3LfXC_9MY2zSv_3gMgw'
     },
     {
+        'nombre': 'Canal 13 2',
+        'url': 'https://13313131.tnvas.repl.co/',
+        'fuente': 'https://www.13.cl/en-vivo'
+    },
+    {
         'nombre': 'CHV',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC8EdTmyUaFIfZvVttJ9lgIA&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC8EdTmyUaFIfZvVttJ9lgIA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UC8EdTmyUaFIfZvVttJ9lgIA'
+    },
+    {
+        'nombre': 'CHV 2',
+        'url': 'https://chvvvvvvvv.temporalservel.repl.co/',
+        'fuente': 'https://www.chilevision.cl/senal-online'
+    },
+    {
+        'nombre': 'Mega',
+        'm3u': 'https://unlimited2-cl-isp.dps.live/mega/mega.smil/playlist.m3u8',
+        'fuente': 'https://www.mega.cl/'
     },
     {
         'nombre': 'La Red',
@@ -194,146 +104,139 @@ const Canales = [{
         'fuente': 'https://www.lared.cl/senal-online'
     },
     {
+        'nombre': '📻 Cooperativa <span hidden>Chile, Radios</span>',
+        'url': 'https://rudo.video/live/coopetv?volume=0&mute=1',
+        'fuente': 'http://programas.cooperativa.cl/showalairelibre/'
+    },
+    {
+        'nombre': '📻 Biobio TV <span hidden>Chile, Radios</span>',
+        'url': 'https://rudo.video/live/bbtv?volume=0&mute=1',
+        'fuente': 'https://www.biobiochile.cl/biobiotv/'
+    },
+    {
+        'nombre': '📻 ADN <span hidden>Chile, Radios</span>',
+        'url': 'https://rudo.video/live/adntv?volume=0&mute=1',
+        'fuente': 'http://tv.adnradio.cl/'
+    },
+    {
+        'nombre': '📻 ADN 2 <span hidden>Chile, Radios</span>',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCczkrFICr0xEgDsk51zZojA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCczkrFICr0xEgDsk51zZojA'
+    },
+    {
+        'nombre': '📻 Duna <span hidden>Chile, Radios</span>',
+        'url': 'https://rudo.video/live/dunatv?volume=0&mute=1',
+        'fuente': 'https://www.duna.cl/tv/'
+    },
+    {
+        'nombre': '📻 Infinita <span hidden>Chile, Radios</span>',
+        'url': 'https://rudo.video/live/infinitatv?volume=0&mute=1',
+        'fuente': 'http://www.infinita.cl/home/'
+    },
+    {
+        'nombre': '📻 Universo <span hidden>Chile, Radios</span>',
+        'url': 'https://rudo.video/live/universotv?volume=0&mute=1',
+        'fuente': 'https://www.universo.cl/'
+    },
+    {
+        'nombre': '📻 AE (DUOC) <span hidden>Chile, Radios</span>',
+        'url': 'https://live.grupoz.cl/3991add90400a25a1580f290246f90eb?sound=0',
+        'fuente': 'https://www.aeradio.cl/'
+    },
+    {
+        'nombre': '📻 Carolina TV <span hidden>Chile, Radios, Musica</span>',
+        'url': 'https://rudo.video/live/carolinatv?volume=0&mute=1',
+        'fuente': 'https://www.carolina.cl/tv/'
+    },
+    {
+        'nombre': '📻 Carolina TV 2 <span hidden>Chile, Radios, Musica</span>',
+        'm3u': 'https://unlimited6-cl.dps.live/carolinatv/carolinatv.smil/carolinatv/livestream2/chunks.m3u8',
+        'fuente': 'https://www.carolina.cl/tv/'
+    },
+    {
+        'nombre': '📻 FM Tiempo <span hidden>Chile, Radios, Musica</span>',
+        'url': 'https://rudo.video/live/fmtiempotv?volume=0&mute=1',
+        'fuente': 'https://www.fmtiempo.cl/'
+    },
+    {
+        'nombre': '📻 FM Tiempo 2 <span hidden>Chile, Radios, Musica</span>',
+        'm3u': 'https://unlimited10-cl.dps.live/fmtiempotv/fmtiempotv.smil/playlist.m3u8',
+        'fuente': 'https://www.fmtiempo.cl/'
+    },
+    {
+        'nombre': '📻 Alegría TV <span hidden>Chile, Radios, Musica</span>',
+        'm3u': 'https://593b04c4c5670.streamlock.net:443/8192/8192/playlist.m3u8',
+        'fuente': 'https://www.alegriafm.cl/'
+    },
+    {
+        'nombre': '📻 Romántica TV <span hidden>Chile, Radios, Musica</span>',
+        'url': 'https://rudo.video/live/romanticatv?volume=0&mute=1',
+        'fuente': 'https://www.romantica.cl/romantica-tv/'
+    },
+    {
+        'nombre': '📻 Romántica TV 2 <span hidden>Chile, Radios, Musica</span>',
+        'm3u': 'https://unlimited2-cl-isp.dps.live/romanticatv/romanticatv.smil/playlist.m3u8',
+        'fuente': 'https://www.romantica.cl/romantica-tv/'
+    },
+    {
+        'nombre': '📻 Radio Genial 100.5 FM <span hidden>Chile, Radios, Musica</span>',
+        'm3u': 'https://v2.tustreaming.cl/genialtv/index.m3u8',
+        'fuente': 'https://radiogenial.cl/'
+    },
+    {
+        'nombre': '📻 Mi Radio es Más <span hidden>Chile, Radios</span>',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCflUbt1g29kPG-H9SV5QIyw&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCflUbt1g29kPG-H9SV5QIyw'
+    },
+    {
+        'nombre': '📻 Radio La Clave <span hidden>Chile, Radios, Musica</span>',
+        'url': 'https://rudo.video/live/laclavetv?volume=0&mute=1',
+        'fuente': 'https://radiolaclave.cl/'
+    },
+    {
+        'nombre': '📻 Radio Folclor de Chile <span hidden>Chile, Radios</span>',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC0Hl8kJe8Xwv8g63Q4qefQg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UC0Hl8kJe8Xwv8g63Q4qefQg'
+    },
+    {
+        'nombre': '📻 Radio María Chile <span hidden>Chile, Radios</span>',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UClMwb2kCYemWyDIZ2dYttKA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UClMwb2kCYemWyDIZ2dYttKA'
+    },
+    {
         'nombre': 'Stgo TV',
         'url': 'https://stv.janus.cl/front/embed.html',
         'fuente': 'https://www.santiagotelevision.cl/'
     },
     {
-        // RADIOS
-        'nombre': '📻 Cooperativa',
-        'url': 'https://rudo.video/live/coopetv',
-        'fuente': 'http://programas.cooperativa.cl/showalairelibre/'
+        'nombre': 'DerechoFacil',
+        'url': 'https://player.twitch.tv/?channel=derechofacil&parent=alplox.github.io',
+        'fuente': 'https://www.twitch.tv/derechofacil'
     },
     {
-        'nombre': '📻 Biobio TV',
-        'url': 'https://rudo.video/live/bbtv',
-        'fuente': 'https://www.biobiochile.cl/biobiotv/'
+        'nombre': 'La Voz De Los Que Sobran',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCEnSee5vPeNAm2EFpb_UaRw&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCEnSee5vPeNAm2EFpb_UaRw'
     },
     {
-        'nombre': '📻 ADN',
-        'url': 'https://rudo.video/live/adntv',
-        'fuente': 'http://tv.adnradio.cl/'
+        'nombre': 'Nicolas Copano',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCVTL17ftpqx3lQ_IaGUNgSg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCVTL17ftpqx3lQ_IaGUNgSg'
     },
     {
-        'nombre': '📻 ADN 2',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCczkrFICr0xEgDsk51zZojA&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UCczkrFICr0xEgDsk51zZojA'
+        'nombre': 'Nicolas Copano 2',
+        'url': 'https://player.twitch.tv/?channel=copano&parent=alplox.github.io',
+        'fuente': 'https://www.twitch.tv/copano'
     },
     {
-        'nombre': '📻 Duna',
-        'url': 'https://rudo.video/live/dunatv',
-        'fuente': 'https://www.duna.cl/tv/'
-    },
-    {
-        'nombre': '📻 Infinita',
-        'url': 'https://rudo.video/live/infinitatv',
-        'fuente': 'http://www.infinita.cl/home/'
-    },
-    {
-        'nombre': '📻 Universo',
-        'url': 'https://rudo.video/live/universotv',
-        'fuente': 'https://www.universo.cl/'
-    },
-    {
-        'nombre': '📻 AE (DUOC)',
-        'url': 'https://live.grupoz.cl/3991add90400a25a1580f290246f90eb',
-        'fuente': 'https://www.aeradio.cl/'
-    },
-    {
-        'nombre': '📻 Carolina TV',
-        'url': 'https://rudo.video/live/carolinatv',
-        'fuente': 'https://www.carolina.cl/tv/'
-    },
-    {
-        'nombre': '📻 Carolina TV 2',
-        'm3u': 'https://unlimited6-cl.dps.live/carolinatv/carolinatv.smil/carolinatv/livestream2/chunks.m3u8',
-        'fuente': 'https://www.carolina.cl/tv/'
-    },
-    {
-        'nombre': '📻 FM Tiempo',
-        'url': 'https://rudo.video/live/fmtiempotv',
-        'fuente': 'https://www.fmtiempo.cl/'
-    },
-    {
-        'nombre': '📻 FM Tiempo 2',
-        'm3u': 'https://unlimited10-cl.dps.live/fmtiempotv/fmtiempotv.smil/playlist.m3u8',
-        'fuente': 'https://www.fmtiempo.cl/'
-    },
-    {
-        'nombre': '📻 Alegría TV',
-        'm3u': 'https://593b04c4c5670.streamlock.net:443/8192/8192/playlist.m3u8',
-        'fuente': 'https://www.alegriafm.cl/'
-    },
-    {
-        'nombre': '📻 Radio Las Nieves',
-        'm3u': 'https://v2.tustreaming.cl/rln/live1/tracks-v1a1/mono.m3u8',
-        'fuente': 'https://www.rln.cl/'
-    },
-    {
-        'nombre': '📻 Romántica TV',
-        'url': 'https://rudo.video/live/romanticatv',
-        'fuente': 'https://www.romantica.cl/romantica-tv/'
-    },
-    {
-        'nombre': '📻 Romántica TV 2',
-        'm3u': 'https://unlimited2-cl.dps.live/romanticatv/romanticatv.smil/playlist.m3u8',
-        'fuente': 'https://www.romantica.cl/romantica-tv/'
-    },
-    {
-        'nombre': '📻 Radio Genial 100.5 FM',
-        'url': 'https://v2.tustreaming.cl/genialtv/live1/embed.html',
-        'fuente': 'https://radiogenial.cl/'
-    },
-    {
-        'nombre': '📻 Radio Genial 100.5 FM 2',
-        'm3u': 'https://v2.tustreaming.cl/genialtv/live1/index.m3u8',
-        'fuente': 'https://radiogenial.cl/'
-    },
-    {
-        'nombre': '📻 Mi Radio LS',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UClJiriqxFwmmVIQeASJfICQ&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UClJiriqxFwmmVIQeASJfICQ'
-    },
-    {
-        'nombre': '📻 Radio La Clave',
-        'url': 'https://rudo.video/live/laclavetv',
-        'fuente': 'https://radiolaclave.cl/'
-    },
-    {
-        'nombre': '📻 Radio Folclor de Chile',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC0Hl8kJe8Xwv8g63Q4qefQg&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UC0Hl8kJe8Xwv8g63Q4qefQg'
-    },
-    {
-        'nombre': '📻 Radio María Chile',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UClMwb2kCYemWyDIZ2dYttKA&autoplay=1&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UClMwb2kCYemWyDIZ2dYttKA'
-    },
-    {
-        'nombre': '📻 On Radio Kpop',
-        'url': 'https://live.grupoz.cl/0551dfe14dd61f524debcb5b5595b3f2',
-        'fuente': 'https://onradiochile.cl/kpop/'
-    },
-    {
-        'nombre': '📻 On Radio Kpop 2',
-        'm3u': 'https://tls.cdnz.cl/onradio4/live/playlist.m3u8',
-        'fuente': 'https://onradiochile.cl/kpop/'
-    },
-    {
-        'nombre': '📻 Radio América TV Chile',
-        'm3u': 'https://Stmv1.zcastbr.com/americatvchile/smil:transcoder.smil/playlist.m3u8',
-        'fuente': 'http://www.radioamerica.cl/'
-    },
-    {
-// REGIONALES / OTROS
         'nombre': 'Holvoet TV',
-        'm3u': 'https://unlimited1-cl.dps.live/holvoettv/holvoettv.smil/playlist.m3u8',
+        'url': 'https://rudo.video/live/holvoettv',
         'fuente': 'https://holvoet.cl/en-vivo/'
     },
     {
-        'nombre': 'TV Salud',
-        'm3u': 'https://srv3.zcast.com.br/mastermedia/mastermedia/tvsalud.cl.m3u8',
-        'fuente': 'https://tvsalud.cl/'
+        'nombre': 'Holvoet TV 2',
+        'm3u': 'https://unlimited1-cl-isp.dps.live/holvoettv/holvoettv.smil/playlist.m3u8',
+        'fuente': 'https://holvoet.cl/en-vivo/'
     },
     {
         'nombre': 'Antofagasta TV',
@@ -341,8 +244,13 @@ const Canales = [{
         'fuente': 'https://www.antofagasta.tv/'
     },
     {
+        'nombre': 'Antofagasta TV 2',
+        'm3u': 'https://unlimited1-cl-isp.dps.live/atv/atv.smil/playlist.m3u8',
+        'fuente': 'https://www.antofagasta.tv/'
+    },
+    {
         'nombre': 'Canal 9',
-        'url': 'https://rudo.video/live/c9',
+        'url': 'https://rudo.video/live/c9?volume=0&mute=1',
         'fuente': 'https://www.canal9.cl/en-vivo/'
     },
     {
@@ -352,7 +260,7 @@ const Canales = [{
     },
     {
         'nombre': 'TVU',
-        'url': 'https://rudo.video/live/tvu',
+        'url': 'https://rudo.video/live/tvu?volume=0&mute=1',
         'fuente': 'https://www.tvu.cl/'
     },
     {
@@ -362,7 +270,7 @@ const Canales = [{
     },
     {
         'nombre': 'Canal 21',
-        'url': 'https://live.grupoz.cl/8b383d0a9cef5560a1bfbbeaf6ad4a38',
+        'url': 'https://live.grupoz.cl/8b383d0a9cef5560a1bfbbeaf6ad4a38?sound=0',
         'fuente': 'https://www.canal21tv.cl/wp/en-vivo/'
     },
     {
@@ -376,38 +284,43 @@ const Canales = [{
         'fuente': 'https://www.estaciontv.cl/site/'
     },
     {
+        'nombre': 'Estacióntv 2',
+        'm3u': 'https://pantera1-100gb-cl-movistar.dps.live/estaciontv/estaciontv.smil/playlist.m3u8',
+        'fuente': 'https://www.estaciontv.cl/site/'
+    },
+    {
         'nombre': 'Pingüino TV',
         'url': 'https://elpinguino.com/reproductor/',
         'fuente': 'https://elpinguino.com/reproductor/'
     },
     {
-        'nombre': 'Teletón TV',
-        'url': 'https://mdstrm.com/live-stream/5d6d5f05a2f6f407b0147965',
-        'fuente': 'https://teletontv.cl/'
+        'nombre': 'Pingüino TV 2',
+        'm3u': 'https://streaming.elpinguino.com:5391/live/EP.smil/playlist.m3u8',
+        'fuente': 'https://elpinguino.com/reproductor/'
     },
     {
-        'nombre': 'Teletón TV 2',
-        'm3u': 'https://mdstrm.com/live-stream-playlist/5d6d5f05a2f6f407b0147965.m3u8',
-        'fuente': 'https://teletontv.cl/'
+        'nombre': 'ITV Patagonia',
+        'm3u': 'https://rudo.video/live/itv?volume=0&mute=1',
+        'fuente': 'https://www.itvpatagonia.com/'
     },
     {
-        'nombre': 'Contexto Ñuble TV',
-        'm3u': 'https://streaming10.zglobalhost.com:1936/8014/8014/playlist.m3u8',
-        'fuente': 'https://tv.contextonuble.cl/'
+        'nombre': 'ITV Patagonia 2',
+        'm3u': 'https://unlimited1-cl-isp.dps.live/itv/itv.smil/playlist.m3u8',
+        'fuente': 'https://www.itvpatagonia.com/'
     },
     {
         'nombre': 'UCV TV',
-        'url': 'https://rudo.video/live/ucvtv2',
+        'url': 'https://rudo.video/live/ucvtv2?volume=0&mute=1',
         'fuente': 'https://pucvmultimedios.cl/senal-online-tv.php'
     },
     {
         'nombre': 'UATV',
-        'url': 'https://rudo.video/live/uatv',
+        'url': 'https://rudo.video/live/uatv?volume=0&mute=1',
         'fuente': 'https://uatv.cl/uatv-en-vivo/'
     },
     {
         'nombre': 'VTV',
-        'url': 'https://rudo.video/live/vtv',
+        'url': 'https://rudo.video/live/vtv?volume=0&mute=1',
         'fuente': 'http://canalvtv.cl/vtv/'
     },
     {
@@ -421,20 +334,31 @@ const Canales = [{
         'fuente': 'http://w.contivision.cl/cvn/envivo.php'
     },
     {
-// MUSICA
+        'nombre': 'Teletón TV',
+        'url': 'https://mdstrm.com/live-stream/5d6d5f05a2f6f407b0147965?autoplay=true&volume=0',
+        'fuente': 'https://teletontv.cl/'
+    },
+    {
+        'nombre': 'Teletón TV 2',
+        'm3u': 'https://mdstrm.com/live-stream-playlist/5d6d5f05a2f6f407b0147965.m3u8',
+        'fuente': 'https://teletontv.cl/'
+    },
+    {
+        'nombre': 'TV Salud',
+        'm3u': 'https://srv3.zcast.com.br/mastermedia/mastermedia/tvsalud.cl.m3u8',
+        'fuente': 'https://tvsalud.cl/'
+    }, 
+// MUSICA 
+    {
         'nombre': 'IMUC Chile 🎵',
         'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCIIDtZoaK9UZi4FaGMmL_hw&autoplay=1&mute=0&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCIIDtZoaK9UZi4FaGMmL_hw'
     },
+// CAMARAS MUNDO
+// Chile
     {
-        'nombre': 'Live Vinyl Chile 🎵',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC8FJRxSiunppaD0sZgL7H_A&autoplay=1&mute=0&modestbranding=1&showinfo=0',
-        'fuente': 'https://www.youtube.com/channel/UC8FJRxSiunppaD0sZgL7H_A'
-    },
-    {
-// CAMARAS
         'nombre': '📷 Galería CIMA',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC4GOcOKkEefz5NamN4WyMFg&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC4GOcOKkEefz5NamN4WyMFg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UC4GOcOKkEefz5NamN4WyMFg'
     },
     {
@@ -448,7 +372,13 @@ const Canales = [{
         'fuente': 'https://halcon.parquemet.cl/index.html'
     },
     {
+        'nombre': '📷 Providencia, Ledrium',
+        'url': 'https://www.youtube-nocookie.com/embed/mGxX5PfREPA?autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCTDewuGhfwGv6JRNnqa-yXw'
+    },
+
 // SERIES
+    {
         'nombre': '31 minutos - Todos los episodios',
         'url': 'https://www.youtube-nocookie.com/embed/videoseries?list=PLVI9tQggdGtFXgCwpjTM_d2pdH6ABeRFL&autoplay=0&mute=0&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/playlist?list=PLVI9tQggdGtFXgCwpjTM_d2pdH6ABeRFL'
@@ -468,71 +398,117 @@ const Canales = [{
         'url': 'https://www.youtube-nocookie.com/embed/videoseries?list=PLnDONcPxnlq1V8zLL54a6luAy4Wp6ldK3&autoplay=0&mute=0&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/playlist?list=PLnDONcPxnlq1V8zLL54a6luAy4Wp6ldK3'
     },
+// EDUCATIVOS
     {
-// EDUCACION
         'nombre': '📚 TV Educa Chile',
-        'm3u': 'https://mdstrm.com/live-stream-playlist/5aaabe9e2c56420918184c6d.m3u8',
-        'fuente': 'https://www.tvn.cl/envivo/tveducachile/'
-    },
-    {
-        'nombre': '📚 TV Educa Chile 2',
         'm3u': 'https://mdstrm.com/live-stream-playlist-v/5e74e53f1ab4eb073b19ef34.m3u8',
         'fuente': 'https://www.tvn.cl/envivo/tveducachile/'
     },
     {
         'nombre': '📚 PuntajeNacional Chile',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCCY6xIXHmGBGZUgUYxtfKSg&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCCY6xIXHmGBGZUgUYxtfKSg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCCY6xIXHmGBGZUgUYxtfKSg'
     },
+// 🏛️ 🏛️ 🏛️ 
     {
+        'nombre': '🏛️ TV Senado',
+        'url': 'https://janus-tv.senado.cl/embed.php',
+        'fuente': 'https://tv.senado.cl/'
+    },
+    {
+        'nombre': '🏛️ TV Senado 2',
+        'm3u': 'https://janus-tv-ply.senado.cl/playlist/playlist.m3u8',
+        'fuente': 'https://tv.senado.cl/'
+    },
+    {
+        'nombre': '🏛️ TV Senado 3',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC4GJ43VNn4AYfiYa0RBCHQg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UC4GJ43VNn4AYfiYa0RBCHQg'
+    },
+    {
+        'nombre': '🏛️ Cámara Diputados',
+        'm3u': 'https://camara.03.cl.cdnz.cl/camara19/live/playlist.m3u8',
+        'fuente': 'http://www.cdtv.cl/'
+    },
+    {
+        'nombre': '🏛️ Cámara Diputados 2',
+        'm3u': 'https://camara.02.cl.cdnz.cl/cdndvr/live/playlist.m3u8?DVR',
+        'fuente': 'http://webtv.camara.cl/'
+    },
+    {
+        'nombre': '🏛️ Cámara Diputados 3',
+        'm3u': 'https://tls-cl.cdnz.cl/camara/live/playlist.m3u8',
+        'fuente': 'http://webtv.camara.cl/'
+    },
+    {
+        'nombre': '🏛️ Convención Constitucional',
+        'url': 'https://mdstrm.com/live-stream/60d476c14157440829d03cd7?autoplay=true&volume=0',
+        'fuente': 'https://www.convencion.tv/'
+    },
+    {
+        'nombre': '🏛️ Convención Constitucional 2',
+        'm3u': 'https://mdstrm.com/live-stream-playlist/60d1f10fdacfa008348d71d2.m3u8',
+        'fuente': 'https://www.convencion.tv/'
+    },
+    {
+        'nombre': '🏛️ Tribunal Constitucional',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCZaI-1N1oaGb-U8K2VNztjg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCZaI-1N1oaGb-U8K2VNztjg'
+    },
+    {
+        'nombre': '🏛️ Poder Judicial',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCo0C1-ocUG9a0Yb3iO0V-xg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
+        'fuente': 'https://www.youtube.com/channel/UCo0C1-ocUG9a0Yb3iO0V-xg'
+    },    
 // CANALES ALTERNATIVOS CAM DIPUTADOS
+    {
         'nombre': 'Cámara Diputados Señal Youtube',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCYd5k2TyOyOmUJNx0SH17KA&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCYd5k2TyOyOmUJNx0SH17KA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCYd5k2TyOyOmUJNx0SH17KA'
     },
     {
         'nombre': 'Cámara Diputados YT 01',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCcULnWuDzgQG9yF0Dv3DIgg&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCcULnWuDzgQG9yF0Dv3DIgg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCcULnWuDzgQG9yF0Dv3DIgg'
     },
     {
         'nombre': 'Cámara Diputados YT 03',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCF6KgLfQqQzekn8U1DwVs9g&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCF6KgLfQqQzekn8U1DwVs9g&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCF6KgLfQqQzekn8U1DwVs9g'
     },
     {
         'nombre': 'Cámara Diputados YT 05',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC0QKtI8NpeMObauDylsSUDA&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC0QKtI8NpeMObauDylsSUDA&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UC0QKtI8NpeMObauDylsSUDA'
     },
     {
         'nombre': 'Cámara Diputados YT 06',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCspWzpGflwb6A8PZqWw49CQ&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCspWzpGflwb6A8PZqWw49CQ&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCspWzpGflwb6A8PZqWw49CQ'
     },
     {
         'nombre': 'Cámara Diputados YT 07',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCyVjDDBZGDywVGrpGBvGEsw&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCyVjDDBZGDywVGrpGBvGEsw&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCyVjDDBZGDywVGrpGBvGEsw'
     },
     {
         'nombre': 'Cámara Diputados YT 08',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCCtDbZzh63vgU_BWHRGsbug&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCCtDbZzh63vgU_BWHRGsbug&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCCtDbZzh63vgU_BWHRGsbug'
     },
     {
         'nombre': 'Cámara Diputados YT 11',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCYPKjGKq2yLbAnmth5rFZmQ&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCYPKjGKq2yLbAnmth5rFZmQ&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCYPKjGKq2yLbAnmth5rFZmQ'
     },
     {
         'nombre': 'Cámara Diputados YT 12',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCVOWFY-sgbDglBsfOap9okg&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCVOWFY-sgbDglBsfOap9okg&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UCVOWFY-sgbDglBsfOap9okg'
     },
     {
         'nombre': 'Cámara Diputados YT 13',
-        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC33MG3YdoQ16a8a3wODh6lw&autoplay=1&modestbranding=1&showinfo=0',
+        'url': 'https://www.youtube-nocookie.com/embed/live_stream?channel=UC33MG3YdoQ16a8a3wODh6lw&autoplay=1&mute=1&modestbranding=1&showinfo=0',
         'fuente': 'https://www.youtube.com/channel/UC33MG3YdoQ16a8a3wODh6lw'
     }
 ]

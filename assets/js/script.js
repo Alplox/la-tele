@@ -1,3 +1,8 @@
+/* 
+Script v0.4
+por Alplox 
+*/
+
 const seccionCanales = document.getElementById('channel-btns');
 const seccionCanalesM3u = document.getElementById('channel-btns-m3u');
 
@@ -20,6 +25,7 @@ const nombreM3u = document.createElement('span')
 const fragment = document.createDocumentFragment();
 const fragmentm3u = document.createDocumentFragment();
 
+// PARA LISTADO PRINCIPAL "Canales" CONTIENE CANALES IFRAMES/EMBED Y M3U8
 Canales.forEach(canal => {
     if (canal.url !== undefined && canal.m3u === undefined){
         const BtnCanal = document.createElement('button');
@@ -30,6 +36,7 @@ Canales.forEach(canal => {
                 nombreM3u.remove();  
                 videoContainer.append(iframe);
                     iframe.src = canal.url;
+                    iframe.setAttribute('allowFullScreen', '');
                 document.getElementById('video-container').append(nombreBarra);
                     a.href = canal.fuente;
                     a.innerText = canal.nombre;
@@ -62,6 +69,7 @@ Canales.forEach(canal => {
 });
 seccionCanales.append(fragment);
 
+// PARA LISTADO SECUNDARIO "M3U_Canales" EL QUE CONTIENE SOLO CANALES M3U8 SIN ATRIBUTO "fuente"
 M3U_Canales.forEach(canal => {
     const BtnCanalM3u = document.createElement('BUTTON');
         BtnCanalM3u.classList.add('channel');

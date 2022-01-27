@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="manifest" href="site.webmanifest">
     <!-- Primary Meta Tags -->
     <title>La tele</title>
     <meta name="title" content="La tele">
@@ -35,6 +35,14 @@
     <meta property="twitter:title" content="La tele">
     <meta property="twitter:description" content="Canales de Chile a un click.">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.5.png">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
+          });
+        }
+    </script>
 </head>
 <body>
     <noscript>

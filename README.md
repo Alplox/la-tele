@@ -66,24 +66,24 @@
 - [Teletón TV](https://teletontv.cl/)
 - [Teletón TV 2](https://teletontv.cl/) - [x](https://www.chileiptv.cl/)
 - [TV Salud](https://tvsalud.cl/)
-- [31 minutos - Todos los episodios](https://www.youtube.com/playlist?list=PLVI9tQggdGtFXgCwpjTM_d2pdH6ABeRFL)
-- [Diego y Glot - Temporada 1](https://www.youtube.com/watch?v=J3cLcZ1QhFE&list=PLnDONcPxnlq2s8zwIuJt8_JI4Tf3amd6u)
-- [Los Pulentos - Temporada 1](https://www.youtube.com/playlist?list=PLnDONcPxnlq2gZlH-OAXCnIeyPwMpQuUb)
-- [Villa Dulce - Temporada 1](https://www.youtube.com/playlist?list=PLnDONcPxnlq1V8zLL54a6luAy4Wp6ldK3)
+- [IMUC Chile](https://www.youtube.com/channel/UCIIDtZoaK9UZi4FaGMmL_hw)
+- [Galería CIMA](https://www.youtube.com/channel/UC4GOcOKkEefz5NamN4WyMFg)
+- [Halcón Parquemet, Cumbre](https://halcon.parquemet.cl/index.html)
+- [Halcón Parquemet, Terraza](https://halcon.parquemet.cl/index.html)
+- [Providencia, Ledrium](https://www.youtube.com/channel/UCTDewuGhfwGv6JRNnqa-yXw)
 - [TV Educa Chile](https://www.tvn.cl/envivo/tveducachile/) - [x](https://www.m3u.cl/iptv-chile.php)
 - [PuntajeNacional Chile](https://www.youtube.com/channel/UCCY6xIXHmGBGZUgUYxtfKSg)
 - [TV Senado](https://tv.senado.cl/) - [x](https://www.m3u.cl/iptv-chile.php)
 - [TV Senado 2](https://tv.senado.cl/)
 - [TV Senado 3](https://www.youtube.com/channel/UC4GJ43VNn4AYfiYa0RBCHQg)
-- [Cámara de Diputados](http://www.cdtv.cl//)
-- [Cámara de Diputados 2](http://webtv.camara.cl/)
-- [Cámara de Diputados 3](http://webtv.camara.cl/)
-- [Cámara de Diputados Señal Youtube](https://www.youtube.com/channel/UCYd5k2TyOyOmUJNx0SH17KA)
 - [Convención Constitucional](https://www.convencion.tv/)
 - [Convención Constitucional 2](https://www.youtube.com/channel/UCRlIWVAxQdAnCl4D4UR9r3Q)
 - [Tribunal Constitucional de Chile](https://www.youtube.com/channel/UCZaI-1N1oaGb-U8K2VNztjg)
 - [Poder Judicial Chile](https://www.youtube.com/channel/UCo0C1-ocUG9a0Yb3iO0V-xg)
-- [Cámara de Diputados Señal Youtube](https://www.youtube.com/channel/UCYd5k2TyOyOmUJNx0SH17KA)
+- [Cámara de Diputados](http://www.cdtv.cl//)
+- [Cámara de Diputados 2](http://webtv.camara.cl/)
+- [Cámara de Diputados 3](http://webtv.camara.cl/)
+- [Cámara de Diputados YT](https://www.youtube.com/channel/UCYd5k2TyOyOmUJNx0SH17KA)
 - [Cámara de Diputados YT 01](https://www.youtube.com/channel/UCcULnWuDzgQG9yF0Dv3DIgg)
 - [Cámara de Diputados YT 03](https://www.youtube.com/channel/UCF6KgLfQqQzekn8U1DwVs9g)
 - [Cámara de Diputados YT 05](https://www.youtube.com/channel/UC0QKtI8NpeMObauDylsSUDA)
@@ -93,7 +93,6 @@
 - [Cámara de Diputados YT 11](https://www.youtube.com/channel/UCYPKjGKq2yLbAnmth5rFZmQ)
 - [Cámara de Diputados YT 12](https://www.youtube.com/channel/UCVOWFY-sgbDglBsfOap9okg)
 - [Cámara de Diputados YT 13](https://www.youtube.com/channel/UC33MG3YdoQ16a8a3wODh6lw)
-- [COVID-19 Chile](https://bing.com/covid/local/chile)
 
 </details>
 
@@ -141,6 +140,8 @@
     Licencia: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
 -modern-normalize.css:   https://github.com/sindresorhus/modern-normalize
     Licencia: https://github.com/sindresorhus/modern-normalize/blob/main/license
+-Workbox:                https://github.com/GoogleChrome/workbox
+    Licencia: https://github.com/GoogleChrome/workbox/blob/v6/LICENSE
 -Reproductor M3U8:       https://videojs.com/      
     Licencia: https://github.com/videojs/video.js/blob/main/LICENSE          
               http://www.apache.org/licenses/LICENSE-2.0

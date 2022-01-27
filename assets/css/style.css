@@ -407,6 +407,7 @@ footer {
     justify-content: center;
     align-items: center;
     word-wrap: break-word;
+    text-align: center;
     height: 5vh;
     padding: 1rem 0;
     margin-top: auto; 

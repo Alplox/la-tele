@@ -18,7 +18,6 @@ by Alplox
 https://github.com/Alplox
 */
 
-
 const canales = [ 
         {
             'nombre': '24 horas',

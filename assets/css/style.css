@@ -28,8 +28,8 @@ por Alplox
 :root {
     --main: #ACBDCE;
     --secondary: #38444d;
-   /*  --bg: #051320; */
-    --bg: #2065a7;
+    --bg: #051320;
+    /* --bg: #2065a7; */
     --dark-green: #32573E;
     --light-green: #72c98c;
 
@@ -180,8 +180,7 @@ header {
 }
 
 /* listado canales */
-.lista-botones,
-.lista-botones-m3u8 {
+.lista-botones {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -275,20 +274,6 @@ header {
     position: relative;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* btn general */
 .btn {
     display: inline-block;
@@ -302,8 +287,6 @@ header {
         -moz-transition: all 0.3s;
             transition: all 0.3s;
     background: var(--white);
-    user-select: none;
-        -webkit-user-select: none;
 }
   
 .btn:after {
@@ -338,19 +321,6 @@ header {
     color: var(--white);
 }
 
-/* container btn borrar */
-.borrar-canal-activo {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    padding: 6px;
-    pointer-events: none;
-}
-
 /* btn borrar */
 .boton-borrar  {
     pointer-events: visible;
@@ -383,9 +353,6 @@ header {
     background: var(--light-green);
 }
 
-
-
-
 /* btn legal y btn alternar*/
 .btn-legal,
 .boton-alternar {
@@ -398,41 +365,25 @@ header {
     background: var(--secondary);
 }
 
-/* para filtro canales activo y boton-borrar*/
-.d-none { 
-    display: none; 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* barra sobre transmisiones */
-.nombre-barra {
+.overlay {
+    z-index: 2;
     position: absolute;
-    z-index: 3;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
     top: 1px;
-    text-align: center;
-    font-size: clamp(.8rem, 1rem, 1.6rem);
+    padding: 6px;
+    font-size: clamp(1rem, 1.2rem, 1.6rem);
+    pointer-events: none;
+    outline: 1px yellow solid;
+}
+
+/* barra sobre transmisiones */
+.nombre-barra {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .nombre-barra a,
@@ -441,6 +392,7 @@ header {
     border-radius: .6rem;
     background: var(--black);
     opacity: .6;
+    pointer-events: visible;
 }
 
 /* flip listado canales */
@@ -502,6 +454,11 @@ footer span {
     display: block;
     cursor: default;
     padding: 0 .5rem;
+}
+
+/* para filtro canales activo y boton-borrar*/
+.d-none { 
+    display: none; 
 }
 
 /* alerta de no javascript */
@@ -580,8 +537,7 @@ footer span {
         font-size: .8rem;
     }
 
-    .lista-botones,
-    .lista-botones-m3u8 {
+    .lista-botones {
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: none;
@@ -612,8 +568,7 @@ footer span {
         column-gap: 2rem;
     }
 
-    .lista-botones,
-    .lista-botones-m3u8 {
+    .lista-botones {
         font-size: 1.2rem;
         display: grid;
         grid-template-columns: 1fr;

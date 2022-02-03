@@ -4,12 +4,20 @@ por Alplox
 */
 
 
-
+const overlay = document.querySelector('.overlay');
 const barra = document.querySelector('#nombre-barra');
 const container_transmision = document.querySelector('#transmision');
 const botones_canales = document.querySelector('#lista-botones');
 const botones_canales_m3u8 = document.querySelector('#lista-botones-m3u8');
 const borrar_canal_activo = document.querySelector('.borrar-canal-activo');
+const botones = document.getElementsByClassName('boton-canal');
+const recordatorio = document.querySelector('#recordatorio');
+const boton_borrar = document.querySelector('#boton-borrar');
+const flip = document.querySelector('#flip-container');
+const boton_alternar = document.querySelector('#boton-alternar');
+const checkbox = document.querySelector('#checkbox-overlay');
+const estado_barra = document.querySelector('#estado-barra');
+let ls_overlay = localStorage.getItem('overlay');
 
 const divm3u = document.createElement('div');
     divm3u.className = 'm3u-stream';
@@ -41,7 +49,7 @@ function barra_nombre(nombre, fuente) {
 function barra_nombre_m3u8(nombre) {
     const fragment_barra_m3u8 = document.createDocumentFragment();
     let span = document.createElement('span');
-        span.innerHTML = nombre;
+        span.textContent = nombre;
         span.setAttribute('title', 'Transmisión NO OFICIAL');
         fragment_barra_m3u8.append(span);
     return fragment_barra_m3u8;
@@ -49,7 +57,7 @@ function barra_nombre_m3u8(nombre) {
 
 function limpia_transmision() {
     container_transmision.innerHTML = ""
-    barra.innerHTML = "";
+    barra.textContent = "";
 }
 
 // PARA LISTADO PRINCIPAL "canales"
@@ -57,8 +65,8 @@ let fragmento_botones = document.createDocumentFragment();
 canales.forEach(canal => {
     // crea botones
     const boton_canal = document.createElement('button');
-        boton_canal.classList.add('btn', 'boton-canal', 'para-filtro');
-        boton_canal.innerHTML = canal.nombre;
+        boton_canal.classList.add('btn', 'boton-canal');
+        boton_canal.textContent = canal.nombre;
 
     // crea evento si clic
     boton_canal.addEventListener('click', function() {
@@ -87,15 +95,12 @@ canales.forEach(canal => {
             barra.append(barra_nombre(canal.nombre, canal.fuente));
         }
 
+        if (checkbox.checked === true) {
+            overlay.classList.remove('d-none');
+        }
 
-        borrar_canal_activo.classList.remove('d-none');
     });
-
-
-
-
-
-fragmento_botones.append(boton_canal);
+    fragmento_botones.append(boton_canal);
 });
 botones_canales.append(fragmento_botones);
 
@@ -104,32 +109,35 @@ let fragmento_botones_m3u8 = document.createDocumentFragment();
 canales_m3u8.forEach(canal => {
     // crea botones
     const boton_canal = document.createElement('button');
-        boton_canal.classList.add('btn', 'boton-canal', 'para-filtro');
-        boton_canal.innerHTML = canal.nombre;
+        boton_canal.classList.add('btn', 'boton-canal');
+        boton_canal.textContent = canal.nombre;
+        
     // crea evento si clic
     boton_canal.addEventListener('click', function() {
         // elimina div o iframe canal existente (o no)
         limpia_transmision()
         // carga señal m3u8
-            container_transmision.append(divm3u)
-            let m3uplayer = videojs(document.querySelector('.m3u-player'));
-                m3uplayer.src( {
-                    src: canal.m3u8,
-                    controls: true,
-                    preload: 'auto'
-                });
-            m3uplayer.play();
-            barra.append(barra_nombre_m3u8(`${canal.nombre} | M3U8`));
-            borrar_canal_activo.classList.remove('d-none');
-        });
-    fragmento_botones_m3u8.append(boton_canal);
+        container_transmision.append(divm3u)
+        let m3uplayer = videojs(document.querySelector('.m3u-player'));
+            m3uplayer.src( {
+                src: canal.m3u8,
+                controls: true,
+                preload: 'auto'
+            });
+        m3uplayer.play();
+        barra.append(barra_nombre_m3u8(`${canal.nombre} | M3U8`));
+   
+        if (checkbox.checked === true) {
+            overlay.classList.remove('d-none');
+        }
+
+    }); 
+   fragmento_botones_m3u8.append(boton_canal);
 });
+
 botones_canales_m3u8.append(fragmento_botones_m3u8);
 
 // https://www.w3schools.com/howto/howto_js_active_element.asp
-const botones = document.getElementsByClassName('boton-canal');
-const recordatorio = document.querySelector('#recordatorio');
-
 for (let i = 0; i < botones.length; i++) {
     botones[i].addEventListener('click', function() {
     const current = document.getElementsByClassName('activo');
@@ -142,20 +150,17 @@ for (let i = 0; i < botones.length; i++) {
 };
 
 // boton limpia/elimina señal activa
-const boton_borrar = document.querySelector('#boton-borrar');
-
 boton_borrar.addEventListener('click', function() {
     limpia_transmision()
     const current = document.getElementsByClassName('activo');
         current[0].className = current[0].className.replace(' activo', '');
     recordatorio.textContent = '(∪ ◡ ∪)';
-    borrar_canal_activo.classList.add('d-none');
+    if (checkbox.checked === true) {
+        overlay.classList.add('d-none');
+    }
 });
 
 // alternar listas
-const flip = document.querySelector('#flip-container');
-const boton_alternar = document.querySelector('#boton-alternar');
-
 boton_alternar.addEventListener('click', function() {
     if (botones_canales.style.display === 'none'){
         setTimeout ( () => {
@@ -174,21 +179,62 @@ boton_alternar.addEventListener('click', function() {
     flip.classList.toggle('hover');
 });
 
-// nombre transmisiones on/off
-const checkbox = document.querySelector('#checkbox-overlay');
-const estado_bara = document.querySelector('#estada-barra');
-
+// overlay on/off
 checkbox.onclick = () => {
-    let barra_activa = document.querySelector('.nombre-barra');
     if (checkbox.checked === true) {
-        barra_activa.style.display = 'block';
-        estado_bara.innerText= 'ON'
+        checkbox.setAttribute('checked', 'checked');
+        overlay.classList.remove('d-none');
+        estado_barra.innerText= 'ON'
+        localStorage.setItem('overlay', 'show');
     } else {
-        barra_activa.style.display = 'none';
-        estado_bara.innerText= 'OFF'
-        checkbox.checked = false;
+        checkbox.removeAttribute('checked', 'checked');
+        overlay.classList.add('d-none');
+        estado_barra.innerText= 'OFF'
+        localStorage.setItem('overlay', 'hide');
     };
 };
+
+// carga opcion guarda overlay 
+window.addEventListener('DOMContentLoaded', () => {
+    if (ls_overlay !== 'hide') {
+        estado_barra.innerText= 'ON'
+        checkbox.setAttribute('checked', 'checked');
+    } else {
+        overlay.classList.add('d-none');
+        estado_barra.innerText= 'OFF'
+        checkbox.removeAttribute('checked', 'checked');
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // filtro de canales https://css-tricks.com/in-page-filtered-search-with-vanilla-javascript/
 const buscar = document.querySelector('#mifiltro');
@@ -203,12 +249,11 @@ document.onkeydown = (e) => {
 }
 
 function liveSearch() {
-    let botones_a_filtrar = document.querySelectorAll('.para-filtro');
-    let filtro_input = buscar.value;
-    
+    let botones_a_filtrar = document.querySelectorAll('div.lista-botones > button');
+   
     for (let i = 0; i < botones_a_filtrar.length; i++) {
         if(botones_a_filtrar[i].textContent.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase()
-                .includes(filtro_input.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase()
+                .includes(buscar.value.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase()
                 )) {
             botones_a_filtrar[i].classList.remove('d-none');
         } else {
@@ -240,7 +285,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // botones cerrar modal
-document.querySelectorAll('.modal-boton-cerrar').forEach(item => {
+document.querySelectorAll('div.modal-header > span, #boton-entendido').forEach(item => {
     item.addEventListener('click', function() {
         modal.style.display = 'none';
     })

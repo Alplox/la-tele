@@ -565,7 +565,7 @@ const canales = [
 ]
 
 // Canales M3U8 (no tienen fuente) https://www.m3u.cl/iptv-chile.php
-const canales__m3u8 = [{
+const canales_m3u8 = [{
         'nombre': 'TV Senado',
         'm3u8': 'https://janus-tv-ply.senado.cl/playlist/playlist.m3u8',
     },

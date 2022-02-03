@@ -184,8 +184,8 @@ header {
 }
 
 /* listado canales */
-.lista__botones,
-.lista__botones__m3u8 {
+.lista-botones,
+.lista-botones-m3u8 {
     display: grid;
     grid-template-columns: minmax(min-content, 1fr)  minmax(min-content, 1fr);
     gap: 1rem;
@@ -196,10 +196,9 @@ header {
 }
 
 /* btn canales */
-.boton__canal {
+.boton-canal {
     border: 1px solid var(--black);
     text-align: left;
-    font-size: 1.6rem;
     border-radius: .6rem;
     padding: .7rem;
     
@@ -235,7 +234,6 @@ header {
 
 /* button-54 https://getcssscan.com/css-buttons-examples*/
 .boton-alternar {
-  font-size: 1.6rem;
   cursor: pointer;
   border: 3px solid;
   padding: 0.1rem;
@@ -253,7 +251,7 @@ header {
 }
 
 /* The Modal (background) */
-#boton__legal {
+#boton-legal {
     cursor: pointer;
 }
 
@@ -308,7 +306,7 @@ header {
     text-align: center;
 }
 
-.modal__boton__cerrar {
+.modal-boton-cerrar {
     color: var(--black);
     float: right;
     font-size: 2.8rem;
@@ -316,7 +314,7 @@ header {
 }
 
 
-.modal__boton__cerrar:focus {
+.modal-boton-cerrar:focus {
     color: var(--dark-red);
     text-decoration: none;
     cursor: pointer;
@@ -330,7 +328,7 @@ header {
     position: relative;
 }
 
-.boton__entendido {
+.boton-entendido {
     float: none;
     position: absolute;
     top: 10px;
@@ -503,14 +501,14 @@ footer span {
         font-size: .8rem;
     }
 
-    .lista__botones,
-    .lista__botones__m3u8 {
+    .lista-botones,
+    .lista-botones-m3u8 {
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: none;
     }
 
-    .boton__canal{
+    .boton-canal{
         font-size: 1rem;
     }
 
@@ -529,6 +527,7 @@ footer span {
         grid-template-rows: 6rem 1fr 10rem;
     }
 
+    .opciones-container,
     .boton-alternar,
     .boton-borrar {
         font-size: 0.875rem;
@@ -542,8 +541,9 @@ footer span {
         column-gap: 2rem;
     }
 
-    .lista__botones,
-    .lista__botones__m3u8 {
+    .lista-botones,
+    .lista-botones-m3u8 {
+        font-size: 1.2rem;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: none;
@@ -570,7 +570,7 @@ footer span {
         border-bottom: 2px var(--light-green) dotted;
     }
     
-    .boton__canal:hover {
+    .boton-canal:hover {
         border: 1px solid var(--white);
         background-color: var(--grey);
         cursor: pointer;
@@ -591,13 +591,13 @@ footer span {
         border-bottom: 2px var(--dark-green) solid;
     }
     
-    .modal__boton__cerrar:hover{
+    .modal-boton-cerrar:hover{
         color: var(--dark-red);
         text-decoration: none;
         cursor: pointer;
     }
     
-    .boton__entendido:hover{
+    .boton-entendido:hover{
         color: var(--white);
         background-color: var(--light-green);
     }

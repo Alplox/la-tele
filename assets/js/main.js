@@ -3,10 +3,10 @@ Main v0.5
 por Alplox 
 */
 
-const barra = document.getElementById('nombre-barra');
-const container__transmision = document.getElementById('transmision');
-const botones__canales = document.getElementById('lista__botones');
-const botones__canales__m3u8 = document.getElementById('lista__botones__m3u8');
+const barra = document.querySelector('#nombre-barra');
+const container_transmision = document.querySelector('#transmision');
+const botones_canales = document.querySelector('#lista-botones');
+const botones_canales_m3u8 = document.querySelector('#lista-botones-m3u8');
 
 const divm3u = document.createElement('div');
     divm3u.className = 'm3u-stream';
@@ -15,57 +15,57 @@ const m3uvideo = document.createElement('video');
     m3uvideo.toggleAttribute('controls'); 
 divm3u.append(m3uvideo)
    
-function crear__iframe(source) {
-    const fragment__iframe = document.createDocumentFragment();
+function crear_iframe(source) {
+    const fragment_iframe = document.createDocumentFragment();
     const iframe = document.createElement('iframe');
         iframe.setAttribute('src', source);
         iframe.setAttribute('allowFullScreen', ''); 
-    fragment__iframe.append(iframe);
-    return fragment__iframe;
+    fragment_iframe.append(iframe);
+    return fragment_iframe;
 }
 
-function barra__nombre(nombre, fuente) {
-    const fragment__barra = document.createDocumentFragment();
+function barra_nombre(nombre, fuente) {
+    const fragment_barra = document.createDocumentFragment();
     let a = document.createElement('a');
         a.innerHTML = nombre;
         a.setAttribute('title', 'Ir a la página oficial de esta transmisión');
         a.href = fuente;
         a.setAttribute('rel', 'noopener nofollow noreferrer');
-        fragment__barra.append(a);
-    return fragment__barra;
+        fragment_barra.append(a);
+    return fragment_barra;
 }; 
 
-function barra__nombre__m3u8(nombre) {
-    const fragment__barra__m3u8 = document.createDocumentFragment();
+function barra_nombre_m3u8(nombre) {
+    const fragment_barra_m3u8 = document.createDocumentFragment();
     let span = document.createElement('span');
         span.innerHTML = nombre;
         span.setAttribute('title', 'Transmisión NO OFICIAL');
-        fragment__barra__m3u8.append(span);
-    return fragment__barra__m3u8;
+        fragment_barra_m3u8.append(span);
+    return fragment_barra_m3u8;
 }; 
 
-function limpia__transmision() {
-    container__transmision.innerHTML = ""
+function limpia_transmision() {
+    container_transmision.innerHTML = ""
     barra.innerHTML = "";
 }
 
 // PARA LISTADO PRINCIPAL "canales"
-let fragmento__botones = document.createDocumentFragment();
+let fragmento_botones = document.createDocumentFragment();
 canales.forEach(canal => {
     // crea botones
-    const boton__canal = document.createElement('button');
-        boton__canal.classList.add('boton__canal', 'para-filtro');
-        boton__canal.innerHTML = canal.nombre;
+    const boton_canal = document.createElement('button');
+        boton_canal.classList.add('boton_canal', 'para-filtro');
+        boton_canal.innerHTML = canal.nombre;
 
     // crea evento si clic
-    boton__canal.addEventListener('click', function() {
+    boton_canal.addEventListener('click', function() {
         // elimina div o iframe canal existente (o no)
-        limpia__transmision()
+        limpia_transmision()
         // cadenas if acorde a tipo de transmision
         if (canal.iframe){     
-            container__transmision.append(crear__iframe(canal.iframe));
+            container_transmision.append(crear_iframe(canal.iframe));
         } else if (canal.m3u8){
-            container__transmision.append(divm3u)
+            container_transmision.append(divm3u)
             let m3uplayer = videojs(document.querySelector('.m3u-player'));
                 m3uplayer.src( {
                     src: canal.m3u8,
@@ -74,14 +74,14 @@ canales.forEach(canal => {
                 });
             m3uplayer.play();
         } else if (canal.yt_id){
-            container__transmision.append(crear__iframe(`https://www.youtube-nocookie.com/embed/live_stream?channel=${canal.yt_id}&autoplay=1&mute=0&modestbranding=1&showinfo=0`));
-            barra.append(barra__nombre(canal.nombre, `https://www.youtube.com/channel/${canal.yt_id}`));
+            container_transmision.append(crear_iframe(`https://www.youtube-nocookie.com/embed/live_stream?channel=${canal.yt_id}&autoplay=1&mute=0&modestbranding=1&showinfo=0`));
+            barra.append(barra_nombre(canal.nombre, `https://www.youtube.com/channel/${canal.yt_id}`));
         } else if (canal.yt_embed){
-            container__transmision.append(crear__iframe(`https://www.youtube-nocookie.com/embed/${canal.yt_embed}?autoplay=1&mute=0&modestbranding=1&showinfo=0`));
+            container_transmision.append(crear_iframe(`https://www.youtube-nocookie.com/embed/${canal.yt_embed}?autoplay=1&mute=0&modestbranding=1&showinfo=0`));
         }
         // si posee enlace 'fuente'
         if (canal.fuente) {
-            barra.append(barra__nombre(canal.nombre, canal.fuente));
+            barra.append(barra_nombre(canal.nombre, canal.fuente));
         }
     });
 
@@ -89,23 +89,23 @@ canales.forEach(canal => {
 
 
 
-fragmento__botones.append(boton__canal);
+fragmento_botones.append(boton_canal);
 });
-botones__canales.append(fragmento__botones);
+botones_canales.append(fragmento_botones);
 
-// PARA LISTADO ALTERNO "canales__m3u8"
-let fragmento__botones__m3u8 = document.createDocumentFragment();
-canales__m3u8.forEach(canal => {
+// PARA LISTADO ALTERNO "canales_m3u8"
+let fragmento_botones_m3u8 = document.createDocumentFragment();
+canales_m3u8.forEach(canal => {
     // crea botones
-    const boton__canal = document.createElement('button');
-        boton__canal.classList.add('boton__canal', 'para-filtro');
-        boton__canal.innerHTML = canal.nombre;
+    const boton_canal = document.createElement('button');
+        boton_canal.classList.add('boton_canal', 'para-filtro');
+        boton_canal.innerHTML = canal.nombre;
     // crea evento si clic
-    boton__canal.addEventListener('click', function() {
+    boton_canal.addEventListener('click', function() {
         // elimina div o iframe canal existente (o no)
-        limpia__transmision()
+        limpia_transmision()
         // carga señal m3u8
-            container__transmision.append(divm3u)
+            container_transmision.append(divm3u)
             let m3uplayer = videojs(document.querySelector('.m3u-player'));
                 m3uplayer.src( {
                     src: canal.m3u8,
@@ -114,19 +114,19 @@ canales__m3u8.forEach(canal => {
                 });
             m3uplayer.play();
 
-            barra.append(barra__nombre__m3u8(`${canal.nombre} | M3U8`));
+            barra.append(barra_nombre_m3u8(`${canal.nombre} | M3U8`));
         });
-    fragmento__botones__m3u8.append(boton__canal);
+    fragmento_botones_m3u8.append(boton_canal);
 });
-botones__canales__m3u8.append(fragmento__botones__m3u8);
+botones_canales_m3u8.append(fragmento_botones_m3u8);
 
 // https://www.w3schools.com/howto/howto_js_active_element.asp
-const botones = document.getElementsByClassName('boton__canal');
-const recordatorio = document.getElementById('recordatorio');
+const botones = document.querySelector('.boton_canal');
+const recordatorio = document.querySelector('#recordatorio');
 
 for (let i = 0; i < botones.length; i++) {
     botones[i].addEventListener('click', function() {
-    const current = document.getElementsByClassName('activo');
+    const current = document.querySelector('.activo');
         if (current.length > 0) {
             current[0].className = current[0].className.replace(' activo', '');
         } 
@@ -136,55 +136,55 @@ for (let i = 0; i < botones.length; i++) {
 };
 
 // boton limpia/elimina señal activa
-const boton__borrar = document.getElementById('boton-borrar');
+const boton_borrar = document.querySelector('#boton-borrar');
 
-boton__borrar.addEventListener('click', function() {
-    limpia__transmision()
-    const current = document.getElementsByClassName('activo');
+boton_borrar.addEventListener('click', function() {
+    limpia_transmision()
+    const current = document.querySelector('.activo');
         current[0].className = current[0].className.replace(' activo', '');
     recordatorio.textContent = '(∪ ◡ ∪)';
 });
 
 // alternar listas
-const flip = document.getElementById('flip-container');
-const boton__alternar = document.getElementById('boton-alternar');
+const flip = document.querySelector('#flip-container');
+const boton_alternar = document.querySelector('#boton-alternar');
 
-boton__alternar.addEventListener('click', function() {
-    if (botones__canales.style.display === 'none'){
+boton_alternar.addEventListener('click', function() {
+    if (botones_canales.style.display === 'none'){
         setTimeout ( () => {
-            boton__alternar.disabled = false;
-            botones__canales.style.display = 'grid';
+            boton_alternar.disabled = false;
+            botones_canales.style.display = 'grid';
         }, 610);
-        boton__alternar.disabled = true;
-        botones__canales.style.display = 'grid';
+        boton_alternar.disabled = true;
+        botones_canales.style.display = 'grid';
     } else {
-        boton__alternar.disabled = true;
+        boton_alternar.disabled = true;
         setTimeout( () => {
-            boton__alternar.disabled = false;
-            botones__canales.style.display = 'none';
+            boton_alternar.disabled = false;
+            botones_canales.style.display = 'none';
         }, 610); /* animacion flipper dura 6 segundos */
     }
     flip.classList.toggle('hover');
 });
 
 // nombre transmisiones on/off
-const checkbox = document.getElementById('switch-nombre-transmisiones');
-const estado_bara = document.getElementById('estada-barra');
+const checkbox = document.querySelector('#switch-nombre-transmisiones');
+const estado_bara = document.querySelector('#estada-barra');
 
 checkbox.onclick = () => {
-    let barra__activa = document.querySelector('.nombre-barra');
+    let barra_activa = document.querySelector('.nombre-barra');
     if (checkbox.checked === true) {
-        barra__activa.style.display = 'block';
+        barra_activa.style.display = 'block';
         estado_bara.innerText= 'ON'
     } else {
-        barra__activa.style.display = 'none';
+        barra_activa.style.display = 'none';
         estado_bara.innerText= 'OFF'
         checkbox.checked = false;
     };
 };
 
 // filtro de canales https://css-tricks.com/in-page-filtered-search-with-vanilla-javascript/
-const buscar = document.getElementById('mifiltro');
+const buscar = document.querySelector('#mifiltro');
 
 document.onkeydown = (e) => {
     buscar.focus();
@@ -196,32 +196,32 @@ document.onkeydown = (e) => {
 }
 
 function liveSearch() {
-    let botones__a__filtrar = document.querySelectorAll('.para-filtro');
-    let filtro__input = buscar.value;
+    let botones_a_filtrar = document.querySelectorAll('.para-filtro');
+    let filtro_input = buscar.value;
 
-    for (let i = 0; i < botones__a__filtrar.length; i++) {
-        if(botones__a__filtrar[i].textContent.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase()
-                .includes(filtro__input.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase()
+    for (let i = 0; i < botones_a_filtrar.length; i++) {
+        if(botones_a_filtrar[i].textContent.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase()
+                .includes(filtro_input.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase()
                 )) {
-            botones__a__filtrar[i].classList.remove('is-hidden');
+            botones_a_filtrar[i].classList.remove('is-hidden');
         } else {
-            botones__a__filtrar[i].classList.add('is-hidden');
+            botones_a_filtrar[i].classList.add('is-hidden');
         }
     }
 };
 buscar.addEventListener('input', liveSearch);
 
 // Modal
-const btn = document.getElementById('boton__legal');
-const modal = document.getElementById('modal__legal');
-const btn__entendido = document.getElementById('boton__entendido');
+const btn = document.querySelector('#boton-legal');
+const modal = document.querySelector('#modal-legal');
+const btn_entendido = document.querySelector('#boton-entendido');
 
 // Modal legal junto a crear cookie para que no vuelva a salir al hacer clic en boton
 window.addEventListener('DOMContentLoaded', () => {
   if (document.cookie.indexOf('ModalShown=true') < 0) {
     modal.style.display = 'block';
     console.log('cookie aun no creada');
-    btn__entendido.onclick = () => {
+    btn_entendido.onclick = () => {
         modal.style.display = 'none';
       console.log('cookie creada');
       document.cookie = 'ModalShown=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/; SameSite=Strict; Secure';
@@ -232,7 +232,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // botones cerrar modal
-document.querySelectorAll('.modal__boton__cerrar').forEach(item => {
+document.querySelectorAll('.modal-boton-cerrar').forEach(item => {
     item.addEventListener('click', function() {
         modal.style.display = 'none';
     })

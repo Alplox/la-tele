@@ -229,11 +229,11 @@ window.addEventListener('DOMContentLoaded', () => {
   if (document.cookie.indexOf('ModalShown=true') < 0) {
     modal.style.display = 'block';
     console.log('cookie aun no creada');
-    btn_entendido.onclick = () => {
+    btn_entendido.addEventListener('click', function() {
         modal.style.display = 'none';
       console.log('cookie creada');
       document.cookie = 'ModalShown=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/; SameSite=Strict; Secure';
-    };
+    });
   } else {
     console.log('cookie existe')
   }

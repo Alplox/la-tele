@@ -28,7 +28,7 @@ por Alplox
 :root {
     --main: #ACBDCE;
     --secondary: #38444d;
-    --bg: #051320;
+    --bg: #d6fb2e;
 
     --dark-green: #32573E;
     --light-green: #72c98c;
@@ -205,7 +205,7 @@ header {
 }
 
 .activo {
-    background-color: var(--dark-green);
+    background-color: var(--dark-red);
     border: 1px solid var(--light-green);
     color: var(--white);
 }

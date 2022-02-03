@@ -54,7 +54,7 @@ let fragmento_botones = document.createDocumentFragment();
 canales.forEach(canal => {
     // crea botones
     const boton_canal = document.createElement('button');
-        boton_canal.classList.add('boton_canal', 'para-filtro');
+        boton_canal.classList.add('boton-canal', 'para-filtro');
         boton_canal.innerHTML = canal.nombre;
 
     // crea evento si clic
@@ -98,7 +98,7 @@ let fragmento_botones_m3u8 = document.createDocumentFragment();
 canales_m3u8.forEach(canal => {
     // crea botones
     const boton_canal = document.createElement('button');
-        boton_canal.classList.add('boton_canal', 'para-filtro');
+        boton_canal.classList.add('boton-canal', 'para-filtro');
         boton_canal.innerHTML = canal.nombre;
     // crea evento si clic
     boton_canal.addEventListener('click', function() {
@@ -121,7 +121,7 @@ canales_m3u8.forEach(canal => {
 botones_canales_m3u8.append(fragmento_botones_m3u8);
 
 // https://www.w3schools.com/howto/howto_js_active_element.asp
-const botones = document.querySelector('.boton_canal');
+const botones = document.querySelector('.boton-canal');
 const recordatorio = document.querySelector('#recordatorio');
 
 for (let i = 0; i < botones.length; i++) {

@@ -30,9 +30,6 @@ define(["./workbox-056b4b84"], (function (e) {
     self.addEventListener("message", (e => {
         e.data && "SKIP_WAITING" === e.data.type && self.skipWaiting()
     })), e.precacheAndRoute([{
-        url: "assets/css/modern-normalize.css",
-        revision: "e377293cafcbdd25c874629e1501afa9"
-    }, {
         url: "assets/favicon/android-chrome-192x192.png",
         revision: "7382d4a30c2e168eff4c4ffb0fd51d3f"
     }, {

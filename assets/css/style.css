@@ -29,7 +29,7 @@ por Alplox
     --main: #ACBDCE;
     --secondary: #38444d;
     --bg: #051320;
-
+    /* --bg: #98bcdf; */
     --dark-green: #32573E;
     --light-green: #72c98c;
 
@@ -39,6 +39,8 @@ por Alplox
 
     --dark-red: #7e0909;
     --light-red: #E89292;
+
+    --font: 'Poppins', sans-serif, Arial;
 }
 
 html {
@@ -48,7 +50,7 @@ html {
 body {
     color: var(--main);
     background: var(--bg);
-    font-family: 'Poppins', sans-serif, Arial;
+    font-family: var(--font);
     font-size: 1.6rem;     /* 1rem = 10px */
     display: flex;
     flex-direction: column;
@@ -90,10 +92,7 @@ a {
     24px 24px 80px rgba(0, 0, 0, 0.2);
 }
 
-/* filtro canales activo */
-.is-hidden { 
-    display: none; 
-}
+
 
 header {
     display: flex;
@@ -160,7 +159,7 @@ header {
     width: 100%;
     padding: 0 2rem;
     display: grid;
-    grid-template-rows: 6rem 1fr 10rem;
+    grid-template-rows: .2fr 1fr .2fr;
     row-gap: 1rem;
     border: 1px solid var(--secondary);
     border-radius: 1rem;
@@ -179,7 +178,6 @@ header {
     width: 100%;
     border-radius: .6rem;
     padding-left: .5rem;
-    height: 2rem;
     border: 1px var(--main) solid;
 }
 
@@ -187,28 +185,18 @@ header {
 .lista-botones,
 .lista-botones-m3u8 {
     display: grid;
-    grid-template-columns: minmax(min-content, 1fr)  minmax(min-content, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     width: 100%;
     height: 100%;
     scrollbar-width: thin;
-    overflow-y: scroll;
+    overflow-x: hidden;
+    word-break: break-all;
 }
 
-/* btn canales */
-.boton-canal {
-    border: 1px solid var(--black);
-    text-align: left;
-    border-radius: .6rem;
-    padding: .7rem;
-    
-}
 
-.activo {
-    background-color: var(--dark-green);
-    border: 1px solid var(--light-green);
-    color: var(--white);
-}
+
+
 
 .opciones-container{
     display: flex;
@@ -219,47 +207,14 @@ header {
     padding-bottom: 1rem;
 }
 
-.boton-borrar {
-    font-size: 1.2rem;
-    padding: .5rem 1rem;
-    background-color: var(--light-red);
-    color: var(--black);
-    border-radius: .6rem;
-    text-align: center;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-}
 
-/* button-54 https://getcssscan.com/css-buttons-examples*/
-.boton-alternar {
-  cursor: pointer;
-  border: 3px solid;
-  padding: 0.1rem;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.boton-alternar:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
-}
-
-/* The Modal (background) */
-#boton-legal {
-    cursor: pointer;
-}
 
 .github-logo {
     width: 1.6rem;
     height: 1.6rem;
 }
 
+/* Modal */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -276,6 +231,20 @@ header {
 .modal-header {
     color: var(--black);
     padding: 0 0 2rem 0;
+}
+
+.modal-header span {
+    color: var(--black);
+    float: right;
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.modal-header span:hover,
+.modal-header span:focus {
+    color: var(--dark-red);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Modal Content/Box */
@@ -306,20 +275,6 @@ header {
     text-align: center;
 }
 
-.modal-boton-cerrar {
-    color: var(--black);
-    float: right;
-    font-size: 2.8rem;
-    font-weight: bold;
-}
-
-
-.modal-boton-cerrar:focus {
-    color: var(--dark-red);
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .center {
     display: flex;
     justify-content: center;
@@ -328,15 +283,155 @@ header {
     position: relative;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* btn general */
+.btn {
+    display: inline-block;
+    position: relative;
+    padding: .7rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: .6rem;
+    border: 1px solid var(--black);
+    -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+            transition: all 0.3s;
+    background: var(--white);
+    user-select: none;
+        -webkit-user-select: none;
+}
+  
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+.btn:active {
+    top: 3px;
+}
+
+/* btn canal */
+.boton-canal {
+    font-weight: 400;
+    text-align: left;
+}
+
+.boton-canal:hover {
+    border: 1px solid var(--white);
+    background-color: var(--grey);
+}
+
+.activo {
+    background-color: var(--dark-green);
+    border: 1px solid var(--light-green);
+    color: var(--white);
+}
+
+/* container btn borrar */
+.borrar-canal-activo {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+}
+
+/* btn borrar */
+.boton-borrar  {
+    background-color: var(--light-red);
+}
+
+.boton-borrar:hover,
+.boton-borrar:active  {
+    color: var(--white);
+    background-color: var(--dark-red);
+}
+
+/* btn barra */
+.btn-checkbox {
+    text-align: left;
+}
+
+/* btn entendido (modal) */
 .boton-entendido {
     float: none;
     position: absolute;
     top: 10px;
+    font-size: 2.8rem;
     padding: 0 2rem;
     text-transform: uppercase;
     border: 5px var(--light-green) solid;
-    background-color: var(--white);
 }
+
+.boton-entendido:hover,
+.boton-entendido:active {
+    color: var(--white);
+    background: var(--light-green);
+}
+
+/* btn legal y btn alternar*/
+.btn-legal,
+.boton-alternar {
+    background: var(--main);
+}
+.btn-legal:hover,
+.btn-legal:active,
+.boton-alternar:hover,
+.boton-alternar:active {
+    color: var(--white);
+    background: var(--secondary);
+}
+
+/* para filtro canales activo y boton-borrar*/
+.d-none { 
+    display: none; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* barra sobre transmisiones */
 .nombre-barra {
@@ -489,10 +584,7 @@ footer span {
         column-gap: 2rem;
     }
     
-    .canales-container {
-        display: grid;
-        grid-template-rows: 6rem 1fr 10rem;
-    }
+    
 }
 
 /* Chikito */
@@ -520,18 +612,10 @@ footer span {
 }
 
 @media (orientation:landscape) and (max-width:1024px) {
-    .canales-container {
-        height: 100%;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-rows: 6rem 1fr 10rem;
-    }
-
     .opciones-container,
     .boton-alternar,
     .boton-borrar {
-        font-size: 0.875rem;
-        padding: .5rem .5rem;
+       font-size: 1.2rem;
     }
 
     .grid {
@@ -556,10 +640,10 @@ footer span {
 
     .opciones-container{
         display: flex;
-        flex-direction: row;
+       /*  flex-direction: row; */
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         padding: .5rem 0;
     }
 }
@@ -569,18 +653,7 @@ footer span {
         color: var(--white);
         border-bottom: 2px var(--light-green) dotted;
     }
-    
-    .boton-canal:hover {
-        border: 1px solid var(--white);
-        background-color: var(--grey);
-        cursor: pointer;
-    }
 
-    .boton-borrar:hover {
-        background-color: var(--dark-red);
-        color: var(--white);
-    }
- 
     .nombre-barra a:hover,
     .nombre-barra span:hover {
         opacity: 1;
@@ -589,16 +662,5 @@ footer span {
     .modal-body a:hover{
         color: var(--black);
         border-bottom: 2px var(--dark-green) solid;
-    }
-    
-    .modal-boton-cerrar:hover{
-        color: var(--dark-red);
-        text-decoration: none;
-        cursor: pointer;
-    }
-    
-    .boton-entendido:hover{
-        color: var(--white);
-        background-color: var(--light-green);
     }
 }

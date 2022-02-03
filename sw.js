@@ -48,7 +48,7 @@ define(["./workbox-056b4b84"], (function (e) {
         url: "assets/favicon/favicon.ico",
         revision: "0038c9acba11b6f3ce31e4d5d0dc4a08"
     }, {
-        url: "assets/img/v0.5.png",
+        url: "assets/img/v0.6.png",
         revision: "7815d6c189b6c38059638ab2a7f6bf7f"
     }, {
         url: "site.webmanifest",

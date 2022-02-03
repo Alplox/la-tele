@@ -2,7 +2,7 @@
 <html lang="es">
 <!-- 
     la tele por Alplox
-    https://github.com/Alplox/la-tele (v0.5)
+    https://github.com/Alplox/la-tele (v0.6)
 -->
 
 <head>
@@ -118,14 +118,14 @@
     <meta property="og:url" content="https://alplox.github.io/la-tele/">
     <meta property="og:title" content="La tele">
     <meta property="og:description" content="Canales de Chile a un click.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.5.png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.6.png">
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://alplox.github.io/la-tele/">
     <meta property="twitter:title" content="La tele">
     <meta property="twitter:description" content="Canales de Chile a un click.">
     <meta property="twitter:image"
-        content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.5.png">
+        content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.6.png">
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -160,11 +160,9 @@
             <div class="video-container sombra">
                 <div class="overlay d-none">
                     <div class="nombre-barra" id="nombre-barra"></div>
-                    
-                        <button role="button" class="btn boton-borrar" id="boton-borrar" title="Elimina señal activa">
-                            <span>&times;</span>
-                        </button>
-                    
+                    <button role="button" class="btn boton-borrar" id="boton-borrar" title="Elimina señal activa">
+                        <span>&times;</span>
+                    </button>
                 </div>
                 <div class="transmision" id="transmision"></div>
                 <p class="recordatorio" id="recordatorio">
@@ -186,14 +184,12 @@
                 </div>
 
                 <div class="opciones-container">
-
                     <button role="button" class="btn boton-alternar" id="boton-alternar" title="Alternar entre lista IPTV">
                         <span>Alternar Listado</span>
                     </button>
-                    <button class="btn btn-checkbox">
+                    <button class="btn">
                         <label for="checkbox-overlay" title="Nombre sobre transmisiones on/off">Overlay (<span id="estado-barra">ON</span>)</label>
                             <input type="checkbox" id="checkbox-overlay">
-                        
                     </button>
                     
                 </div>

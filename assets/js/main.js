@@ -1,8 +1,7 @@
 /* 
-Main v0.5
+Main v0.6
 por Alplox 
 */
-
 
 const overlay = document.querySelector('.overlay');
 const barra = document.querySelector('#nombre-barra');
@@ -180,10 +179,12 @@ boton_alternar.addEventListener('click', function() {
 });
 
 // overlay on/off
-checkbox.onclick = () => {
+checkbox.addEventListener('click', () => {
     if (checkbox.checked === true) {
         checkbox.setAttribute('checked', 'checked');
-        overlay.classList.remove('d-none');
+        if(container_transmision.childElementCount === 1) {
+            overlay.classList.remove('d-none');
+        }
         estado_barra.innerText= 'ON'
         localStorage.setItem('overlay', 'show');
     } else {
@@ -192,7 +193,7 @@ checkbox.onclick = () => {
         estado_barra.innerText= 'OFF'
         localStorage.setItem('overlay', 'hide');
     };
-};
+});
 
 // carga opcion guarda overlay 
 window.addEventListener('DOMContentLoaded', () => {
@@ -205,36 +206,6 @@ window.addEventListener('DOMContentLoaded', () => {
         checkbox.removeAttribute('checked', 'checked');
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // filtro de canales https://css-tricks.com/in-page-filtered-search-with-vanilla-javascript/
 const buscar = document.querySelector('#mifiltro');
@@ -265,9 +236,10 @@ buscar.addEventListener('input', liveSearch);
 
 
 // Modal
-const btn = document.querySelector('#boton-legal');
 const modal = document.querySelector('#modal-legal');
 const btn_entendido = document.querySelector('#boton-entendido');
+let ls_modal = localStorage.getItem('modal_status');
+
 
 // Modal legal junto a crear cookie para que no vuelva a salir al hacer clic en boton
 window.addEventListener('DOMContentLoaded', () => {
@@ -284,21 +256,45 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+const show_modal_bienvenida = () => {
+    modal.style.display = 'block';
+    localStorage.setItem('modal_status', 'show');
+};
+
+const hide_modal_bienvenida = () => {
+    modal.style.display = 'none';
+    localStorage.setItem('modal_status', 'hide');
+};
+
+if (ls_modal !== 'hide') {
+  show_modal_bienvenida();
+} 
+
+btn_entendido.addEventListener('click', () => {
+  ls_modal = localStorage.getItem('modal_status'); 
+    if(ls_modal !== 'show') {
+      show_modal_bienvenida();
+    } else {
+      hide_modal_bienvenida();
+    }
+});
+
 // botones cerrar modal
-document.querySelectorAll('div.modal-header > span, #boton-entendido').forEach(item => {
-    item.addEventListener('click', function() {
-        modal.style.display = 'none';
-    })
+const btn_cerrar_modal = document.querySelector('div.modal-header > span')
+btn_cerrar_modal.addEventListener('click', () => {
+    modal.style.display = 'none';
 })
 
+
 // boton footer abrir modal
-btn.onclick = function () {
+const btn = document.querySelector('#boton-legal');
+btn.addEventListener('click', () => {
   modal.style.display = 'block';
-};
+});
 
 // clic fuera modal lo cierra
-window.onclick = function (event) {
-  if (event.target == modal) {
+window.addEventListener('click', (e) => {
+  if (e.target == modal) {
     modal.style.display = 'none';
   }
-};
+});

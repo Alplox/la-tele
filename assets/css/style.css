@@ -1,5 +1,5 @@
 /* 
-Style v0.5
+Style v0.6
 por Alplox 
 */
 
@@ -195,9 +195,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 1rem;
     height: 100%;
-    padding-bottom: 1rem;
+}
+
+.opciones-container button {
+    width: 100%;
 }
 
 .github-logo {
@@ -207,12 +210,12 @@ header {
 
 /* Modal */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 4; /* Sit on top */
+    display: none;
+    position: fixed; 
+    z-index: 3;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
+    width: 100%; 
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -242,7 +245,7 @@ header {
 .modal-content {
     border-radius: .6rem;
     background-color: var(--main);
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 2rem;
     border: 5px solid var(--dark-green);
     width: clamp(50%, 70%, 80%);
@@ -332,11 +335,6 @@ header {
     background-color: var(--dark-red);
 }
 
-/* btn barra */
-.btn-checkbox {
-    text-align: left;
-}
-
 /* btn entendido (modal) */
 .boton-entendido {
     float: none;
@@ -376,7 +374,6 @@ header {
     padding: 6px;
     font-size: clamp(1rem, 1.2rem, 1.6rem);
     pointer-events: none;
-    outline: 1px yellow solid;
 }
 
 /* barra sobre transmisiones */
@@ -463,7 +460,7 @@ footer span {
 
 /* alerta de no javascript */
 .no-js {
-    z-index: 5;
+    z-index: 4;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -592,20 +589,24 @@ footer span {
         color: var(--white);
         border-bottom: 2px var(--light-green) dotted;
     }
-
-    .nombre-barra a:hover,
-    .nombre-barra span:hover {
-        opacity: 1;
-    }
-
+    
     .modal-body a:hover{
         color: var(--black);
         border-bottom: 2px var(--dark-green) solid;
     }
     
+    .nombre-barra a:hover,
+    .nombre-barra span:hover {
+        opacity: 1;
+    }
+    
     .boton-canal:hover {
         border: 1px solid var(--white);
         background-color: var(--grey);
+    }
+
+    .btn label:hover {
+        cursor: pointer;
     }
 
     .boton-borrar:hover {

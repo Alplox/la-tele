@@ -1,7 +1,7 @@
 # la tele
 ## Sitio: https://alplox.github.io/la-tele/
 
-[![](https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.5.png)](https://alplox.github.io/la-tele/)
+[![](https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.6.png)](https://alplox.github.io/la-tele/)
 
 ## Listado canales disponibles junto a su fuente
 <details>

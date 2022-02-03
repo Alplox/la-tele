@@ -1,44 +1,40 @@
 if (!self.define) {
     let e, s = {};
-    const i = (i, a) => (i = new URL(i + ".js", a).href, s[i] || new Promise((s => {
+    const a = (a, i) => (a = new URL(a + ".js", i).href, s[a] || new Promise((s => {
         if ("document" in self) {
             const e = document.createElement("script");
-            e.src = i, e.onload = s, document.head.appendChild(e)
-        } else e = i, importScripts(i), s()
+            e.src = a, e.onload = s, document.head.appendChild(e)
+        } else e = a, importScripts(a), s()
     })).then((() => {
-        let e = s[i];
-        if (!e) throw new Error(`Module ${i} didn’t register its module`);
+        let e = s[a];
+        if (!e) throw new Error(`Module ${a} didn’t register its module`);
         return e
     })));
-    self.define = (a, c) => {
-        const f = e || ("document" in self ? document.currentScript.src : "") || location.href;
-        if (s[f]) return;
-        let n = {};
-        const o = e => i(e, f),
-            r = {
+    self.define = (i, c) => {
+        const n = e || ("document" in self ? document.currentScript.src : "") || location.href;
+        if (s[n]) return;
+        let o = {};
+        const r = e => a(e, n),
+            d = {
                 module: {
-                    uri: f
+                    uri: n
                 },
-                exports: n,
-                require: o
+                exports: o,
+                require: r
             };
-        s[f] = Promise.all(a.map((e => r[e] || o(e)))).then((e => (c(...e), n)))
+        s[n] = Promise.all(i.map((e => d[e] || r(e)))).then((e => (c(...e), o)))
     }
 }
-
-
-
-
 define(["./workbox-056b4b84"], (function (e) {
     "use strict";
     self.addEventListener("message", (e => {
         e.data && "SKIP_WAITING" === e.data.type && self.skipWaiting()
-    })), e.NetworkOnly([{
+    })), e.precacheAndRoute([{
         url: "assets/css/modern-normalize.css",
         revision: "e377293cafcbdd25c874629e1501afa9"
     }, {
-        url: "assets/css/style.css",
-        revision: "85f945b74113c891f5ad05acd66fac26"
+        url: "assets/favicon/about.txt",
+        revision: "fc7f728ab0754c46a37bba8d707fa495"
     }, {
         url: "assets/favicon/android-chrome-192x192.png",
         revision: "7382d4a30c2e168eff4c4ffb0fd51d3f"
@@ -61,12 +57,6 @@ define(["./workbox-056b4b84"], (function (e) {
         url: "assets/img/v0.5.png",
         revision: "7815d6c189b6c38059638ab2a7f6bf7f"
     }, {
-        url: "assets/js/canales.js",
-        revision: "dc6ce2e7f62c3797f6396b734f54a98f"
-    }, {
-        url: "assets/js/main.js",
-        revision: "95330724ce9558e28985676ff54dc159"
-    }, {
         url: "assets/videojs-7.11.4/lang/es.js",
         revision: "991fd791eda2f12bbbd43b5bb1d0a160"
     }, {
@@ -76,8 +66,8 @@ define(["./workbox-056b4b84"], (function (e) {
         url: "assets/videojs-7.11.4/video.min.js",
         revision: "5bcd00da9afc15b1d133471b9d5a2e14"
     }, {
-        url: "index.html",
-        revision: "0a565f96db8b643c18295bc9f84b2ab9"
+        url: "README.md",
+        revision: "3c62e895060e0b779a8e0985db01fd80"
     }, {
         url: "site.webmanifest",
         revision: "f364c92856c0dbf24383f8d975104f4c"

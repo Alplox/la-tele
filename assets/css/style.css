@@ -159,7 +159,7 @@ header {
     width: 100%;
     padding: 0 2rem;
     display: grid;
-    grid-template-rows: .2fr 1fr .2fr;
+    grid-template-rows: .1fr 1fr .2fr;
     row-gap: 1rem;
     border: 1px solid var(--secondary);
     border-radius: 1rem;
@@ -361,10 +361,12 @@ header {
     width: 100%;
     height: 100%;
     padding: 6px;
+    pointer-events: none;
 }
 
 /* btn borrar */
 .boton-borrar  {
+    pointer-events: visible;
     background-color: var(--light-red);
 }
 
@@ -436,7 +438,7 @@ header {
 /* barra sobre transmisiones */
 .nombre-barra {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -444,6 +446,7 @@ header {
     top: 1px;
     text-align: center;
     font-size: clamp(.8rem, 1rem, 1.6rem);
+    
 }
 
 .nombre-barra a,

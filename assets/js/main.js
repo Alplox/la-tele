@@ -50,7 +50,7 @@ function limpia_transmision() {
 }
 
 // PARA LISTADO PRINCIPAL "canales"
-let fragmento_botones = document.createDocumentFragment();
+/* let fragmento_botones = document.createDocumentFragment();
 canales.forEach(canal => {
     // crea botones
     const boton_canal = document.createElement('button');
@@ -91,7 +91,7 @@ canales.forEach(canal => {
 
 fragmento_botones.append(boton_canal);
 });
-botones_canales.append(fragmento_botones);
+botones_canales.append(fragmento_botones); */
 
 // PARA LISTADO ALTERNO "canales_m3u8"
 let fragmento_botones_m3u8 = document.createDocumentFragment();

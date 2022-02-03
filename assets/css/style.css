@@ -29,7 +29,7 @@ por Alplox
     --main: #ACBDCE;
     --secondary: #38444d;
     --bg: #051320;
-    /* --bg: #98bcdf; */
+
     --dark-green: #32573E;
     --light-green: #72c98c;
 
@@ -91,8 +91,6 @@ a {
     8.8px 8.8px 29.2px rgba(0, 0, 0, 0.138),
     24px 24px 80px rgba(0, 0, 0, 0.2);
 }
-
-
 
 header {
     display: flex;
@@ -194,10 +192,6 @@ header {
     word-break: break-all;
 }
 
-
-
-
-
 .opciones-container{
     display: flex;
     justify-content: space-between;
@@ -206,8 +200,6 @@ header {
     height: 100%;
     padding-bottom: 1rem;
 }
-
-
 
 .github-logo {
     width: 1.6rem;
@@ -218,7 +210,7 @@ header {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 4; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -340,11 +332,6 @@ header {
     text-align: left;
 }
 
-.boton-canal:hover {
-    border: 1px solid var(--white);
-    background-color: var(--grey);
-}
-
 .activo {
     background-color: var(--dark-green);
     border: 1px solid var(--light-green);
@@ -370,7 +357,6 @@ header {
     background-color: var(--light-red);
 }
 
-.boton-borrar:hover,
 .boton-borrar:active  {
     color: var(--white);
     background-color: var(--dark-red);
@@ -392,20 +378,21 @@ header {
     border: 5px var(--light-green) solid;
 }
 
-.boton-entendido:hover,
 .boton-entendido:active {
     color: var(--white);
     background: var(--light-green);
 }
+
+
+
 
 /* btn legal y btn alternar*/
 .btn-legal,
 .boton-alternar {
     background: var(--main);
 }
-.btn-legal:hover,
+
 .btn-legal:active,
-.boton-alternar:hover,
 .boton-alternar:active {
     color: var(--white);
     background: var(--secondary);
@@ -446,7 +433,6 @@ header {
     top: 1px;
     text-align: center;
     font-size: clamp(.8rem, 1rem, 1.6rem);
-    
 }
 
 .nombre-barra a,
@@ -520,7 +506,7 @@ footer span {
 
 /* alerta de no javascript */
 .no-js {
-    z-index: 3000;
+    z-index: 5;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -586,8 +572,6 @@ footer span {
         grid-template-columns: 3fr 1fr;
         column-gap: 2rem;
     }
-    
-    
 }
 
 /* Chikito */
@@ -643,11 +627,8 @@ footer span {
 
     .opciones-container{
         display: flex;
-       /*  flex-direction: row; */
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
-        /* flex-wrap: wrap; */
-        padding: .5rem 0;
     }
 }
 
@@ -665,5 +646,26 @@ footer span {
     .modal-body a:hover{
         color: var(--black);
         border-bottom: 2px var(--dark-green) solid;
+    }
+    
+    .boton-canal:hover {
+        border: 1px solid var(--white);
+        background-color: var(--grey);
+    }
+
+    .boton-borrar:hover {
+        color: var(--white);
+        background-color: var(--dark-red);
+    }
+
+    .boton-entendido:hover {
+        color: var(--white);
+        background: var(--light-green);
+    }
+
+    .btn-legal:hover,
+    .boton-alternar:hover {
+        color: var(--white);
+        background: var(--secondary);
     }
 }

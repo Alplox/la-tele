@@ -33,9 +33,6 @@ define(["./workbox-056b4b84"], (function (e) {
         url: "assets/css/modern-normalize.css",
         revision: "e377293cafcbdd25c874629e1501afa9"
     }, {
-        url: "assets/favicon/about.txt",
-        revision: "fc7f728ab0754c46a37bba8d707fa495"
-    }, {
         url: "assets/favicon/android-chrome-192x192.png",
         revision: "7382d4a30c2e168eff4c4ffb0fd51d3f"
     }, {
@@ -56,18 +53,6 @@ define(["./workbox-056b4b84"], (function (e) {
     }, {
         url: "assets/img/v0.5.png",
         revision: "7815d6c189b6c38059638ab2a7f6bf7f"
-    }, {
-        url: "assets/videojs-7.11.4/lang/es.js",
-        revision: "991fd791eda2f12bbbd43b5bb1d0a160"
-    }, {
-        url: "assets/videojs-7.11.4/video-js.css",
-        revision: "8d3f37a93db2b4aabf2d7722aef1e626"
-    }, {
-        url: "assets/videojs-7.11.4/video.min.js",
-        revision: "5bcd00da9afc15b1d133471b9d5a2e14"
-    }, {
-        url: "README.md",
-        revision: "3c62e895060e0b779a8e0985db01fd80"
     }, {
         url: "site.webmanifest",
         revision: "f364c92856c0dbf24383f8d975104f4c"

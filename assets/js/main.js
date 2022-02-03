@@ -3,6 +3,8 @@ Main v0.5
 por Alplox 
 */
 
+
+
 const barra = document.querySelector('#nombre-barra');
 const container_transmision = document.querySelector('#transmision');
 const botones_canales = document.querySelector('#lista-botones');
@@ -113,7 +115,6 @@ canales_m3u8.forEach(canal => {
                     preload: 'auto'
                 });
             m3uplayer.play();
-
             barra.append(barra_nombre_m3u8(`${canal.nombre} | M3U8`));
         });
     fragmento_botones_m3u8.append(boton_canal);

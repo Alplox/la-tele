@@ -168,7 +168,7 @@ canales.forEach(canal => {
                 m3uplayer.src( {
                     src: canal.m3u8,
                     controls: true,
-                    preload: 'auto'
+                    preload: 'none'
                 });
 
             // https://goo.gl/LdLk22
@@ -176,9 +176,10 @@ canales.forEach(canal => {
     
                 if (playPromise !== undefined) {
                 playPromise.then(_ => {
-                    m3uplayer.pause();
+                   
                 })
                 .catch(error => {
+                    m3uplayer.pause();
                     console.log(error)
                 });
                 }
@@ -219,15 +220,16 @@ canales_m3u8.forEach(canal => {
             m3uplayer.src( {
                 src: canal.m3u8,
                 controls: true,
-                preload: 'auto'
+                preload: 'none'
             });
         
         let playPromise = m3uplayer.play();
             if (playPromise !== undefined) {
             playPromise.then(_ => {
-                m3uplayer.pause();
+               
             })
             .catch(error => {
+                m3uplayer.pause();
                 console.log(error)
             });
             }

@@ -40,31 +40,14 @@
 
 
     <script>
-        window.__testCleanup = () => {
-            const unregisterSW = () => {
-                return navigator.serviceWorker.getRegistrations()
-                .then((registrations) => {
-                const unregisterPromise = registrations.map((registration) => {
-                    return registration.unregister();
-                });
-                return Promise.all(unregisterPromise);
-                });
-            };
-
-            const clearCaches = () => {
-                return window.caches.keys()
-                .then((cacheNames) => {
-                return Promise.all(cacheNames.map((cacheName) => {
-                    return window.caches.delete(cacheName);
-                }));
-                });
-            };
-
-            return Promise.all([
-                unregisterSW(),
-                clearCaches(),
-            ]);
-            };
+        if(window.navigator && navigator.serviceWorker) {
+            navigator.serviceWorker.getRegistrations()
+            .then(function(registrations) {
+                for(let registration of registrations) {
+                registration.unregister();
+                }
+            });
+            }
     </script>
     <script type="module">
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';

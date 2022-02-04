@@ -109,7 +109,7 @@ videojs.addLanguage("es", {
 const divm3u = document.createElement('div');
     divm3u.className = 'm3u-stream';
 const m3uvideo = document.createElement('video');
-    m3uvideo.className = 'm3u-player video-js vjs-theme-fantasy vjs-16-9 vjs-fluid';
+    m3uvideo.className = 'm3u-player video-js vjs-16-9 vjs-fluid';
     m3uvideo.toggleAttribute('controls'); 
 divm3u.append(m3uvideo)
    
@@ -309,7 +309,7 @@ window.addEventListener('DOMContentLoaded', () => {
         checkbox.setAttribute('checked', 'checked');
     } else {
         overlay.classList.add('d-none');
-        estado_barra.innerText= 'apagado'
+        estado_barra.innerText= 'OFF'
         checkbox.removeAttribute('checked', 'checked');
     }
 })

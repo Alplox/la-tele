@@ -1,5 +1,6 @@
 {
     "name": "Canales de Chile a un click.",
+    "description": "Canales de Chile a un click.",
     "short_name": "tele",
     "icons": [
         {
@@ -22,7 +23,6 @@
     "background_color": "#051320",
     "theme_color": "#000000",
 
-    "description": "Canales de Chile a un click.",
     "screenshots": [
         {
         "src": "./assets/img/v0.6.png",

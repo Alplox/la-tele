@@ -39,25 +39,16 @@
     <meta property="twitter:image"
         content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.6.png">
 
-
     <script type="module">
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-
+      
        
+        
+
         const el = document.createElement('pwa-update');
-        updatemessage.updatemessage("Nueva versión disponible")
+        el.updatemessage = "Nueva versión disponible";
         document.body.appendChild(el);
     </script>
-
-
-   <!--  <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js');
-            });
-        }
-    </script> -->
-    
 </head>
 
 <body>

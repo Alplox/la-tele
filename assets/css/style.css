@@ -380,7 +380,7 @@ header {
 .nombre-barra {
     display: flex;
     justify-content: center;
-    align-self: flex-start;
+    align-items: flex-start;
     width: 100%;
 }
 

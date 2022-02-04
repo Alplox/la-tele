@@ -28,8 +28,8 @@ por Alplox
 :root {
     --main: #ACBDCE;
     --secondary: #38444d;
-    --bg: #051320;
-
+    /* --bg: #051320; */
+    --bg: #02831e;
     --dark-green: #32573E;
     --light-green: #72c98c;
 

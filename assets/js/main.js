@@ -170,7 +170,19 @@ canales.forEach(canal => {
                     controls: true,
                     preload: 'auto'
                 });
-            m3uplayer.play();
+
+            // https://goo.gl/LdLk22
+            let playPromise = m3uplayer.play();
+    
+                if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    m3uplayer.pause();
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+                }
+            
         } else if (canal.yt_id){
             container_transmision.append(crear_iframe(`https://www.youtube-nocookie.com/embed/live_stream?channel=${canal.yt_id}&autoplay=1&mute=0&modestbranding=1&showinfo=0`));
             barra.append(barra_nombre(canal.nombre, `https://www.youtube.com/channel/${canal.yt_id}`));
@@ -209,7 +221,17 @@ canales_m3u8.forEach(canal => {
                 controls: true,
                 preload: 'auto'
             });
-        m3uplayer.play();
+        
+        let playPromise = m3uplayer.play();
+            if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                m3uplayer.pause();
+            })
+            .catch(error => {
+                console.log(error)
+            });
+            }
+
         barra.append(barra_nombre_m3u8(`${canal.nombre} | M3U8`));
    
         if (checkbox.checked === true) {

@@ -18,8 +18,7 @@
     "display": "standalone",
 
     "start_url": "/la-tele/",
-    "id": "/",
-    "scope": "/",
+
     "background_color": "#051320",
     "theme_color": "#000000",
 

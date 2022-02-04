@@ -176,7 +176,7 @@ canales.forEach(canal => {
     
                 if (playPromise !== undefined) {
                 playPromise.then(_ => {
-                   
+                    m3uplayer.play()
                 })
                 .catch(error => {
                     m3uplayer.pause();
@@ -226,7 +226,7 @@ canales_m3u8.forEach(canal => {
         let playPromise = m3uplayer.play();
             if (playPromise !== undefined) {
             playPromise.then(_ => {
-               
+                m3uplayer.play()
             })
             .catch(error => {
                 m3uplayer.pause();

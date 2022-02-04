@@ -309,7 +309,7 @@ window.addEventListener('DOMContentLoaded', () => {
         checkbox.setAttribute('checked', 'checked');
     } else {
         overlay.classList.add('d-none');
-        estado_barra.innerText= 'OFF'
+        estado_barra.innerText= 'apagado'
         checkbox.removeAttribute('checked', 'checked');
     }
 })

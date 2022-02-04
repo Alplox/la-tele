@@ -29,7 +29,7 @@ por Alplox
     --main: #ACBDCE;
     --secondary: #38444d;
     --bg: #051320;
-    /* --bg: #2065a7; */
+
     --dark-green: #32573E;
     --light-green: #72c98c;
 
@@ -380,6 +380,7 @@ header {
 .nombre-barra {
     display: flex;
     justify-content: center;
+    align-self: flex-start;
     width: 100%;
 }
 

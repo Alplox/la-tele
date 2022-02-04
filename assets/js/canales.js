@@ -10,14 +10,12 @@ tipos de enlaces posibles [Recordar utilizar solo enlaces https si se aloja en G
         'yt_id': 'url'            (ID referente a un canal de Youtube [https://www.youtube.com/channel/"yt_id"]. NO REQUIERE 'fuente' DEBIDO A REDUNDANCIA)
         'yt_embed': 'url'         (se usa para 1 video directamente [https://www.youtube.com/watch?v="yt_embed"])
 
-
         'fuente': 'url'         ("fuente" es el enlace de origen de la señal, a modo de transparencia y libertad de abandonar la página si solo se quiere continuar con dicha señal, si se extrae una señal ya sea tipo "iframe" o "m3u8" de www.pagina-ejemplo.cl debe de ponerse www.pagina-ejemplo.cl en "fuente". Si no se obtiene señal desde el emisor oficial como tal, se utiliza el sitio del emisor anntes que el de terceros (ejemplo: saque canal de una lista IPTV, por lo que pongo el sitio del canal, no la lista IPTV. Ya que eso va en el listado de canales en archivo README))
 }
 
 by Alplox 
 https://github.com/Alplox
 */
-
 
 const canales = [ 
         {
@@ -565,7 +563,7 @@ const canales = [
 ]
 
 // Canales M3U8 (no tienen fuente) https://www.m3u.cl/iptv-chile.php
-const canales__m3u8 = [{
+const canales_m3u8 = [{
         'nombre': 'TV Senado',
         'm3u8': 'https://janus-tv-ply.senado.cl/playlist/playlist.m3u8',
     },

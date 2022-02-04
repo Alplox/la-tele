@@ -1,7 +1,7 @@
 # la tele
 ## Sitio: https://alplox.github.io/la-tele/
 
-[![](https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.5.png)](https://alplox.github.io/la-tele/)
+[![](https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.6.png)](https://alplox.github.io/la-tele/)
 
 ## Listado canales disponibles junto a su fuente
 <details>
@@ -132,20 +132,24 @@
 *Resto de canales M3U8 provienen de: https://www.m3u.cl/iptv-chile.php
 ## Menciones
 ```
--Favicon creado con:     https://favicon.io/
--Metatags generados con: https://metatags.io/
--Sitio basado en:        https://github.com/Donchelox/tv-viewer
-                         https://github.com/Alplox/tele
--Fuente utilizada:       https://fonts.google.com/specimen/Poppins
+-Favicon creado con:        https://favicon.io/
+-Metatags generados con:    https://metatags.io/
+-Sitio basado en:           https://github.com/Donchelox/tv-viewer
+                            https://github.com/Alplox/tele
+-Fuente utilizada:          https://fonts.google.com/specimen/Poppins
     Licencia: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
--modern-normalize.css:   https://github.com/sindresorhus/modern-normalize
+-modern-normalize.css:      https://github.com/sindresorhus/modern-normalize
     Licencia: https://github.com/sindresorhus/modern-normalize/blob/main/license
--Workbox:                https://github.com/GoogleChrome/workbox
+-Workbox:                   https://github.com/GoogleChrome/workbox
     Licencia: https://github.com/GoogleChrome/workbox/blob/v6/LICENSE
--Reproductor M3U8:       https://videojs.com/      
+-Service Worker creado con: https://www.pwabuilder.com/
+    Licencia: https://github.com/pwa-builder/PWABuilder/blob/master/LICENSE.txt
+-Service Worker updates:    https://github.com/varora1406/pwa-update
+    Licencia: https://github.com/varora1406/pwa-update/blob/master/LICENSE.txt
+-Reproductor M3U8:          https://videojs.com/      
     Licencia: https://github.com/videojs/video.js/blob/main/LICENSE          
               http://www.apache.org/licenses/LICENSE-2.0
--Canales M3U8:           https://www.m3u.cl/iptv-chile.php
+-Canales M3U8:              https://www.m3u.cl/iptv-chile.php
 ```
 
 ## Licencia

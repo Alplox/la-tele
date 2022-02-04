@@ -37,6 +37,34 @@
     <meta property="twitter:description" content="Canales de Chile a un click.">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.5.png">
 
+
+    <script>
+        window.__testCleanup = () => {
+            const unregisterSW = () => {
+                return navigator.serviceWorker.getRegistrations()
+                .then((registrations) => {
+                const unregisterPromise = registrations.map((registration) => {
+                    return registration.unregister();
+                });
+                return Promise.all(unregisterPromise);
+                });
+            };
+
+            const clearCaches = () => {
+                return window.caches.keys()
+                .then((cacheNames) => {
+                return Promise.all(cacheNames.map((cacheName) => {
+                    return window.caches.delete(cacheName);
+                }));
+                });
+            };
+
+            return Promise.all([
+                unregisterSW(),
+                clearCaches(),
+            ]);
+            };
+    </script>
     <script>
         if ('serviceWorker' in navigator) {
           window.addEventListener('load', () => {
@@ -44,6 +72,8 @@
           });
         }
     </script>
+
+    
 </head>
 <body>
     <noscript>

@@ -364,11 +364,11 @@ if (ls_modal !== 'hide') {
 } 
 
 btn_entendido.addEventListener('click', () => {
-  ls_modal = localStorage.getItem('modal_status'); 
+    let ls_modal = localStorage.getItem('modal_status');
     if(ls_modal !== 'show') {
-      show_modal_bienvenida();
+        modal.style.display = 'none';
     } else {
-      hide_modal_bienvenida();
+        hide_modal_bienvenida();
     }
 });
 

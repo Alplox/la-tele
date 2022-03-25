@@ -1,5 +1,5 @@
 /* 
-Style v0.6
+Style v0.7
 por Alplox 
 */
 
@@ -76,6 +76,10 @@ a {
     text-decoration: none;
 }
 
+.header-principal a:first-child {
+    border-bottom: none;
+}
+
 .sombra {
     box-shadow:
     0.8px 0.8px 2.7px rgba(0, 0, 0, 0.062),
@@ -135,13 +139,13 @@ header {
     padding: 0 2rem;
 }
 
-.transmision {
+.container-transmision {
     z-index: 1;
 }
 
-.transmision,
+.container-transmision,
 .video-container iframe,
-.m3u-stream,
+.m3u8-stream,
 .video-container video {
     position: absolute;
     border: none;
@@ -174,6 +178,7 @@ header {
 
 .filtro {
     width: 100%;
+    height: 3rem;
     border-radius: .6rem;
     padding-left: .5rem;
     border: 1px var(--main) solid;
@@ -325,18 +330,18 @@ header {
 }
 
 /* btn borrar */
-.boton-borrar  {
+.btn-quitar-señal  {
     pointer-events: visible;
     background-color: var(--light-red);
 }
 
-.boton-borrar:active  {
+.btn-quitar-señal:active  {
     color: var(--white);
     background-color: var(--dark-red);
 }
 
 /* btn entendido (modal) */
-.boton-entendido {
+.btn-entendido {
     float: none;
     position: absolute;
     top: 10px;
@@ -346,19 +351,19 @@ header {
     border: 5px var(--light-green) solid;
 }
 
-.boton-entendido:active {
+.btn-entendido:active {
     color: var(--white);
     background: var(--light-green);
 }
 
 /* btn legal y btn alternar*/
 .btn-legal,
-.boton-alternar {
+.btn-alternar {
     background: var(--main);
 }
 
 .btn-legal:active,
-.boton-alternar:active {
+.btn-alternar:active {
     color: var(--white);
     background: var(--secondary);
 }
@@ -377,15 +382,15 @@ header {
 }
 
 /* barra sobre transmisiones */
-.nombre-barra {
+.barra-nombre {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
 }
 
-.nombre-barra a,
-.nombre-barra span {
+.barra-nombre a,
+.barra-nombre span {
     padding: 0 .5rem;
     border-radius: .6rem;
     background: var(--black);
@@ -436,16 +441,23 @@ header {
 /* footer */
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     word-wrap: break-word;
     text-align: center;
-    height: 5vh;
+    /* height: 5vh; */
     padding: 1rem 0;
     margin-top: auto; 
     background: var(--black);
     border-top: 1px solid var(--secondary);
     font-size: clamp(.4rem, 1.2rem, 1.6rem);
+}
+
+footer div{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0;
 }
 
 footer span {
@@ -454,7 +466,7 @@ footer span {
     padding: 0 .5rem;
 }
 
-/* para filtro canales activo y boton-borrar*/
+/* para filtro canales activo y btn-quitar-señal*/
 .d-none { 
     display: none; 
 }
@@ -554,8 +566,8 @@ footer span {
 
 @media (orientation:landscape) and (max-width:1024px) {
     .opciones-container,
-    .boton-alternar,
-    .boton-borrar {
+    .btn-alternar,
+    .btn-quitar-señal {
        font-size: 1.2rem;
     }
 
@@ -564,6 +576,10 @@ footer span {
         grid-template-rows: none;
         grid-template-columns: 3fr 1fr;
         column-gap: 2rem;
+    }
+
+    .filtro {
+        height: 2rem;
     }
 
     .lista-botones {
@@ -588,7 +604,7 @@ footer span {
 @media (hover:hover) {
     a:hover {
         color: var(--white);
-        border-bottom: 2px var(--light-green) dotted;
+        border-bottom: 1px var(--light-green) dotted;
     }
     
     .modal-body a:hover{
@@ -596,8 +612,8 @@ footer span {
         border-bottom: 2px var(--dark-green) solid;
     }
     
-    .nombre-barra a:hover,
-    .nombre-barra span:hover {
+    .barra-nombre a:hover,
+    .barra-nombre span:hover {
         opacity: 1;
     }
     
@@ -610,18 +626,18 @@ footer span {
         cursor: pointer;
     }
 
-    .boton-borrar:hover {
+    .btn-quitar-señal:hover {
         color: var(--white);
         background-color: var(--dark-red);
     }
 
-    .boton-entendido:hover {
+    .btn-entendido:hover {
         color: var(--white);
         background: var(--light-green);
     }
 
     .btn-legal:hover,
-    .boton-alternar:hover {
+    .btn-alternar:hover {
         color: var(--white);
         background: var(--secondary);
     }

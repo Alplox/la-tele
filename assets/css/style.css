@@ -63,11 +63,11 @@ h1,h2{
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 a {
@@ -193,7 +193,7 @@ header {
     height: 100%;
     scrollbar-width: thin;
     overflow-x: hidden;
-    word-break: break-all;
+    word-break: normal;
 }
 
 .opciones-container{
@@ -333,11 +333,16 @@ header {
 .btn-quitar-señal  {
     pointer-events: visible;
     background-color: var(--light-red);
+    opacity: .5;
+    padding: 4px;
+    top: 5px;
+    right: 5px;
 }
 
 .btn-quitar-señal:active  {
     color: var(--white);
     background-color: var(--dark-red);
+    opacity: 1;
 }
 
 /* btn entendido (modal) */
@@ -375,8 +380,8 @@ header {
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    top: 1px;
-    padding: 6px;
+    /* top: 1px;
+    padding: 6px; */
     font-size: clamp(1rem, 1.2rem, 1.6rem);
     pointer-events: none;
 }
@@ -544,17 +549,25 @@ footer span {
 /* Chikito */
 @media (max-width: 340px) {
     body {
-        font-size: .8rem;
-    }
-
-    .lista-botones {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: none;
+        font-size: 1.2rem;
     }
 
     .boton-canal{
         font-size: 1rem;
+    }
+
+    .modal-header span {
+        font-size: 2rem;
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+        margin: 20% auto;
+        padding: 2rem;
+    }
+
+    .opciones-container button{
+        height: 80%;
     }
 
     footer {
@@ -629,6 +642,7 @@ footer span {
     .btn-quitar-señal:hover {
         color: var(--white);
         background-color: var(--dark-red);
+        opacity: 1;
     }
 
     .btn-entendido:hover {

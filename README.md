@@ -31,6 +31,7 @@
 - [Canal 13 3](https://ok.ru/videoembed/3440918732394?nochat=1&autoplay=1) - [x](https://www.chilemetros.com/canal-13-en-vivo/)
 - [CNN Chile](https://www.youtube.com/channel/UCpOAcjJNAp0Y0fhznRrXIJQ)
 - [CHV Noticias](https://www.youtube.com/channel/UCRsUoZYC1ULUspipMRnMhwg)
+- [CHV Noticias 2](https://www.chvnoticias.cl/) - [x](https://pluto.tv/es/live-tv/chilevision-noticias)
 - [CHV](https://www.youtube.com/channel/UC8EdTmyUaFIfZvVttJ9lgIA)
 - [CHV 2](https://www.chilevision.cl/senal-online) - [x](https://github.com/AINMcl/AINMcl.github.io/blob/master/MonitorTV/Senal/WEB/Se%C3%B1alCHV_IFRAME.html)
 - [CHV 3](https://www.chilevision.cl/senal-online) - [x](https://github.com/AINMcl/MonitorTV/blob/05188eeaea9622e986b338f63a46fb189898184f/IPTV/AINM.m3u)

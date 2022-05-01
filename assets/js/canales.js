@@ -202,6 +202,11 @@ const listaCanales = {
         'nombre': 'CHV Noticias',
         'ytID': 'UCRsUoZYC1ULUspipMRnMhwg'
     },
+    'chv-noticias-2': {
+        'nombre': 'CHV Noticias 2',
+        'm3u8URL': 'https://siloh-latam-aka.plutotv.net/lilo/production/Chilevision/master.m3u8',
+        'fuente': 'https://www.chvnoticias.cl/'
+    },
     'chv': {
         'nombre': 'CHV',
         'ytID': 'UC8EdTmyUaFIfZvVttJ9lgIA'

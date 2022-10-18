@@ -1,73 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 
 Guía rápida:
 
@@ -84,7 +14,7 @@ tipos de enlaces posibles [Recordar utilizar solo enlaces https si se aloja en G
     }
 
 by Alplox 
-https://github.com/Alplox/tele
+https://github.com/Alplox/la-tele
 */
 
 const listaCanales = {
@@ -237,143 +167,143 @@ const listaCanales = {
         'fuente': 'https://www.lared.cl/senal-online'
     },
     'cooperativa': {
-        'nombre': '📻 Cooperativa',
+        'nombre': '<i class="ai-music-album"></i> Cooperativa',
         'iframeURL': 'https://rudo.video/live/coopetv?volume=0&mute=1',
         'fuente': 'http://programas.cooperativa.cl/showalairelibre/'
     },
     'bbtv': {
-        'nombre': '📻 Biobio TV',
+        'nombre': '<i class="ai-music-album"></i> Biobio TV',
         'iframeURL': 'https://rudo.video/live/bbtv?volume=0&mute=1',
         'fuente': 'https://www.biobiochile.cl/biobiotv/'
     },
     'bbtv-2': {
-        'nombre': '📻 Biobio TV 2',
+        'nombre': '<i class="ai-music-album"></i> Biobio TV 2',
         'm3u8URL': 'https://unlimited1-cl-isp.dps.live/bbtv/bbtv.smil/playlist.m3u8',
         'fuente': 'https://www.biobiochile.cl/biobiotv/'
     },
     'adn': {
-        'nombre': '📻 ADN',
+        'nombre': '<i class="ai-music-album"></i> ADN',
         'iframeURL': 'https://rudo.video/live/adntv?volume=0&mute=1',
         'fuente': 'http://tv.adnradio.cl/'
     },
     'adn-2': {
-        'nombre': '📻 ADN 2',
+        'nombre': '<i class="ai-music-album"></i> ADN 2',
         'ytID': 'UCczkrFICr0xEgDsk51zZojA'
     },
     'adn-3': {
-        'nombre': '📻 ADN 3',
+        'nombre': '<i class="ai-music-album"></i> ADN 3',
         'm3u8URL': 'https://unlimited1-us.dps.live/adntv/adntv.smil/playlist.m3u8',
         'fuente': 'http://tv.adnradio.cl/'
     },
     'adn-4': {
-        'nombre': '📻 ADN 4',
+        'nombre': '<i class="ai-music-album"></i> ADN 4',
         'm3u8URL': 'https://unlimited6-cl.dps.live/adntv/adntv.smil/playlist.m3u8',
         'fuente': 'http://tv.adnradio.cl/'
     },
     'adn-5': {
-        'nombre': '📻 ADN 5',
+        'nombre': '<i class="ai-music-album"></i> ADN 5',
         'm3u8URL': 'https://unlimited2-cl-isp.dps.live/adntv/adntv.smil/playlist.m3u8',
         'fuente': 'http://tv.adnradio.cl/'
     },
     'duna': {
-        'nombre': '📻 Duna',
+        'nombre': '<i class="ai-music-album"></i> Duna',
         'iframeURL': 'https://rudo.video/live/dunatv?volume=0&mute=1',
         'fuente': 'https://www.duna.cl/tv/'
     },
     'infinita': {
-        'nombre': '📻 Infinita',
+        'nombre': '<i class="ai-music-album"></i> Infinita',
         'iframeURL': 'https://rudo.video/live/infinitatv?volume=0&mute=1',
         'fuente': 'http://www.infinita.cl/home/'
     },
     'universo': {
-        'nombre': '📻 Universo',
+        'nombre': '<i class="ai-music-album"></i> Universo',
         'iframeURL': 'https://rudo.video/live/universotv?volume=0&mute=1',
         'fuente': 'https://www.universo.cl/'
     },
     'radio-ae': {
-        'nombre': '📻 AE Radio DuocUC',
+        'nombre': '<i class="ai-music-album"></i> AE Radio DuocUC',
         'iframeURL': 'https://live.grupoz.cl/3e3852b5c1ea7821ab9cdfadbbe735f2?sound=0',
         'fuente': 'https://www.aeradio.cl/'
     },
     'carolina-tv': {
-        'nombre': '📻 Carolina TV',
+        'nombre': '<i class="ai-music-album"></i> Carolina TV',
         'iframeURL': 'https://rudo.video/live/carolinatv?volume=0&mute=1',
         'fuente': 'https://www.carolina.cl/tv/'
     },
     'carolina-tv-2': {
-        'nombre': '📻 Carolina TV 2',
+        'nombre': '<i class="ai-music-album"></i> Carolina TV 2',
         'm3u8URL': 'https://unlimited6-cl.dps.live/carolinatv/carolinatv.smil/carolinatv/livestream2/chunks.m3u8',
         'fuente': 'https://www.carolina.cl/tv/'
     },
     'carolina-tv-3': {
-        'nombre': '📻 Carolina TV 3',
+        'nombre': '<i class="ai-music-album"></i> Carolina TV 3',
         'm3u8URL': 'https://unlimited1-us.dps.live/carolinatv/carolinatv.smil/playlist.m3u8',
         'fuente': 'https://www.carolina.cl/tv/'
     },
     'fm-tiempo': {
-        'nombre': '📻 FM Tiempo',
+        'nombre': '<i class="ai-music-album"></i> FM Tiempo',
         'iframeURL': 'https://rudo.video/live/fmtiempotv?volume=0&mute=1',
         'fuente': 'https://www.fmtiempo.cl/'
     },
     'fm-tiempo-2': {
-        'nombre': '📻 FM Tiempo 2',
+        'nombre': '<i class="ai-music-album"></i> FM Tiempo 2',
         'm3u8URL': 'https://unlimited10-cl.dps.live/fmtiempotv/fmtiempotv.smil/playlist.m3u8',
         'fuente': 'https://www.fmtiempo.cl/'
     },
     'alegria-tv': {
-        'nombre': '📻 Alegría TV',
+        'nombre': '<i class="ai-music-album"></i> Alegría TV',
         'm3u8URL': 'https://593b04c4c5670.streamlock.net:443/8192/8192/playlist.m3u8',
         'fuente': 'https://www.alegriafm.cl/'
     },
     'alegria-tv-2': {
-        'nombre': '📻 Alegría TV 2',
+        'nombre': '<i class="ai-music-album"></i> Alegría TV 2',
         'm3u8URL': 'https://593b04c4c5670.streamlock.net/8192/8192/playlist.m3u8',
         'fuente': 'https://www.alegriafm.cl/'
     },
     'romantica-tv': {
-        'nombre': '📻 Romántica TV',
+        'nombre': '<i class="ai-music-album"></i> Romántica TV',
         'iframeURL': 'https://rudo.video/live/romanticatv?volume=0&mute=1',
         'fuente': 'https://www.romantica.cl/romantica-tv/'
     },
     'romantica-tv-2': {
-        'nombre': '📻 Romántica TV 2',
+        'nombre': '<i class="ai-music-album"></i> Romántica TV 2',
         'm3u8URL': 'https://unlimited2-cl-isp.dps.live/romanticatv/romanticatv.smil/playlist.m3u8',
         'fuente': 'https://www.romantica.cl/romantica-tv/'
     },
     'radio-genial': {
-        'nombre': '📻 Radio Genial 100.5 FM',
+        'nombre': '<i class="ai-music-album"></i> Radio Genial 100.5 FM',
         'm3u8URL': 'https://v2.tustreaming.cl/genialtv/index.m3u8',
         'fuente': 'https://radiogenial.cl/'
     },
     'mi-radio-es-mas': {
-        'nombre': '📻 Mi Radio es Más',
+        'nombre': '<i class="ai-music-album"></i> Mi Radio es Más',
         'ytID': 'UCflUbt1g29kPG-H9SV5QIyw'
     },
     'radio-la-clave': {
-        'nombre': '📻 Radio La Clave',
+        'nombre': '<i class="ai-music-album"></i> Radio La Clave',
         'iframeURL': 'https://rudo.video/live/laclavetv?volume=0&mute=1',
         'fuente': 'https://radiolaclave.cl/'
     },
     'radio-folclor-chile': {
-        'nombre': '📻 Radio Folclor de Chile',
+        'nombre': '<i class="ai-music-album"></i> Radio Folclor de Chile',
         'ytID': 'UC0Hl8kJe8Xwv8g63Q4qefQg'
     },
     'radio-maria-chile': {
-        'nombre': '📻 Radio María Chile',
+        'nombre': '<i class="ai-music-album"></i> Radio María Chile',
         'ytID': 'UClMwb2kCYemWyDIZ2dYttKA'
     },
     'sembrador': {
-        'nombre': '📻 El Sembrador',
+        'nombre': '<i class="ai-music-album"></i> El Sembrador',
         'm3u8URL': 'https://5eff35271151c.streamlock.net:1936/8064/8064/playlist.m3u8',
         'fuente': 'https://www.radioelsembrador.cl/tv/'
     },
     'radio-nuble': {
-        'nombre': '📻 Radio Ñuble',
+        'nombre': '<i class="ai-music-album"></i> Radio Ñuble',
         'm3u8URL': 'https://live.tvcontrolcp.com:1936/Rnuble/Rnuble/playlist.m3u8',
         'fuente': 'http://radionuble.cl/linea/'
     },
     'alternativa-fm': {
-        'nombre': '📻 Alternativa FM',
+        'nombre': '<i class="ai-music-album"></i> Alternativa FM',
         'm3u8URL': 'https://srv2.zcast.com.br/carlos2469/carlos2469/playlist.m3u8',
         'fuente': 'https://www.alternativafm.cl/p/alternativa-tv.html'
     },
@@ -597,214 +527,214 @@ const listaCanales = {
     },
     //MUSICA
     'imuc-radio-chile': {
-        'nombre': '🎵 IMUC Chile',
+        'nombre': '<i class="ai-music-note"></i> IMUC Chile',
         'ytID': 'UCIIDtZoaK9UZi4FaGMmL_hw'
     },
     // CAMARAS MUNDO
     // Chile
     'galeria-cima': {
-        'nombre': '📷 Galería CIMA',
+        'nombre': '<i class="ai-location"></i> Galería CIMA',
         'ytID': 'UC4GOcOKkEefz5NamN4WyMFg'
     },
     'parquemet-cumbre': {
-        'nombre': '📷 Halcón Parquemet, Cumbre',
+        'nombre': '<i class="ai-location"></i> Halcón Parquemet, Cumbre',
         'iframeURL': 'https://g1.ipcamlive.com/player/player.php?alias=5a7084c9e0136&autoplay=true',
         'fuente': 'https://halcon.parquemet.cl/index.html'
     },
     'parquemet-terraza': {
-        'nombre': '📷 Halcón Parquemet, Terraza',
+        'nombre': '<i class="ai-location"></i> Halcón Parquemet, Terraza',
         'iframeURL': 'https://g1.ipcamlive.com/player/player.php?alias=5a7085fe914c0&autoplay=true',
         'fuente': 'https://halcon.parquemet.cl/index.html'
     },
     'ledrium': {
-        'nombre': '📷 Ledrium',
+        'nombre': '<i class="ai-location"></i> Ledrium',
         'ytID': 'UCTDewuGhfwGv6JRNnqa-yXw',
     },
     'muni-osorno': {
-        'nombre': '📷 Municipalidad Osorno',
+        'nombre': '<i class="ai-location"></i> Municipalidad Osorno',
         'ytID': 'UCD7sqegDNyZxmdnCj6xqH6g'
     },
     'glaseado-1': {
-        'nombre': '📷 glaseado.cl, Huayquique',
+        'nombre': '<i class="ai-location"></i> glaseado.cl, Huayquique',
         'iframeURL': 'https://g3.ipcamlive.com/player/player.php?alias=huayquique&autoplay=1',
         'fuente': 'https://www.glaseado.cl/surf-cams/huayquique/'
     },
     'glaseado-2': {
-        'nombre': '📷 glaseado.cl, Las Urracas',
+        'nombre': '<i class="ai-location"></i> glaseado.cl, Las Urracas',
         'iframeURL': 'https://g3.ipcamlive.com/player/player.php?alias=lasurracas&autoplay=1',
         'fuente': 'https://www.glaseado.cl/surf-cams/las-urracas/'
     },
     'glaseado-3': {
-        'nombre': '📷 glaseado.cl, La Punta',
+        'nombre': '<i class="ai-location"></i> glaseado.cl, La Punta',
         'iframeURL': 'https://g3.ipcamlive.com/player/player.php?alias=lapunta&autoplay=1',
         'fuente': 'https://www.glaseado.cl/surf-cams/la-punta/'
     },
     // EDUCATIVOS
     'tv-educa-cl': {
-        'nombre': '📚 TV Educa Chile',
+        'nombre': '<i class="ai-book-open"></i> TV Educa Chile',
         'm3u8URL': 'https://mdstrm.com/live-stream-playlist-v/5e74e53f1ab4eb073b19ef34.m3u8',
         'fuente': 'https://www.tvn.cl/envivo/tveducachile/'
     },
     'puntaje-nacional': {
-        'nombre': '📚 Puntaje Nacional Chile',
+        'nombre': '<i class="ai-book-open"></i> Puntaje Nacional Chile',
         'ytID': 'UCCY6xIXHmGBGZUgUYxtfKSg'
     },
-    // 🏛️ 🏛️ 🏛️ 
+    // GOBIERNO 
     'gob-cl': {
-        'nombre': '🏛️ Gobierno de Chile',
+        'nombre': '<i class="ai-newspaper"></i> Gobierno de Chile',
         'iframeURL': 'https://mdstrm.com/live-stream/5c12a5c39e03df0795a74d3a?autoplay=true&volume=0',
         'fuente': 'https://www.gob.cl/'
     },
     'tv-senado': {
-        'nombre': '🏛️ TV Senado',
+        'nombre': '<i class="ai-newspaper"></i> TV Senado',
         'iframeURL': 'https://janus-tv.senado.cl/embed.php',
         'fuente': 'https://tv.senado.cl/'
     },
     'tv-senado-2': {
-        'nombre': '🏛️ TV Senado 2',
+        'nombre': '<i class="ai-newspaper"></i> TV Senado 2',
         'm3u8URL': 'https://janus-tv-ply.senado.cl/playlist/playlist.m3u8',
         'fuente': 'https://tv.senado.cl/'
     },
     'tv-senado-3': {
-        'nombre': '🏛️ TV Senado 3',
+        'nombre': '<i class="ai-newspaper"></i> TV Senado 3',
         'ytID': 'UC4GJ43VNn4AYfiYa0RBCHQg'
     },
     'convencion-tv': {
-        'nombre': '🏛️ Convención Constitucional',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional',
         'iframeURL': 'https://mdstrm.com/live-stream/60d476c14157440829d03cd7?autoplay=true&volume=0',
         'fuente': 'https://www.convencion.tv/'
     },
     'convencion-tv-2': {
-        'nombre': '🏛️ Convención Constitucional 2',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional 2',
         'm3u8URL': 'https://mdstrm.com/live-stream-playlist/60d1f10fdacfa008348d71d2.m3u8',
         'fuente': 'https://www.convencion.tv/'
     },
     'convencion-tv-3': {
-        'nombre': '🏛️ Convención Constitucional 3',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional 3',
         'ytID': 'UCRlIWVAxQdAnCl4D4UR9r3Q'
     },
     'convencion-tv-01': {
-        'nombre': '🏛️ Convención Constitucional YT 01',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 01',
         'ytID': 'UCc3koBbWMyvSyzRbG5eTgvQ'
     },
     'convencion-tv-02': {
-        'nombre': '🏛️ Convención Constitucional YT 02',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 02',
         'ytID': 'UCKmKUwcjv6HJP7-z9Nnpp2w'
     },
     'convencion-tv-03': {
-        'nombre': '🏛️ Convención Constitucional YT 03',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 03',
         'ytID': 'UCeIlCkkBplhU0SrWM9B7u7Q'
     },
     'convencion-tv-04': {
-        'nombre': '🏛️ Convención Constitucional YT 04',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 04',
         'ytID': 'UCkMWMYCPUGzf3UPAxcIaVqA'
     },
     'convencion-tv-05': {
-        'nombre': '🏛️ Convención Constitucional YT 05',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 05',
         'ytID': 'UChNeKfZ0-wwuOCyUSu6BlcA'
     },
     'convencion-tv-06': {
-        'nombre': '🏛️ Convención Constitucional YT 06',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 06',
         'ytID': 'UC-HPc8CLoGRSG0dgbzZbDWA'
     },
     'convencion-tv-07': {
-        'nombre': '🏛️ Convención Constitucional YT 07',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 07',
         'ytID': 'UC9p2Hsom7SXdro9FhN4K59w'
     },
     'convencion-tv-08': {
-        'nombre': '🏛️ Convención Constitucional YT 08',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 08',
         'ytID': 'UCFkkF0LKUOUOcQEwG4nTrHw'
     },
     'convencion-tv-09': {
-        'nombre': '🏛️ Convención Constitucional YT 09',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 09',
         'ytID': 'UCEK7dK0jllE0uXMhEQTV6og'
     },
     'convencion-tv-10': {
-        'nombre': '🏛️ Convención Constitucional YT 10',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 10',
         'ytID': 'UC1qhPKBTpfhjVcTMzmM8mGw'
     },
     'convencion-tv-11': {
-        'nombre': '🏛️ Convención Constitucional YT 11',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 11',
         'ytID': 'UCRVinYIynLNcn18wHjmI5Vg'
     },
     'convencion-tv-12': {
-        'nombre': '🏛️ Convención Constitucional YT 12',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 12',
         'ytID': 'UCJerNR157sjR83jMChSocPQ'
     },
     'convencion-tv-13': {
-        'nombre': '🏛️ Convención Constitucional YT 13',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 13',
         'ytID': 'UCxI0u9BUvXbGHrv200cgFZg'
     },
     'convencion-tv-14': {
-        'nombre': '🏛️ Convención Constitucional YT 14',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 14',
         'ytID': 'UCxAECnUReRnEwkFThbjtH2Q'
     },
     'convencion-tv-15': {
-        'nombre': '🏛️ Convención Constitucional YT 15',
+        'nombre': '<i class="ai-newspaper"></i> Convención Constitucional YT 15',
         'ytID': 'UCTGMQgIdFvz3qlD9mKb8v9w'
     },
     'tribunal-consti': {
-        'nombre': '🏛️ Tribunal Constitucional',
+        'nombre': '<i class="ai-newspaper"></i> Tribunal Constitucional',
         'ytID': 'UCZaI-1N1oaGb-U8K2VNztjg'
     },
     'poder-judicial': {
-        'nombre': '🏛️ Poder Judicial',
+        'nombre': '<i class="ai-newspaper"></i> Poder Judicial',
         'ytID': 'UCo0C1-ocUG9a0Yb3iO0V-xg'
     },
     'cam-dipu-1': {
-        'nombre': '🏛️ Cámara Diputados',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados',
         'm3u8URL': 'https://camara.03.cl.cdnz.cl/camara19/live/playlist.m3u8',
         'fuente': 'http://www.cdtv.cl/'
     },
     'cam-dipu-2': {
-        'nombre': '🏛️ Cámara Diputados 2',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados 2',
         'm3u8URL': 'https://camara.02.cl.cdnz.cl/cdndvr/live/playlist.m3u8?DVR',
         'fuente': 'http://webtv.camara.cl/'
     },
     'cam-dipu-3': {
-        'nombre': '🏛️ Cámara Diputados 3',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados 3',
         'm3u8URL': 'https://tls-cl.cdnz.cl/camara/live/playlist.m3u8',
         'fuente': 'http://webtv.camara.cl/'
     }, 
     // CANALES ALTERNATIVOS CAM DIPUTADOS
     'cam-dipu': {
-        'nombre': '🏛️ Cámara Diputados YT',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT',
         'ytID': 'UCYd5k2TyOyOmUJNx0SH17KA'
     },
     'cam-dipu-01': {
-        'nombre': '🏛️ Cámara Diputados YT 01',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 01',
         'ytID': 'UCcULnWuDzgQG9yF0Dv3DIgg'
     },
     'cam-dipu-03': {
-        'nombre': '🏛️ Cámara Diputados YT 03',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 03',
         'ytID': 'UCF6KgLfQqQzekn8U1DwVs9g'
     },
     'cam-dipu-05': {
-        'nombre': '🏛️ Cámara Diputados YT 05',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 05',
         'ytID': 'UC0QKtI8NpeMObauDylsSUDA'
     },
     'cam-dipu-06': {
-        'nombre': '🏛️ Cámara Diputados YT 06',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 06',
         'ytID': 'UCspWzpGflwb6A8PZqWw49CQ'
     },
     'cam-dipu-07': {
-        'nombre': '🏛️ Cámara Diputados YT 07',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 07',
         'ytID': 'UCyVjDDBZGDywVGrpGBvGEsw'
     },
     'cam-dipu-08': {
-        'nombre': '🏛️ Cámara Diputados YT 08',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 08',
         'ytID': 'UCCtDbZzh63vgU_BWHRGsbug'
     },
     'cam-dipu-11': {
-        'nombre': '🏛️ Cámara Diputados YT 11',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 11',
         'ytID': 'UCYPKjGKq2yLbAnmth5rFZmQ'
     },
     'cam-dipu-12': {
-        'nombre': '🏛️ Cámara Diputados YT 12',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 12',
         'ytID': 'UCVOWFY-sgbDglBsfOap9okg'
     },
     'cam-dipu-13': {
-        'nombre': '🏛️ Cámara Diputados YT 13',
+        'nombre': '<i class="ai-newspaper"></i> Cámara Diputados YT 13',
         'ytID': 'UC33MG3YdoQ16a8a3wODh6lw'
     }
 }

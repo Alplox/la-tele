@@ -1,5 +1,5 @@
 /* 
-Style v0.7
+Style v0.8
 por Alplox 
 */
 
@@ -139,6 +139,23 @@ header {
     padding: 0 2rem;
 }
 
+
+#gear { /* https://stackoverflow.com/a/17031363 */
+    animation-name: ckw;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    display: inline-block;
+}
+@keyframes ckw {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .container-transmision {
     z-index: 1;
 }
@@ -208,11 +225,6 @@ header {
     width: 100%;
 }
 
-.github-logo {
-    width: 1.6rem;
-    height: 1.6rem;
-}
-
 /* Modal */
 .modal {
     display: none;
@@ -243,7 +255,7 @@ header {
 .modal-header span:focus {
     color: var(--dark-red);
     text-decoration: none;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 /* Modal Content/Box */
@@ -288,7 +300,7 @@ header {
     position: relative;
     padding: .7rem;
     font-weight: bold;
-    cursor: pointer;
+    /* cursor: pointer; */
     border-radius: .6rem;
     border: 1px solid var(--black);
     -webkit-transition: all 0.3s;
@@ -297,7 +309,7 @@ header {
     background: var(--white);
 }
   
-.btn:after {
+.btn:after:not(:disabled) {
     content: '';
     position: absolute;
     z-index: -1;
@@ -306,14 +318,14 @@ header {
     transition: all 0.3s;
 }
 
-.btn:before {
+.btn:before:not(:disabled) {
 	position: absolute;
 	height: 100%;
 	left: 0;
 	top: 0;
 }
 
-.btn:active {
+.btn:active:not(:disabled) {
     top: 3px;
 }
 
@@ -393,6 +405,7 @@ header {
     align-items: flex-start;
     width: 100%;
 }
+
 
 .barra-nombre a,
 .barra-nombre span {
@@ -635,10 +648,6 @@ footer span {
         background-color: var(--grey);
     }
 
-    .btn label:hover {
-        cursor: pointer;
-    }
-
     .btn-quitar-señal:hover {
         color: var(--white);
         background-color: var(--dark-red);
@@ -651,7 +660,8 @@ footer span {
     }
 
     .btn-legal:hover,
-    .btn-alternar:hover {
+    .btn-alternar:hover,
+    .btn-overlay:hover:not(:disabled) {
         color: var(--white);
         background: var(--secondary);
     }

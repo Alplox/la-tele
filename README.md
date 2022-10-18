@@ -1,7 +1,7 @@
 # la tele
 ## Sitio: https://alplox.github.io/la-tele/
 
-[![](https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.6.png)](https://alplox.github.io/la-tele/)
+[![](https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.8.png)](https://alplox.github.io/la-tele/)
 
 ## Listado canales disponibles junto a su fuente
 <details>
@@ -175,11 +175,13 @@
 -Favicon creado con:        https://favicon.io/
 -Metatags generados con:    https://metatags.io/
 -Sitio basado en:           https://github.com/Donchelox/tv-viewer
-                            https://github.com/Alplox/tele
--Fuente utilizada:          https://fonts.google.com/specimen/Poppins
+                            https://github.com/Alplox/teles
+-Fuente:                    https://fonts.google.com/specimen/Poppins
     Licencia: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
 -modern-normalize.css:      https://github.com/sindresorhus/modern-normalize
     Licencia: https://github.com/sindresorhus/modern-normalize/blob/main/license
+-Iconos:                    https://akaricons.com/
+    Licencia: https://github.com/artcoholic/akar-icons-app/blob/main/LICENSE
 -Workbox:                   https://github.com/GoogleChrome/workbox
     Licencia: https://github.com/GoogleChrome/workbox/blob/v6/LICENSE
 -Service Worker creado con: https://www.pwabuilder.com/
@@ -195,4 +197,4 @@
 ## Licencia
 ⚖️ [MIT License](https://github.com/Alplox/la-tele/blob/main/LICENSE)
 
-[![Visits Badge](https://badges.pufler.dev/visits/Alplox/la-tele)](https://badges.pufler.dev)
+[![Visits Badge](https://badges.strrl.dev/visits/Alplox/la-tele)](https://badges.strrl.dev)

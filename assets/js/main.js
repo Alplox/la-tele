@@ -1,14 +1,16 @@
 /* 
-Main v0.7
+Main v0.8
 por Alplox 
 */
 
 const overlay = document.querySelector('.overlay');
 const barraNombre = document.querySelector('#barra-nombre');
+const btnCheckboxOverlay = document.querySelector('#btn-overlay');
+const spanOverlay = document.querySelector('#span-overlay');
+
 const containerTransmision = document.querySelector('#container-transmision');
 const containerBtnsCanales = document.querySelector('#lista-botones');
 const recordatorio = document.querySelector('#recordatorio');
-const checkboxOverlay = document.querySelector('#checkbox-overlay');
 
 // ----- traducción videojs
 videojs.addLanguage("es", {
@@ -138,12 +140,61 @@ function crearBarraNombreM3u8(nombre) {
 }; 
 
 function limpiarTransmisionActiva() {
-    containerTransmision.innerHTML = "";
-    barraNombre.textContent = "";
+    containerTransmision.innerHTML = '';
+    barraNombre.textContent = '';
     document.querySelectorAll('button.boton-canal').forEach(btn => {
         btn.classList.remove('activo');
     });
 }
+
+// overlay on/off
+if (containerTransmision.childElementCount !== 1) {
+    btnCheckboxOverlay.disabled = true;
+    spanOverlay.innerHTML = '<i class="ai-eye-closed"></i>'
+}
+
+const habilitarOverlay = () => {
+    localStorage.setItem('overlay', 'show');
+    if (containerTransmision.childElementCount === 1){
+        overlay.classList.remove('d-none'); 
+    } 
+    spanOverlay.innerHTML = '<i class="ai-eye-open"></i>';
+    if (containerTransmision.childElementCount !== 1) {
+        spanOverlay.innerHTML = '<i class="ai-eye-closed"></i>'
+    } 
+}
+
+const desabilitarOverlay = () => {
+    localStorage.setItem('overlay', 'hide');
+    overlay.classList.add('d-none');
+    spanOverlay.innerHTML = '<i class="ai-eye-slashed"></i>';
+    if (containerTransmision.childElementCount !== 1) {
+        spanOverlay.innerHTML = '<i class="ai-eye-closed"></i>';
+    } 
+}
+
+const checkOverlayStatus = () => {
+    let lsOverlay = localStorage.getItem('overlay');
+    if (lsOverlay === 'show') {
+        habilitarOverlay()
+    } else {
+        desabilitarOverlay()
+    }
+}
+
+btnCheckboxOverlay.addEventListener('click', () => {
+    let lsOverlay = localStorage.getItem('overlay');
+    if (lsOverlay !== 'show') {
+        habilitarOverlay()
+    } else {
+        desabilitarOverlay();
+    }
+})
+
+// carga opcion guardada overlay 
+window.addEventListener('DOMContentLoaded', () => {
+    checkOverlayStatus();
+})
 
 // PARA LISTADO PRINCIPAL "listadoCanales"
 let fragmentBtns = document.createDocumentFragment();
@@ -153,12 +204,12 @@ for (const canal in listaCanales) {
     // crea botones
     const btnCanal = document.createElement('button');
         btnCanal.classList.add('btn', 'boton-canal');
-        btnCanal.textContent = nombre;
+        btnCanal.innerHTML = nombre;
     // crea evento si clic
     btnCanal.addEventListener('click', () => {
         limpiarTransmisionActiva()
         btnCanal.classList.add('activo');
-        recordatorio.innerHTML = 'Cargando...<br>(^‿^)';
+        recordatorio.innerHTML = 'Cargand<svg id="gear" xmlns="http://www.w3.org/2000/svg" width="calc(1.6rem + 1.7vw)" height="calc(1.6rem + 1.7vw)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Gear"><path d="M14 3.269C14 2.568 13.432 2 12.731 2H11.27C10.568 2 10 2.568 10 3.269v0c0 .578-.396 1.074-.935 1.286-.085.034-.17.07-.253.106-.531.23-1.162.16-1.572-.249v0a1.269 1.269 0 0 0-1.794 0L4.412 5.446a1.269 1.269 0 0 0 0 1.794v0c.41.41.48 1.04.248 1.572a7.946 7.946 0 0 0-.105.253c-.212.539-.708.935-1.286.935v0C2.568 10 2 10.568 2 11.269v1.462C2 13.432 2.568 14 3.269 14v0c.578 0 1.074.396 1.286.935.034.085.07.17.105.253.231.531.161 1.162-.248 1.572v0a1.269 1.269 0 0 0 0 1.794l1.034 1.034a1.269 1.269 0 0 0 1.794 0v0c.41-.41 1.04-.48 1.572-.249.083.037.168.072.253.106.539.212.935.708.935 1.286v0c0 .701.568 1.269 1.269 1.269h1.462c.701 0 1.269-.568 1.269-1.269v0c0-.578.396-1.074.935-1.287.085-.033.17-.068.253-.104.531-.232 1.162-.161 1.571.248v0a1.269 1.269 0 0 0 1.795 0l1.034-1.034a1.269 1.269 0 0 0 0-1.794v0c-.41-.41-.48-1.04-.249-1.572.037-.083.072-.168.106-.253.212-.539.708-.935 1.286-.935v0c.701 0 1.269-.568 1.269-1.269V11.27c0-.701-.568-1.269-1.269-1.269v0c-.578 0-1.074-.396-1.287-.935a7.755 7.755 0 0 0-.105-.253c-.23-.531-.16-1.162.249-1.572v0a1.269 1.269 0 0 0 0-1.794l-1.034-1.034a1.269 1.269 0 0 0-1.794 0v0c-.41.41-1.04.48-1.572.249a7.913 7.913 0 0 0-.253-.106C14.396 4.343 14 3.847 14 3.27v0z"/><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>';
         // cadenas if acorde a tipo de señal
         if (typeof iframeURL !== 'undefined'){     
             containerTransmision.append(crearIframe(iframeURL));
@@ -188,8 +239,9 @@ for (const canal in listaCanales) {
         } 
         // si posee enlace 'fuente' utlizalo en 'barraNombre'
         if (typeof fuente !== 'undefined') {barraNombre.append(crearBarraNombre(nombre, fuente));}
-        // si checkbox desmarcado oculta overlay
-        if (checkboxOverlay.checked === true) {overlay.classList.remove('d-none');}
+        // activa boton overlay y verifica su estado
+        btnCheckboxOverlay.disabled = false;
+        checkOverlayStatus();
     });
     fragmentBtns.append(btnCanal);
 }
@@ -209,8 +261,12 @@ for (let i = 0; i < parseM3u.length; i++) {
     btnCanal.addEventListener('click', () => {
         // elimina div o iframe canal existente (o no)
         limpiarTransmisionActiva()
+        // activa boton overlay y verifica su estado
+        btnCheckboxOverlay.disabled = false;
+        checkOverlayStatus();
+
         btnCanal.classList.add('activo');
-        recordatorio.innerHTML = 'Cargando...<br>(^‿^)';
+        recordatorio.innerHTML = 'Cargand<svg id="gear" xmlns="http://www.w3.org/2000/svg" width="calc(1.6rem + 1.7vw)" height="calc(1.6rem + 1.7vw)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Gear"><path d="M14 3.269C14 2.568 13.432 2 12.731 2H11.27C10.568 2 10 2.568 10 3.269v0c0 .578-.396 1.074-.935 1.286-.085.034-.17.07-.253.106-.531.23-1.162.16-1.572-.249v0a1.269 1.269 0 0 0-1.794 0L4.412 5.446a1.269 1.269 0 0 0 0 1.794v0c.41.41.48 1.04.248 1.572a7.946 7.946 0 0 0-.105.253c-.212.539-.708.935-1.286.935v0C2.568 10 2 10.568 2 11.269v1.462C2 13.432 2.568 14 3.269 14v0c.578 0 1.074.396 1.286.935.034.085.07.17.105.253.231.531.161 1.162-.248 1.572v0a1.269 1.269 0 0 0 0 1.794l1.034 1.034a1.269 1.269 0 0 0 1.794 0v0c.41-.41 1.04-.48 1.572-.249.083.037.168.072.253.106.539.212.935.708.935 1.286v0c0 .701.568 1.269 1.269 1.269h1.462c.701 0 1.269-.568 1.269-1.269v0c0-.578.396-1.074.935-1.287.085-.033.17-.068.253-.104.531-.232 1.162-.161 1.571.248v0a1.269 1.269 0 0 0 1.795 0l1.034-1.034a1.269 1.269 0 0 0 0-1.794v0c-.41-.41-.48-1.04-.249-1.572.037-.083.072-.168.106-.253.212-.539.708-.935 1.286-.935v0c.701 0 1.269-.568 1.269-1.269V11.27c0-.701-.568-1.269-1.269-1.269v0c-.578 0-1.074-.396-1.287-.935a7.755 7.755 0 0 0-.105-.253c-.23-.531-.16-1.162.249-1.572v0a1.269 1.269 0 0 0 0-1.794l-1.034-1.034a1.269 1.269 0 0 0-1.794 0v0c-.41.41-1.04.48-1.572.249a7.913 7.913 0 0 0-.253-.106C14.396 4.343 14 3.847 14 3.27v0z"/><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>';
         // carga señal m3u8
         containerTransmision.append(divM3u8)
         let m3u8Player = videojs(document.querySelector('.m3u8-player'));
@@ -230,9 +286,6 @@ for (let i = 0; i < parseM3u.length; i++) {
                 });
             }
         barraNombre.append(crearBarraNombreM3u8(`${title} | M3U8`));
-        if (checkboxOverlay.checked === true) {
-            overlay.classList.remove('d-none');
-        }
     }); 
     fragmentBtnsM3u8.append(btnCanal);
     };
@@ -242,10 +295,13 @@ containerBtnsCanalesM3u8.append(fragmentBtnsM3u8);
 const btnQuitarSeñal = document.querySelector('#btn-quitar-señal');
 btnQuitarSeñal.addEventListener('click', () => {
     limpiarTransmisionActiva()
-    recordatorio.textContent = '(∪ ◡ ∪)';
-    if (checkboxOverlay.checked === true) {
-        overlay.classList.add('d-none');
-    }
+    recordatorio.innerHTML = 'apagad<svg xmlns="http://www.w3.org/2000/svg" width="calc(1.6rem + 1.7vw)" height="calc(1.6rem + 1.7vw)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" class="ai ai-FaceSad"><circle cx="12" cy="12" r="10"/><path d="M8 9.05v-.1"/><path d="M16 9.05v-.1"/><path d="M16 16c-.5-1.5-1.79-3-4-3s-3.5 1.5-4 3"/></svg>';
+    // oculta overlay sin cambiar localstorage
+    if (containerTransmision.childElementCount !== 1){
+        overlay.classList.add('d-none'); 
+        spanOverlay.innerHTML = '<i class="ai-eye-closed"></i>'
+    } 
+    btnCheckboxOverlay.disabled = true;
 });
 
 // alternar listas
@@ -270,38 +326,6 @@ btnAlternar.addEventListener('click', () => {
     flip.classList.toggle('hover');
 });
 
-// overlay on/off
-const estadoBarra = document.querySelector('#estado-barra');
-let lsOverlay = localStorage.getItem('overlay');
-
-checkboxOverlay.addEventListener('click', () => {
-    if (checkboxOverlay.checked === true) {
-        checkboxOverlay.setAttribute('checked', 'checked');
-        if(containerTransmision.childElementCount === 1) {
-            overlay.classList.remove('d-none');
-        }
-        estadoBarra.innerText= 'ON'
-        localStorage.setItem('overlay', 'show');
-    } else {
-        checkboxOverlay.removeAttribute('checked', 'checked');
-        overlay.classList.add('d-none');
-        estadoBarra.innerText= 'OFF'
-        localStorage.setItem('overlay', 'hide');
-    };
-});
-
-// carga opcion guardada overlay 
-window.addEventListener('DOMContentLoaded', () => {
-    if (lsOverlay !== 'hide') {
-        estadoBarra.innerText= 'ON'
-        checkboxOverlay.setAttribute('checked', 'checked');
-    } else {
-        overlay.classList.add('d-none');
-        estadoBarra.innerText= 'OFF'
-        checkboxOverlay.removeAttribute('checked', 'checked');
-    }
-})
-
 // filtro de canales https://css-tricks.com/in-page-filtered-search-with-vanilla-javascript/
 const filtroCanales = document.querySelector('#filtro');
 
@@ -311,6 +335,10 @@ document.onkeydown = (e) => {
     if (e.key == 'Escape' || e.key == '27'){
         filtroCanales.value = '';
         filtroCanales.blur();
+        let btnsFiltrar = document.querySelectorAll('div.lista-botones > button');
+        for (let i = 0; i < btnsFiltrar.length; i++) {
+            btnsFiltrar[i].classList.remove('d-none');
+        }
     }
 }
 

@@ -1,16 +1,15 @@
 /* 
-Main v0.8
+Main v0.9
 por Alplox 
 */
 
-const overlay = document.querySelector('.overlay');
-const barraNombre = document.querySelector('#barra-nombre');
-const btnCheckboxOverlay = document.querySelector('#btn-overlay');
-const spanOverlay = document.querySelector('#span-overlay');
-
-const containerTransmision = document.querySelector('#container-transmision');
-const containerBtnsCanales = document.querySelector('#lista-botones');
-const recordatorio = document.querySelector('#recordatorio');
+const overlay = document.querySelector('.overlay'), 
+    barraNombre = document.querySelector('#barra-nombre'), 
+    btnCheckboxOverlay = document.querySelector('#btn-overlay'), 
+    spanOverlay = document.querySelector('#span-overlay'), 
+    containerTransmision = document.querySelector('#container-transmision'), 
+    containerBtnsCanales = document.querySelector('#lista-botones'), 
+    recordatorio = document.querySelector('#recordatorio');
 
 // ----- traducción videojs
 videojs.addLanguage("es", {
@@ -106,16 +105,16 @@ const divM3u8 = document.createElement('div');
     divM3u8.className = 'm3u8-stream';
 const videoM3u8 = document.createElement('video');
     videoM3u8.className = 'm3u8-player video-js vjs-16-9 vjs-fluid';
-    videoM3u8.toggleAttribute('controls'); 
-divM3u8.append(videoM3u8)
+    videoM3u8.controls = true;
+divM3u8.appendChild(videoM3u8);
 
 // ----- funciones crear
 function crearIframe(source) {
     const fragmentIframe = document.createDocumentFragment();
     const iframe = document.createElement('iframe');
-        iframe.setAttribute('src', source);
-        iframe.toggleAttribute('allowFullScreen'); 
-    fragmentIframe.append(iframe);
+        iframe.src = source;
+        iframe.allowFullscreen = true;
+        fragmentIframe.append(iframe);
     return fragmentIframe;
 }
 
@@ -123,9 +122,9 @@ function crearBarraNombre(nombre, fuente) {
     const fragmentBarra = document.createDocumentFragment();
     let a = document.createElement('a');
         a.innerHTML = nombre;
-        a.setAttribute('title', 'Ir a la página oficial de esta transmisión');
+        a.title = 'Ir a la página oficial de esta transmisión';
         a.href = fuente;
-        a.setAttribute('rel', 'noopener nofollow noreferrer');
+        a.rel = 'noopener nofollow noreferrer';
         fragmentBarra.append(a);
     return fragmentBarra;
 }; 
@@ -134,7 +133,7 @@ function crearBarraNombreM3u8(nombre) {
     const fragmentBarraM3u8 = document.createDocumentFragment();
     let span = document.createElement('span');
         span.textContent = nombre;
-        span.setAttribute('title', 'Transmisión NO OFICIAL');
+        span.title = 'Transmisión NO OFICIAL';
         fragmentBarraM3u8.append(span);
     return fragmentBarraM3u8;
 }; 
@@ -163,6 +162,7 @@ const habilitarOverlay = () => {
         spanOverlay.innerHTML = '<i class="ai-eye-closed"></i>'
     } 
 }
+
 
 const desabilitarOverlay = () => {
     localStorage.setItem('overlay', 'hide');
@@ -196,63 +196,72 @@ window.addEventListener('DOMContentLoaded', () => {
     checkOverlayStatus();
 })
 
-// PARA LISTADO PRINCIPAL "listadoCanales"
-let fragmentBtns = document.createDocumentFragment();
-for (const canal in listaCanales) {
-    // destructuring (almacena variables legibles) desde listaCanales == canales.js
-    let {iframeURL, m3u8URL, ytID, nombre, fuente} = listaCanales[canal];
-    // crea botones
-    const btnCanal = document.createElement('button');
-        btnCanal.classList.add('btn', 'boton-canal');
-        btnCanal.innerHTML = nombre;
-    // crea evento si clic
-    btnCanal.addEventListener('click', () => {
-        limpiarTransmisionActiva()
-        btnCanal.classList.add('activo');
-        recordatorio.innerHTML = 'Cargand<svg id="gear" xmlns="http://www.w3.org/2000/svg" width="calc(1.6rem + 1.7vw)" height="calc(1.6rem + 1.7vw)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Gear"><path d="M14 3.269C14 2.568 13.432 2 12.731 2H11.27C10.568 2 10 2.568 10 3.269v0c0 .578-.396 1.074-.935 1.286-.085.034-.17.07-.253.106-.531.23-1.162.16-1.572-.249v0a1.269 1.269 0 0 0-1.794 0L4.412 5.446a1.269 1.269 0 0 0 0 1.794v0c.41.41.48 1.04.248 1.572a7.946 7.946 0 0 0-.105.253c-.212.539-.708.935-1.286.935v0C2.568 10 2 10.568 2 11.269v1.462C2 13.432 2.568 14 3.269 14v0c.578 0 1.074.396 1.286.935.034.085.07.17.105.253.231.531.161 1.162-.248 1.572v0a1.269 1.269 0 0 0 0 1.794l1.034 1.034a1.269 1.269 0 0 0 1.794 0v0c.41-.41 1.04-.48 1.572-.249.083.037.168.072.253.106.539.212.935.708.935 1.286v0c0 .701.568 1.269 1.269 1.269h1.462c.701 0 1.269-.568 1.269-1.269v0c0-.578.396-1.074.935-1.287.085-.033.17-.068.253-.104.531-.232 1.162-.161 1.571.248v0a1.269 1.269 0 0 0 1.795 0l1.034-1.034a1.269 1.269 0 0 0 0-1.794v0c-.41-.41-.48-1.04-.249-1.572.037-.083.072-.168.106-.253.212-.539.708-.935 1.286-.935v0c.701 0 1.269-.568 1.269-1.269V11.27c0-.701-.568-1.269-1.269-1.269v0c-.578 0-1.074-.396-1.287-.935a7.755 7.755 0 0 0-.105-.253c-.23-.531-.16-1.162.249-1.572v0a1.269 1.269 0 0 0 0-1.794l-1.034-1.034a1.269 1.269 0 0 0-1.794 0v0c-.41.41-1.04.48-1.572.249a7.913 7.913 0 0 0-.253-.106C14.396 4.343 14 3.847 14 3.27v0z"/><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>';
-        // cadenas if acorde a tipo de señal
-        if (typeof iframeURL !== 'undefined'){     
-            containerTransmision.append(crearIframe(iframeURL));
-        } else if (typeof m3u8URL !== 'undefined'){
-            containerTransmision.append(divM3u8)
-            let m3u8Player = videojs(document.querySelector('.m3u8-player'));
-                m3u8Player.src( {
-                    src: m3u8URL,
-                    controls: true,
-                    preload: 'none'
-                });
-            // https://goo.gl/LdLk22
-            let playPromise = m3u8Player.play();
+// PARA LISTADO PRIMARIO
+fetch('https://raw.githubusercontent.com/Alplox/la-tele/main/assets/js/canales.json')
+  .then(response => response.json())
+  .then(data => {
+    let fragmentBtns = document.createDocumentFragment();
 
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        m3u8Player.play()
-                    })
-                    .catch(error => {
-                        m3u8Player.pause();
-                        console.log(error)
+    for (const canal in data) {
+        let {iframe_url, m3u8_url, yt_id, nombre, fuente, pais} = data[canal];
+
+        if (pais === "cl") {
+            const btnCanal = document.createElement('button');
+            btnCanal.classList.add('btn', 'boton-canal');
+            btnCanal.innerHTML = nombre;
+
+            btnCanal.addEventListener('click', () => {
+                limpiarTransmisionActiva()
+                btnCanal.classList.add('activo');
+                recordatorio.innerHTML = 'Cargand<svg id="gear" xmlns="http://www.w3.org/2000/svg" width="calc(1.6rem + 1.7vw)" height="calc(1.6rem + 1.7vw)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" class="ai ai-Gear"><path d="M14 3.269C14 2.568 13.432 2 12.731 2H11.27C10.568 2 10 2.568 10 3.269v0c0 .578-.396 1.074-.935 1.286-.085.034-.17.07-.253.106-.531.23-1.162.16-1.572-.249v0a1.269 1.269 0 0 0-1.794 0L4.412 5.446a1.269 1.269 0 0 0 0 1.794v0c.41.41.48 1.04.248 1.572a7.946 7.946 0 0 0-.105.253c-.212.539-.708.935-1.286.935v0C2.568 10 2 10.568 2 11.269v1.462C2 13.432 2.568 14 3.269 14v0c.578 0 1.074.396 1.286.935.034.085.07.17.105.253.231.531.161 1.162-.248 1.572v0a1.269 1.269 0 0 0 0 1.794l1.034 1.034a1.269 1.269 0 0 0 1.794 0v0c.41-.41 1.04-.48 1.572-.249.083.037.168.072.253.106.539.212.935.708.935 1.286v0c0 .701.568 1.269 1.269 1.269h1.462c.701 0 1.269-.568 1.269-1.269v0c0-.578.396-1.074.935-1.287.085-.033.17-.068.253-.104.531-.232 1.162-.161 1.571.248v0a1.269 1.269 0 0 0 1.795 0l1.034-1.034a1.269 1.269 0 0 0 0-1.794v0c-.41-.41-.48-1.04-.249-1.572.037-.083.072-.168.106-.253.212-.539.708-.935 1.286-.935v0c.701 0 1.269-.568 1.269-1.269V11.27c0-.701-.568-1.269-1.269-1.269v0c-.578 0-1.074-.396-1.287-.935a7.755 7.755 0 0 0-.105-.253c-.23-.531-.16-1.162.249-1.572v0a1.269 1.269 0 0 0 0-1.794l-1.034-1.034a1.269 1.269 0 0 0-1.794 0v0c-.41.41-1.04.48-1.572.249a7.913 7.913 0 0 0-.253-.106C14.396 4.343 14 3.847 14 3.27v0z"/><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>';
+                // cadenas if acorde a tipo de señal
+                if (typeof iframe_url !== 'undefined'){     
+                    containerTransmision.append(crearIframe(iframe_url));
+                } else if (typeof m3u8_url !== 'undefined'){
+                    containerTransmision.append(divM3u8)
+                    let m3u8Player = videojs(document.querySelector('.m3u8-player'));
+                    m3u8Player.src( {
+                        src: m3u8_url,
+                        controls: true,
+                        preload: 'none'
                     });
-                }
-        } else if (typeof ytID !== 'undefined'){
-            containerTransmision.append(crearIframe(`https://www.youtube-nocookie.com/embed/live_stream?channel=${ytID}&autoplay=1&mute=0&modestbranding=1&showinfo=0`));
-            barraNombre.append(crearBarraNombre(nombre, `https://www.youtube.com/channel/${ytID}`));
-        } 
-        // si posee enlace 'fuente' utlizalo en 'barraNombre'
-        if (typeof fuente !== 'undefined') {barraNombre.append(crearBarraNombre(nombre, fuente));}
-        // activa boton overlay y verifica su estado
-        btnCheckboxOverlay.disabled = false;
-        checkOverlayStatus();
-    });
-    fragmentBtns.append(btnCanal);
-}
-containerBtnsCanales.append(fragmentBtns);
+                     // https://goo.gl/LdLk22
+                    let playPromise = m3u8Player.play();
+
+                    if (playPromise !== undefined) {
+                        playPromise.then(_ => {
+                            m3u8Player.play()
+                        })
+                        .catch(error => {
+                            m3u8Player.pause();
+                            console.log(error)
+                        });
+                    }
+               
+                } else if (typeof yt_id !== 'undefined'){
+                    containerTransmision.append(crearIframe(`https://www.youtube-nocookie.com/embed/live_stream?channel=${yt_id}&autoplay=1&mute=0&modestbranding=1&showinfo=0`));
+                    barraNombre.append(crearBarraNombre(nombre, `https://www.youtube.com/channel/${yt_id}`));
+                } 
+                // si posee enlace 'fuente' utlizalo en 'barraNombre'
+                if (typeof fuente !== 'undefined') {barraNombre.append(crearBarraNombre(nombre, fuente));}
+                // activa boton overlay y verifica su estado
+                btnCheckboxOverlay.disabled = false;
+                checkOverlayStatus();
+            });
+            fragmentBtns.append(btnCanal);
+        }
+    }
+    containerBtnsCanales.append(fragmentBtns);
+  })
+  .catch(error => console.error('Error fetching data:', error));
+
 
 // PARA LISTADO SECUNDARIO "m3u" (lista iptv m3u.cl)
 const containerBtnsCanalesM3u8 = document.querySelector('#lista-botones-m3u8');
 let fragmentBtnsM3u8 = document.createDocumentFragment();
 for (let i = 0; i < parseM3u.length; i++) {
     let canal = parseM3u[i];
-    let {title, m3u8URL} = canal;
+    let {title, m3u8_url} = canal;
     // crea botones
     const btnCanal = document.createElement('button');
     btnCanal.classList.add('btn', 'boton-canal');
@@ -267,7 +276,7 @@ for (let i = 0; i < parseM3u.length; i++) {
         containerTransmision.append(divM3u8)
         let m3u8Player = videojs(document.querySelector('.m3u8-player'));
             m3u8Player.src( {
-                src: m3u8URL,
+                src: m3u8_url,
                 controls: true,
                 preload: 'none'
             });
@@ -289,6 +298,7 @@ for (let i = 0; i < parseM3u.length; i++) {
     fragmentBtnsM3u8.append(btnCanal);
     };
 containerBtnsCanalesM3u8.append(fragmentBtnsM3u8);
+
 
 // boton limpia/elimina señal activa
 const btnQuitarSeñal = document.querySelector('#btn-quitar-señal');

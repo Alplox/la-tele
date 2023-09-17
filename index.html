@@ -41,6 +41,7 @@
     <script type="module">
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
         const el = document.createElement('pwa-update');
+        el.swpath= "pwabuilder-sw.js"
         el.updatemessage = "Nueva versión disponible";
         document.body.appendChild(el);
     </script>

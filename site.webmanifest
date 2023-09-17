@@ -18,6 +18,10 @@
     "display": "standalone",
 
     "start_url": "/la-tele/",
+    "serviceworker": {
+        "src": "./pwabuilder-sw.js",
+        "scope": "./"
+    },
 
     "background_color": "#051320",
     "theme_color": "#000000",

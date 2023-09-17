@@ -775,5 +775,3 @@ https://multimedia.fortalezatv.cl/video/video.m3u8
 `
 
 let parseM3u = m3utojson(m3u);
-
-console.log(parseM3u)

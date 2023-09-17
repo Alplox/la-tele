@@ -20,7 +20,7 @@
     "start_url": "/la-tele/",
     "serviceworker": {
         "src": "./pwabuilder-sw.js",
-        "scope": "./"
+        "scope": "/la-tele/"
     },
 
     "background_color": "#051320",

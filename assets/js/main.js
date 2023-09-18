@@ -114,6 +114,7 @@ function crearIframe(source) {
     const iframe = document.createElement('iframe');
         iframe.src = source;
         iframe.allowFullscreen = true;
+        iframe.referrerPolicy = 'no-referrer';  // para stream 24-horas-6
         fragmentIframe.append(iframe);
     return fragmentIframe;
 }

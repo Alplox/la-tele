@@ -1,11 +1,10 @@
-// This is the "Offline page" service worker
-
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-const CACHE = "pwabuilder-page";
-
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "https://alplox.github.io/la-tele/";
+const HTML_CACHE = "html";
+const JS_CACHE = "javascript";
+const STYLE_CACHE = "stylesheets";
+const IMAGE_CACHE = "images";
+const FONT_CACHE = "fonts";
 
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
@@ -13,35 +12,62 @@ self.addEventListener("message", (event) => {
   }
 });
 
-self.addEventListener('install', async (event) => {
-  event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
-  );
-});
+workbox.routing.registerRoute(
+  ({event}) => event.request.destination === 'document',
+  new workbox.strategies.NetworkFirst({
+    cacheName: HTML_CACHE,
+    plugins: [
+      new workbox.expiration.ExpirationPlugin({
+        maxEntries: 10,
+      }),
+    ],
+  })
+);
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
+workbox.routing.registerRoute(
+  ({event}) => event.request.destination === 'script',
+  new workbox.strategies.NetworkFirst({
+    cacheName: JS_CACHE,
+    plugins: [
+      new workbox.expiration.ExpirationPlugin({
+        maxEntries: 15,
+      }),
+    ],
+  })
+);
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
+workbox.routing.registerRoute(
+  ({event}) => event.request.destination === 'style',
+  new workbox.strategies.NetworkFirst({
+    cacheName: STYLE_CACHE,
+    plugins: [
+      new workbox.expiration.ExpirationPlugin({
+        maxEntries: 15,
+      }),
+    ],
+  })
+);
 
-        if (preloadResp) {
-          return preloadResp;
-        }
+workbox.routing.registerRoute(
+  ({event}) => event.request.destination === 'image',
+  new workbox.strategies.NetworkFirst({
+    cacheName: IMAGE_CACHE,
+    plugins: [
+      new workbox.expiration.ExpirationPlugin({
+        maxEntries: 15,
+      }),
+    ],
+  })
+);
 
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
-
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
-  }
-});
+workbox.routing.registerRoute(
+  ({event}) => event.request.destination === 'font',
+  new workbox.strategies.NetworkFirst({
+    cacheName: FONT_CACHE,
+    plugins: [
+      new workbox.expiration.ExpirationPlugin({
+        maxEntries: 15,
+      }),
+    ],
+  })
+);

@@ -2,16 +2,14 @@
 <html lang="es">
 <!-- 
     la tele por Alplox
-    https://github.com/Alplox/la-tele (v0.9)
+    https://github.com/Alplox/la-tele (v0.10)
 -->
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <base target="_blank">
     <link rel="stylesheet" href="https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css">
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/canales-secundarios.js"></script>
     <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
     <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
     <!--favicon-->
@@ -29,27 +27,27 @@
     <meta property="og:url" content="https://alplox.github.io/la-tele/">
     <meta property="og:title" content="La tele">
     <meta property="og:description" content="Canales de Chile a un toque.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.9.jpg">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/Previews/shots_la_tele_v0-10.jpg">
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://alplox.github.io/la-tele/">
     <meta property="twitter:title" content="La tele">
     <meta property="twitter:description" content="Canales de Chile a un toque.">
     <meta property="twitter:image"
-        content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/v0.9.jpg">
-
+        content="https://raw.githubusercontent.com/Alplox/la-tele/master/assets/img/Previews/shots_la_tele_v0-10.jpg">
     <script type="module">
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
         const el = document.createElement('pwa-update');
-        el.swpath= "pwabuilder-sw.js"
+        el.swpath = "pwabuilder-sw.js"
         el.updatemessage = "Nueva versión disponible";
+        el.offlineToastDuration = 2000;
         document.body.appendChild(el);
     </script>
-
     <script src="https://unpkg.com/akar-icons-fonts"></script>
 </head>
 
 <body>
+    <!-- Alerta javascript desactivado -->
     <noscript>
         <div class="no-js">
             <p>El sitio <b>no</b> funciona sin <b>JavaScript</b>.</p>
@@ -58,72 +56,83 @@
         </div>
     </noscript>
 
-    <header class="header-principal">
-        <h1>
-            <a href="./" target="_self">La tele</a>
-        </h1>
-        <p>
-            <strong>Probar otro visor: </strong>
-            <a href="https://alplox.github.io/teles/" rel="nofollow noreferrer noopener" target="_self">teles</a>
-        </p>
-    </header>
-
-    <main>
-        <div class="grid">
-            <div class="video-container sombra">
-                <div class="overlay d-none">
-                    <div class="barra-nombre" id="barra-nombre"></div>
-                    <button role="button" class="btn btn-quitar-señal" id="btn-quitar-señal" title="Elimina señal activa">
-                        <span><i class="ai-cross"></i></span>
-                    </button>
-                </div>
-                <div class="container-transmision" id="container-transmision"></div>
-                <p class="recordatorio" id="recordatorio">
-                    Selecci<svg xmlns="http://www.w3.org/2000/svg" width="calc(1.6rem + 1.7vw)" height="calc(1.6rem + 1.7vw)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" class="ai ai-CircleTriangleRight"><circle cx="12" cy="12" r="10"/><path d="M16 12l-6-4v8l6-4z"/></svg>na un canal 
-                </p>
-            </div>
-
-            <aside class="canales-container sombra">
-                <header class="header-secundario">
-                    <h2>Canales</h2>
-                    <input class="filtro" id="filtro" type="search" title="Buscador" placeholder="Buscar">
-                </header>
-
-                <div class="flip-container" id="flip-container">
-                    <div class="flipper" id="flipper">
-                        <div class="lista-botones front" id="lista-botones"></div>
-                        <div class="lista-botones back" id="lista-botones-m3u8"></div>
+    <!-- video y listado canales -->
+    <div class="wrapper-all">
+        <header class="header-principal">
+           
+            <a href="./" target="_self" class="focus-outline-blue" tabindex="0"><h1>La tele</h1></a>
+         
+            <!-- <p> -->
+                <!-- <strong>Probar otro visor: </strong> -->
+                <a href="https://alplox.github.io/teles/" rel="nofollow noreferrer noopener" target="_self" class="focus-outline-blue" tabindex="0">
+                    <img class="img-teles" src="https://alplox.github.io/teles/assets/favicon/favicon-16x16.png" alt="logo teles"> teles <i class="ai-link-out"></i></a>
+            <!-- </p> -->
+        </header>
+        <main>
+            <div class="main-grid">
+                <div class="sombra">
+                    <div class="container-video">
+                        <div class="container-overlay d-none">
+                            <div class="nombre-overlay">
+                                <span id="nombre-overlay"></span>
+                                <button type="button" role="button" class="boton boton-overlay-quitar-señal" id="boton-overlay-quitar-señal" title="Quitar señal activa" tabindex="0">
+                                    <i class="ai-cross"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" role="button" class="boton boton-alternar-visibilidad-overlay sombra" id="boton-alternar-visibilidad-overlay" title="Nombre sobre transmisiones on/off" disabled>
+                            <span id="span-boton-alternar-visibilidad-overlay"><i class="ai-eye-closed"></i></span>
+                        </button>
+                        <div class="container-transmision" id="container-transmision"></div>
+                        <div class="container-texto-detras-container-transmision">
+                        <p id="texto-detras-container-transmision"> Bienvenid<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" 
+                            fill="none" stroke="currentColor" stroke-width=".7" 
+                            stroke-linecap="round" stroke-linejoin="round" 
+                            class="ai ai-CircleTriangleRight"><circle cx="12" cy="12" r="10"/>
+                            <path d="M16 12l-6-4v8l6-4z"/>
+                            </svg>
+                            </p> 
+                        </div>
                     </div>
                 </div>
-
-                <div class="opciones-container">
-                    <button role="button" class="btn btn-alternar" id="btn-alternar" title="Alternar entre lista IPTV">
-                       Alternar Listado 
-                    </button>
-                    <button role="button" class="btn btn-overlay" id="btn-overlay" title="Nombre sobre transmisiones on/off">
-                        Overlay <span id="span-overlay"></span>
-                    </button>
-                </div>
-            </aside>
-        </div>
-    </main>
-
-    <footer>
-        <button id="boton-legal" class="btn btn-legal">Aviso Legal</button>
-        <div>
-            <a href="https://github.com/Alplox/la-tele" rel="nofollow noreferrer noopener">Desarrollado por Alplox</a>
-            <span><i class="ai-heart"></i></span>
-            <a href="https://github.com/Alplox/la-tele#listado-canales-disponibles-junto-a-su-fuente"
-            rel="nofollow noreferrer noopener">Ver fuentes
-            transmisiones</a>
-        </div>
-    </footer>
-
+                <aside class="container-botones-canales sombra">
+                    <header class="header-secundario">
+                        <h2>Canales</h2>
+                        <input class="filtro sombra" id="filtro" type="search" title="Buscador" placeholder="Buscar" tabindex="0">
+                    </header>
+                    <div class="flip-container" id="flip-container">
+                        <div class="flipper" id="flipper">
+                            <div class="lista-botones front" id="lista-botones"></div>
+                            <div class="lista-botones back" id="lista-botones-m3u8" tabindex="-1"></div>
+                        </div>
+                    </div>
+                    <div class="opciones-container">
+                        <div>
+                            <button type="button" role="button" class="boton boton-alternar-lista-canales sombra" id="boton-alternar-lista-canales" title="Alternar entre lista IPTV">
+                                Alternar listado <i class="ai-arrow-forward-thick"></i>
+                            </button>
+                        </div>
+                        <a href="https://github.com/Alplox/la-tele#listado-canales-disponibles-junto-a-su-fuente"
+                        rel="nofollow noreferrer noopener" tabindex="0">Ver origen
+                        transmisiones <i class="ai-link-out"></i></a>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <footer class="footer">
+            <button type="button" role="button" id="boton-descargo-responsabilidad" class="boton boton-descargo-responsabilidad">Descargo de responsabilidad</button>
+            <a href="https://github.com/Alplox/la-tele" rel="nofollow noreferrer noopener">
+                Desarrollado por Alplox <i class="ai-link-out"></i>
+            </a>
+            v0.10
+        </footer>
+    </div>
+    
     <!-- Modal -->
-    <div id="modal-legal" class="modal">
+    <div class="modal" id="modal-legal" tabindex="-1">
         <div class="modal-content">
             <div class="modal-header">
-                <span><i class="ai-cross"></i></span>
+                <span><i class="ai-cross" tabindex="0"></i></span>
                 <h1>Descargo de responsabilidad</h1>
             </div>
             <div class="modal-body">
@@ -147,21 +156,21 @@
                         en todo
                         momento.</li>
                     <li>Si posees los derechos de algún canal y deseas que sea retirado, <a
-                            href="https://github.com/Alplox/la-tele/issues" rel="nofollow noreferrer"> contáctame</a>.
+                            href="https://github.com/Alplox/json-teles/issues" rel="nofollow noreferrer"> contáctame <i class="ai-link-out"></i></a>.
                     </li>
                 </ul>
                 <p>&mdash; Si quieres conocer el origen de cada livestream visita el <a
-                        href="https://github.com/Alplox/la-tele#listado-canales-disponibles-junto-a-su-fuente"
-                        rel="noopener nofollow noreferrer">repositorio
-                        GitHub <i class="ai-github-fill"></i></a> de la página.</p>
-                <div class="center">
-                    <button type="button" class="btn btn-entendido"
-                        id="btn-entendido">Entendido</button>
-                </div>
+                    href="https://github.com/Alplox/la-tele#listado-canales-disponibles-junto-a-su-fuente"
+                    rel="noopener nofollow noreferrer">repositorio
+                    GitHub <i class="ai-github-fill"></i><i class="ai-link-out"></i></a> de la página.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" role="button" class="boton boton-modal-entendido sombra"
+                id="boton-modal-entendido">Entendido</button>
             </div>
         </div>
     </div>
-
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
 </body>
 </html>

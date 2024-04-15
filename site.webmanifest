@@ -25,9 +25,27 @@
 
     "screenshots": [
         {
-        "src": "./assets/img/v0.9.jpg",
+        "src": "./assets/img/PWA/1.jpg",
         "type": "image/png",
-        "sizes": "1920x937"
+        "sizes": "1080x1920"
+        },
+        {
+        "src": "./assets/img/PWA/2.jpg",
+        "type": "image/png",
+        "sizes": "1080x1920"
+        },
+        {
+        "src": "./assets/img/PWA/3.jpg",
+        "type": "image/png",
+        "sizes": "1080x1920"
+        },
+        {
+        "src": "./assets/img/Previews/shots_la_tele_v0-10.jpg",
+        "type": "image/png",
+        "form_factor": "wide",
+        "sizes": "1920x1080",
+        "label": "Versión escritorio"
         }
+
     ]
 }

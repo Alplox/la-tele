@@ -321,6 +321,7 @@ body {
 .front {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
+    z-index: 1;
 }
 
 .back {

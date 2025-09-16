@@ -2,7 +2,7 @@
 <html lang="es">
 <!-- 
     la tele por Alplox
-    https://github.com/Alplox/la-tele (v0.11)
+    https://github.com/Alplox/la-tele (v0.12)
 -->
 <head>
     <meta charset="UTF-8">
@@ -95,8 +95,12 @@
                 <input class="filtro" id="filtro" type="search" title="Buscador" placeholder="Buscar canal" tabindex="0" lang="es">
                 <div class="flip-container" id="flip-container">
                     <div class="flipper" id="flipper">
-                        <div class="lista-botones front" id="lista-botones"></div>
-                        <div class="lista-botones back" id="lista-botones-m3u8" tabindex="-1"></div>
+                        <div class="lista-botones front" id="lista-botones">
+                            <div class="sin-resultados-canal d-none" id="sin-resultados-canal-principal"></div>
+                        </div>
+                        <div class="lista-botones back" id="lista-botones-m3u8" tabindex="-1">
+                            <div class="sin-resultados-canal d-none" id="sin-resultados-canal-secundario"></div>
+                        </div>
                     </div>
                 </div>
                 <button type="button" role="button" class="boton boton-accion" id="boton-alternar-lista-canales" title="Alternar entre lista IPTV">
@@ -109,7 +113,7 @@
             <a href="https://github.com/Alplox/la-tele" rel="nofollow noreferrer noopener">
                 Desarrollado por Alplox <i class="ai-link-out"></i>
             </a>
-            <p>v0.11</p>
+            <p>v0.12</p>
         </footer>
     </section>
    

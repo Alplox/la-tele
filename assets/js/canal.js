@@ -22,7 +22,11 @@ export function crearIframe(canalId, tipoSeñalParaIframe, valorIndex = 0) {
     IFRAME_ELEMENT.setAttribute('contenedor-canal-cambio', canalId);
     IFRAME_ELEMENT.allowFullscreen = true;
     IFRAME_ELEMENT.title = nombre;
-    IFRAME_ELEMENT.referrerPolicy = 'no-referrer';
+    if (tipoSeñalParaIframe === 'yt_id' || tipoSeñalParaIframe === 'yt_embed' || tipoSeñalParaIframe === 'yt_playlist') {
+        IFRAME_ELEMENT.referrerPolicy = 'strict-origin-when-cross-origin';  // Debido a Error 153 con Youtube. Rompe otras señales iframe_url por eso lo filtramos antes.
+    } else {
+        IFRAME_ELEMENT.referrerPolicy = 'no-referrer';
+    }
     DIV_ELEMENT.append(IFRAME_ELEMENT);
     return DIV_ELEMENT;
 }

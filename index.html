@@ -2,8 +2,9 @@
 <html lang="es">
 <!-- 
     la tele por Alplox
-    https://github.com/Alplox/la-tele (v0.12)
+    https://github.com/Alplox/la-tele (v0.13)
 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,8 +32,7 @@
     <meta property="twitter:url" content="https://alplox.github.io/la-tele/">
     <meta property="twitter:title" content="La tele">
     <meta property="twitter:description" content="Canales de Chile a un toque.">
-    <meta property="twitter:image"
-        content="assets/img/Previews/shots_la_tele_v0-10.jpg">
+    <meta property="twitter:image" content="assets/img/Previews/shots_la_tele_v0-10.jpg">
     <script type="module">
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
         const el = document.createElement('pwa-update');
@@ -54,45 +54,51 @@
 
     <!-- video y listado canales -->
     <section class="wrapper-all">
-        <header class="header-principal"> 
-            <a href="./" target="_self" tabindex="0"><h1>La tele</h1></a>
+        <header class="header-principal">
+            <a href="./" target="_self" tabindex="0">
+                <h1>La tele</h1>
+            </a>
             <a href="https://alplox.github.io/teles/" rel="nofollow noreferrer noopener" target="_self" tabindex="0">
-                <img class="img-teles" src="https://alplox.github.io/teles/assets/favicon/favicon-16x16.png" alt="logo teles"> teles <i class="ai-link-out"></i>
+                <img class="img-teles" src="https://alplox.github.io/teles/assets/favicon/favicon-16x16.png"
+                    alt="logo teles"> teles <i class="ai-link-out"></i>
             </a>
         </header>
-        <main class="main-grid">   
+        <main class="main-grid">
             <div class="container-video sombra">
                 <div class="container-overlay d-none">
                     <div class="overlay">
                         <details class="dropdown-señales">
                             <summary role="button" class="boton boton-accion boton-señales">
-                              Señales
+                                Señales
                             </summary>
                             <ul id="lista-señales">
                             </ul>
                         </details>
                         <a id="nombre-overlay" rel="nofollow noopener"></a>
-                        <button type="button" role="button" class="boton boton-overlay-quitar-señal" id="boton-overlay-quitar-señal" title="Quitar señal activa" tabindex="0">
+                        <button type="button" role="button" class="boton boton-overlay-quitar-señal"
+                            id="boton-overlay-quitar-señal" title="Quitar señal activa" tabindex="0">
                             <i class="ai-cross"></i>
                         </button>
                     </div>
                 </div>
-                <button type="button" role="button" class="boton boton-alternar-visibilidad-overlay boton-accion sombra" id="boton-alternar-visibilidad-overlay" title="Nombre sobre transmisiones on/off" disabled>
+                <button type="button" role="button" class="boton boton-alternar-visibilidad-overlay boton-accion sombra"
+                    id="boton-alternar-visibilidad-overlay" title="Nombre sobre transmisiones on/off" disabled>
                     <span id="span-boton-alternar-visibilidad-overlay"><i class="ai-eye-closed"></i></span>
                 </button>
                 <div class="container-transmision" id="container-transmision"></div>
                 <div class="container-texto-detras-container-transmision">
-                <p id="texto-detras-container-transmision"> Bienvenid<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" 
-                    fill="none" stroke="currentColor" stroke-width=".7" 
-                    stroke-linecap="round" stroke-linejoin="round" 
-                    class="ai ai-CircleTriangleRight"><circle cx="12" cy="12" r="10"/>
-                    <path d="M16 12l-6-4v8l6-4z"/>
-                    </svg>
-                    </p> 
+                    <p id="texto-detras-container-transmision"> Bienvenid<svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7"
+                            stroke-linecap="round" stroke-linejoin="round" class="ai ai-CircleTriangleRight">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 12l-6-4v8l6-4z" />
+                        </svg>
+                    </p>
                 </div>
             </div>
             <aside class="container-botones-canales sombra">
-                <input class="filtro" id="filtro" type="search" title="Buscador" placeholder="Buscar canal" tabindex="0" lang="es">
+                <input class="filtro" id="filtro" type="search" title="Buscador" placeholder="Buscar canal" tabindex="0"
+                    lang="es">
                 <div class="flip-container" id="flip-container">
                     <div class="flipper" id="flipper">
                         <div class="lista-botones front" id="lista-botones">
@@ -103,20 +109,22 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" role="button" class="boton boton-accion" id="boton-alternar-lista-canales" title="Alternar entre lista IPTV">
+                <button type="button" role="button" class="boton boton-accion" id="boton-alternar-lista-canales"
+                    title="Alternar entre lista IPTV">
                     Alternar listado <i class="ai-arrow-forward-thick"></i>
                 </button>
             </aside>
         </main>
         <footer class="footer">
-            <button type="button" role="button" id="boton-descargo-responsabilidad" class="boton boton-accion">Descargo de responsabilidad</button>
+            <button type="button" role="button" id="boton-descargo-responsabilidad" class="boton boton-accion">Descargo
+                de responsabilidad</button>
             <a href="https://github.com/Alplox/la-tele" rel="nofollow noreferrer noopener">
                 Desarrollado por Alplox <i class="ai-link-out"></i>
             </a>
-            <p>v0.12</p>
+            <p>v0.13</p>
         </footer>
     </section>
-   
+
     <!-- Modal -->
     <div class="modal" id="modal-legal" tabindex="-1">
         <div class="modal-content">
@@ -145,20 +153,22 @@
                         en todo
                         momento.</li>
                     <li>Si posees los derechos de algún canal y deseas que sea retirado, <a
-                            href="https://github.com/Alplox/json-teles/issues" rel="nofollow noreferrer"> contáctame <i class="ai-link-out"></i></a>.
+                            href="https://github.com/Alplox/json-teles/issues" rel="nofollow noreferrer"> contáctame <i
+                                class="ai-link-out"></i></a>.
                     </li>
                 </ul>
                 <p>&mdash; Si quieres conocer el origen de cada livestream visita el <a
-                    href="https://github.com/Alplox/la-tele#listado-canales-disponibles-junto-a-su-fuente"
-                    rel="noopener nofollow noreferrer">repositorio
-                    GitHub <i class="ai-github-fill"></i><i class="ai-link-out"></i></a> de la página.
+                        href="https://github.com/Alplox/la-tele#listado-canales-disponibles-junto-a-su-fuente"
+                        rel="noopener nofollow noreferrer">repositorio
+                        GitHub <i class="ai-github-fill"></i><i class="ai-link-out"></i></a> de la página.
                 </p>
             </div>
             <div class="modal-footer">
                 <button type="button" role="button" class="boton boton-modal-entendido sombra"
-                id="boton-modal-entendido">Entendido</button>
+                    id="boton-modal-entendido">Entendido</button>
             </div>
         </div>
     </div>
 </body>
+
 </html>

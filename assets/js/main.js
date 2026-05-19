@@ -1,4 +1,4 @@
-// Main v0.12 por Alplox
+// Main v0.13 por Alplox
 import { setVideojsLang } from './videojs-lang.js';
 import { SHOW_OVERLAY, toggleOverlay } from './overlay.js';
 import { fetchCanalesPrincipales, fetchCanalesSecundarios } from './fetch.js';
@@ -28,7 +28,10 @@ if (localStorage.getItem('modal_status') !== 'hide') showModal();
 BOTON_QUITAR_SEÑAL.addEventListener('click', limpiarTransmisionActiva);
 
 BOTON_ALTERNAR_VISIBILIDAD_OVERLAY.addEventListener('click', () => {
-    toggleOverlay(localStorage.getItem('estado_overlay') !== SHOW_OVERLAY);
+    // toggle solo si existe video cargado activo
+    if (CONTAINER_TRANSMISION_ACTIVA.children.length > 0) {
+        toggleOverlay(localStorage.getItem('estado_overlay') !== SHOW_OVERLAY);
+    }
 });
 
 // Alternar listas de canales
@@ -67,3 +70,14 @@ fetchCanalesPrincipales();
 fetchCanalesSecundarios();
 
 setupObserver();
+
+// Close any .dropdown-señales when clicking outside
+document.addEventListener('click', (e) => {
+    document.querySelectorAll('.dropdown-señales[open]').forEach(dropdown => {
+        const summary = dropdown.querySelector('summary');
+        const list = dropdown.querySelector('ul');
+        if (summary && list && !summary.contains(e.target) && !list.contains(e.target)) {
+            dropdown.removeAttribute('open');
+        }
+    });
+});

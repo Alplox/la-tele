@@ -1,6 +1,8 @@
 import { CONTAINER_TRANSMISION_ACTIVA, SPAN_NOMBRE_OVERLAY, UL_OVERLAY_SEÑALES } from "./main.js";
+import { limpiarActivePlayer } from "./canal.js";
 
 export function limpiarTransmisionActiva() {
+  limpiarActivePlayer();
   CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
   SPAN_NOMBRE_OVERLAY.textContent = '';
   SPAN_NOMBRE_OVERLAY.removeAttribute('href');

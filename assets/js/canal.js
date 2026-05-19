@@ -31,22 +31,42 @@ export function crearIframe(canalId, tipoSeñalParaIframe, valorIndex = 0) {
     return DIV_ELEMENT;
 }
 
+let activePlayer = null;
+
+export function limpiarActivePlayer() {
+    if (activePlayer) {
+        try {
+            activePlayer.dispose();
+        } catch (e) {
+            console.error('Error disposing VideoJS player:', e);
+        }
+        activePlayer = null;
+    }
+}
+
 export function crearVideoJs(urlCarga) {
+    limpiarActivePlayer();
+
     const DIV_ELEMENT = document.createElement('div');
     DIV_ELEMENT.classList.add('h-100');
     const videoElement = document.createElement('video');
     videoElement.classList.add('video-js', 'vjs-16-9', 'vjs-fill');
     videoElement.toggleAttribute('controls');
     DIV_ELEMENT.append(videoElement);
-    videojs(videoElement).src({
-        src: urlCarga,
+
+    activePlayer = videojs(videoElement, {
         controls: true,
+        autoplay: 'muted',
+        sources: [{
+            src: urlCarga
+        }]
     });
-    videojs(videoElement).autoplay('muted');
+
     return DIV_ELEMENT;
 }
 
 export function crearFragmentCanal(canalId) {
+    limpiarActivePlayer();
     if (listaCanales[canalId]?.señales) {
         let { señales } = listaCanales[canalId]
         let { iframe_url = [], m3u8_url = [], yt_id = '', yt_embed = '', yt_playlist = '', twitch_id = '' } = señales;
@@ -102,6 +122,9 @@ export function crearFragmentCanal(canalId) {
                         guardarSeñalPreferida(canalId, key.toString(), Number(index));
                         CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
                         CONTAINER_TRANSMISION_ACTIVA.append(crearFragmentCanal(canalId));
+                        
+                        const dropdown = document.querySelector('.dropdown-señales');
+                        if (dropdown) dropdown.removeAttribute('open');
                     });
                     UL_OVERLAY_SEÑALES.append(listItem);
                 });
@@ -117,6 +140,9 @@ export function crearFragmentCanal(canalId) {
                     guardarSeñalPreferida(canalId, key.toString());
                     CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
                     CONTAINER_TRANSMISION_ACTIVA.append(crearFragmentCanal(canalId));
+
+                    const dropdown = document.querySelector('.dropdown-señales');
+                    if (dropdown) dropdown.removeAttribute('open');
                 });
                 UL_OVERLAY_SEÑALES.append(listItem);
             }

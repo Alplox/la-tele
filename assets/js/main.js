@@ -1,11 +1,11 @@
-// Main v0.13 por Alplox
+// Main v0.14 por Alplox
 import { setVideojsLang } from './videojs-lang.js';
 import { SHOW_OVERLAY, toggleOverlay } from './overlay.js';
 import { fetchCanalesPrincipales, fetchCanalesSecundarios } from './fetch.js';
-import { limpiarTransmisionActiva, cambiarTabindex, normalizeText } from './ui-utils.js';
+import { limpiarTransmisionActiva, cambiarTabindex, debounce, safeGetItem } from './ui-utils.js';
 import { setupObserver } from './observer.js';
 import { showModal } from './modal.js';
-import { filtro } from './filtro.js';
+import { filtro, resetFiltroCache } from './filtro.js';
 
 // Elementos del DOM
 export const CONTAINER_OVERLAY = document.querySelector('.container-overlay');
@@ -21,8 +21,9 @@ const BOTON_QUITAR_SEÑAL = document.querySelector('#boton-overlay-quitar-señal
 const BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES = document.querySelector('#boton-alternar-lista-canales');
 const CONTAINER_FLIP = document.querySelector('#flip-container');
 export const INPUT_FILTRADO_CANALES = document.querySelector('#filtro');
+const DURACION_FLIP_MS = 610;
 
-if (localStorage.getItem('modal_status') !== 'hide') showModal();
+showModal();
 
 
 BOTON_QUITAR_SEÑAL.addEventListener('click', limpiarTransmisionActiva);
@@ -30,7 +31,7 @@ BOTON_QUITAR_SEÑAL.addEventListener('click', limpiarTransmisionActiva);
 BOTON_ALTERNAR_VISIBILIDAD_OVERLAY.addEventListener('click', () => {
     // toggle solo si existe video cargado activo
     if (CONTAINER_TRANSMISION_ACTIVA.children.length > 0) {
-        toggleOverlay(localStorage.getItem('estado_overlay') !== SHOW_OVERLAY);
+        toggleOverlay(safeGetItem('estado_overlay') !== SHOW_OVERLAY);
     }
 });
 
@@ -47,7 +48,7 @@ BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.addEventListener('click', () => {
         setTimeout(() => {
             BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.disabled = false;
             filtro();
-        }, 610);
+        }, DURACION_FLIP_MS);
     } else {
         cambiarTabindex(CONTAINER_BOTONES_CANALES_PRINCIPAL, "-1");
         cambiarTabindex(CONTAINER_BOTONES_CANALES_SECUNDARIOS, "0");
@@ -57,12 +58,13 @@ BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.addEventListener('click', () => {
             BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.disabled = false;
             CONTAINER_BOTONES_CANALES_PRINCIPAL.style.display = 'none';
             filtro();
-        }, 610);
+        }, DURACION_FLIP_MS);
     }
-    CONTAINER_FLIP.classList.toggle('hover');
+    CONTAINER_FLIP.classList.toggle('flipped');
+    resetFiltroCache();
 });
 
-INPUT_FILTRADO_CANALES.addEventListener('input', filtro);
+INPUT_FILTRADO_CANALES.addEventListener('input', debounce(filtro, 150));
 
 setVideojsLang(window.videojs);
 

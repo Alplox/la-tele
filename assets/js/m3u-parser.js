@@ -1,4 +1,8 @@
 export function M3U_A_JSON(m3u) {
+    if (typeof m3u !== 'string' || m3u.length === 0) {
+        console.warn('M3U_A_JSON: entrada inválida', typeof m3u);
+        return {};
+    }
     const channels = {};
     const lines = m3u.split('\n').filter(line => line.trim() !== '');
 
@@ -6,8 +10,10 @@ export function M3U_A_JSON(m3u) {
         const channelInfo = lines[i].match(/([^\s]+)="([^"]+)"/g);
         if (channelInfo) {
             const attributes = channelInfo.reduce((acc, attr) => {
-                const [key, value] = attr.split('=');
-                acc[key.replace(/"/g, '')] = value.replace(/"/g, '');
+                const eqIdx = attr.indexOf('=');
+                const key = attr.slice(0, eqIdx).replace(/"/g, '');
+                const value = attr.slice(eqIdx + 1).replace(/"/g, '');
+                acc[key] = value;
                 return acc;
             }, {});
 

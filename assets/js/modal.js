@@ -1,33 +1,55 @@
+import { safeGetItem, safeSetItem } from './ui-utils.js';
+
 const MODAL_MAIN_CONTAINER = document.querySelector('#modal-legal');
+let previousFocused = null;
+
+function modalError(missing) {
+  console.error(`modal.js: elemento "${missing}" no encontrado en el DOM`);
+}
+
+function openModal() {
+  if (!MODAL_MAIN_CONTAINER) { modalError('#modal-legal'); return; }
+  previousFocused = document.activeElement;
+  MODAL_MAIN_CONTAINER.style.display = 'flex';
+  const firstFocusable = MODAL_MAIN_CONTAINER.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  if (firstFocusable) firstFocusable.focus();
+}
 
 export const showModal = () => {
-    MODAL_MAIN_CONTAINER.setAttribute("tabindex", "0");
-    MODAL_MAIN_CONTAINER.style.display = 'flex';
-    localStorage.setItem('modal_status', 'show');
+  if (safeGetItem('modal_status') !== 'hide') {
+    openModal();
+    safeSetItem('modal_status', 'show');
+  }
 };
+
 const hideModal = () => {
-    MODAL_MAIN_CONTAINER.setAttribute("tabindex", "-1");
-    MODAL_MAIN_CONTAINER.style.display = 'none';
-    localStorage.setItem('modal_status', 'hide');
+  if (!MODAL_MAIN_CONTAINER) return;
+  MODAL_MAIN_CONTAINER.style.display = 'none';
+  safeSetItem('modal_status', 'hide');
+  if (previousFocused) previousFocused.focus();
 };
 
 const BOTON_MODAL_ENTENDIDO = document.querySelector('#boton-modal-entendido');
-BOTON_MODAL_ENTENDIDO.addEventListener('click', () => {
-    hideModal()
-})
+if (BOTON_MODAL_ENTENDIDO) {
+  BOTON_MODAL_ENTENDIDO.addEventListener('click', hideModal);
+} else modalError('#boton-modal-entendido');
 
-// boton footer abrir modal
 const BOTON_DESCARGO_RESPONSABILIDAD = document.querySelector('#boton-descargo-responsabilidad');
-BOTON_DESCARGO_RESPONSABILIDAD.addEventListener('click', () => {
-    MODAL_MAIN_CONTAINER.style.display = 'flex';
-});
+if (BOTON_DESCARGO_RESPONSABILIDAD) {
+  BOTON_DESCARGO_RESPONSABILIDAD.addEventListener('click', openModal);
+} else modalError('#boton-descargo-responsabilidad');
 
-const BOTON_MODAL_CERRAR = document.querySelector('div.modal-header > span')
-BOTON_MODAL_CERRAR.addEventListener('click', () => {
-    MODAL_MAIN_CONTAINER.style.display = 'none';
-})
+const BOTON_MODAL_CERRAR = document.querySelector('.modal-cerrar');
+if (BOTON_MODAL_CERRAR) {
+  BOTON_MODAL_CERRAR.addEventListener('click', hideModal);
+} else modalError('.modal-cerrar');
 
-// clic fuera modal lo cierra
+if (MODAL_MAIN_CONTAINER) {
+  MODAL_MAIN_CONTAINER.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hideModal();
+  });
+}
+
 window.addEventListener('click', (e) => {
-    if (e.target == MODAL_MAIN_CONTAINER) MODAL_MAIN_CONTAINER.style.display = 'none';
+  if (e.target === MODAL_MAIN_CONTAINER) hideModal();
 });

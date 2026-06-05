@@ -1,6 +1,7 @@
 import { TEXTO_APAGADO } from "./config.js";
 import { BOTON_ALTERNAR_VISIBILIDAD_OVERLAY, CONTAINER_OVERLAY, CONTAINER_TRANSMISION_ACTIVA, SPAN_BOTON_ALTERNAR_VISIBILIDAD_OVERLAY, TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA } from "./main.js";
 import { toggleOverlay, SHOW_OVERLAY } from "./overlay.js";
+import { safeGetItem } from "./ui-utils.js";
 
 // Observador de transmisión activa
 export function setupObserver() {
@@ -11,9 +12,9 @@ export function setupObserver() {
       CONTAINER_OVERLAY.classList.add('d-none');
       SPAN_BOTON_ALTERNAR_VISIBILIDAD_OVERLAY.innerHTML = '<i class="ai-eye-closed"></i>';
       BOTON_ALTERNAR_VISIBILIDAD_OVERLAY.disabled = true;
-    } else if (divs.length === 1) {
+    } else {
       BOTON_ALTERNAR_VISIBILIDAD_OVERLAY.disabled = false;
-      toggleOverlay(localStorage.getItem('estado_overlay') === SHOW_OVERLAY);
+      toggleOverlay(safeGetItem('estado_overlay') === SHOW_OVERLAY);
     }
   });
   const config = { childList: true };

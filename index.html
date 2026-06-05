@@ -2,13 +2,16 @@
 <html lang="es">
 <!-- 
     la tele por Alplox
-    https://github.com/Alplox/la-tele (v0.13)
+    https://github.com/Alplox/la-tele (v0.14)
 -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base target="_blank">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
@@ -41,7 +44,7 @@
         el.offlineToastDuration = 2000;
         document.body.appendChild(el);
     </script>
-    <script src="https://unpkg.com/akar-icons-fonts"></script>
+    <script defer src="https://unpkg.com/akar-icons-fonts"></script>
     <script src="assets/js/main.js" type="module"></script>
 </head>
 
@@ -55,10 +58,10 @@
     <!-- video y listado canales -->
     <section class="wrapper-all">
         <header class="header-principal">
-            <a href="./" target="_self" tabindex="0">
+            <a href="./" target="_self">
                 <h1>La tele</h1>
             </a>
-            <a href="https://alplox.github.io/teles/" rel="nofollow noreferrer noopener" target="_self" tabindex="0">
+            <a href="https://alplox.github.io/teles/" rel="nofollow noreferrer noopener" target="_self">
                 <img class="img-teles" src="https://alplox.github.io/teles/assets/favicon/favicon-16x16.png"
                     alt="logo teles"> teles <i class="ai-link-out"></i>
             </a>
@@ -75,13 +78,13 @@
                             </ul>
                         </details>
                         <a id="nombre-overlay" rel="nofollow noopener"></a>
-                        <button type="button" role="button" class="boton boton-overlay-quitar-señal"
-                            id="boton-overlay-quitar-señal" title="Quitar señal activa" tabindex="0">
+                        <button type="button" class="boton boton-overlay-quitar-señal" id="boton-overlay-quitar-señal"
+                            title="Quitar señal activa" tabindex="0">
                             <i class="ai-cross"></i>
                         </button>
                     </div>
                 </div>
-                <button type="button" role="button" class="boton boton-alternar-visibilidad-overlay boton-accion sombra"
+                <button type="button" class="boton boton-alternar-visibilidad-overlay boton-accion sombra"
                     id="boton-alternar-visibilidad-overlay" title="Nombre sobre transmisiones on/off" disabled>
                     <span id="span-boton-alternar-visibilidad-overlay"><i class="ai-eye-closed"></i></span>
                 </button>
@@ -97,8 +100,8 @@
                 </div>
             </div>
             <aside class="container-botones-canales sombra">
-                <input class="filtro" id="filtro" type="search" title="Buscador" placeholder="Buscar canal" tabindex="0"
-                    lang="es">
+                <input class="filtro" id="filtro" type="search" title="Buscador" placeholder="Buscar canal"
+                    aria-label="Buscar canal" tabindex="0" lang="es">
                 <div class="flip-container" id="flip-container">
                     <div class="flipper" id="flipper">
                         <div class="lista-botones front" id="lista-botones">
@@ -109,27 +112,28 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" role="button" class="boton boton-accion" id="boton-alternar-lista-canales"
+                <button type="button" class="boton boton-accion" id="boton-alternar-lista-canales"
                     title="Alternar entre lista IPTV">
                     Alternar listado <i class="ai-arrow-forward-thick"></i>
                 </button>
             </aside>
         </main>
         <footer class="footer">
-            <button type="button" role="button" id="boton-descargo-responsabilidad" class="boton boton-accion">Descargo
+            <button type="button" id="boton-descargo-responsabilidad" class="boton boton-accion">Descargo
                 de responsabilidad</button>
             <a href="https://github.com/Alplox/la-tele" rel="nofollow noreferrer noopener">
                 Desarrollado por Alplox <i class="ai-link-out"></i>
             </a>
-            <p>v0.13</p>
+            <p>v0.14</p>
         </footer>
     </section>
 
     <!-- Modal -->
-    <div class="modal" id="modal-legal" tabindex="-1">
+    <div class="modal" id="modal-legal" tabindex="-1" role="dialog" aria-modal="true"
+        aria-label="Descargo de responsabilidad">
         <div class="modal-content">
             <div class="modal-header">
-                <span><i class="ai-cross" tabindex="0"></i></span>
+                <button type="button" class="modal-cerrar" aria-label="Cerrar"><i class="ai-cross"></i></button>
                 <h1>Descargo de responsabilidad</h1>
             </div>
             <div class="modal-body">
@@ -164,7 +168,7 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" role="button" class="boton boton-modal-entendido sombra"
+                <button type="button" class="boton boton-modal-entendido sombra"
                     id="boton-modal-entendido">Entendido</button>
             </div>
         </div>

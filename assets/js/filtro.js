@@ -3,6 +3,9 @@ import { normalizeText } from "./ui-utils.js";
 
 const mensajeSinResultadosPrincipal = document.querySelector('#sin-resultados-canal-principal');
 const mensajeSinResultadosSecundario = document.querySelector('#sin-resultados-canal-secundario');
+if (!mensajeSinResultadosPrincipal || !mensajeSinResultadosSecundario) {
+    console.error('filtro.js: elementos #sin-resultados-canal no encontrados en el DOM');
+}
 
 let cachePrincipal = null;
 let cacheSecundario = null;
@@ -16,7 +19,7 @@ export const filtro = () => {
     let valorInput = normalizeText(INPUT_FILTRADO_CANALES.value);
     let inputNoVacio = INPUT_FILTRADO_CANALES.value.trim().length > 0;
     let esPrincipalVisible = CONTAINER_BOTONES_CANALES_PRINCIPAL.style.display !== 'none';
-    
+
     let botonesFiltrar = [];
     if (esPrincipalVisible) {
         if (!cachePrincipal) {

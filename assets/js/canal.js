@@ -113,6 +113,33 @@ export function crearIframe(canalId, señalObj) {
 
 let activePlayer = null;
 
+let videoJsLoading = null;
+
+async function loadVideoJs() {
+  if (window.videojs) return;
+  if (videoJsLoading) return videoJsLoading;
+
+  videoJsLoading = (async () => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/video.js/dist/video-js.min.css';
+    document.head.appendChild(link);
+
+    await new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/video.js/dist/video.min.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+
+    const { setVideojsLang } = await import('./videojs-lang.js');
+    setVideojsLang(window.videojs);
+  })();
+
+  return videoJsLoading;
+}
+
 export function limpiarActivePlayer() {
   if (activePlayer) {
     try {
@@ -124,7 +151,8 @@ export function limpiarActivePlayer() {
   }
 }
 
-export function crearVideoJs(urlCarga) {
+export async function crearVideoJs(urlCarga) {
+  await loadVideoJs();
   limpiarActivePlayer();
   const DIV_ELEMENT = document.createElement('div');
   DIV_ELEMENT.classList.add('h-100');
@@ -136,6 +164,7 @@ export function crearVideoJs(urlCarga) {
   activePlayer = videojs(videoElement, {
     controls: true,
     muted: true,
+    autoplay: true,
     sources: [{ src: urlCarga }]
   });
   return DIV_ELEMENT;
@@ -148,7 +177,7 @@ export function reproducirActivePlayer() {
   }
 }
 
-export function crearFragmentCanal(canalId) {
+export async function crearFragmentCanal(canalId) {
   limpiarActivePlayer();
   const canal = listaCanales[canalId];
   if (!canal) {
@@ -170,12 +199,13 @@ export function crearFragmentCanal(canalId) {
     listItem.classList.add('dropdown-item');
     if (s.key === señal.key) listItem.classList.add('boton-activo');
     listItem.innerHTML = `${ICONOS[getGroup(s)]} ${s.label}`;
-    listItem.addEventListener('click', () => {
+    listItem.addEventListener('click', async () => {
       UL_OVERLAY_SEÑALES.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('boton-activo'));
       listItem.classList.add('boton-activo');
       guardarSeñalPreferida(canalId, s.key);
       CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
-      CONTAINER_TRANSMISION_ACTIVA.append(crearFragmentCanal(canalId));
+      const fragment = await crearFragmentCanal(canalId);
+      CONTAINER_TRANSMISION_ACTIVA.append(fragment);
       reproducirActivePlayer();
       const dropdown = document.querySelector('.dropdown-señales');
       if (dropdown) dropdown.removeAttribute('open');
@@ -185,7 +215,7 @@ export function crearFragmentCanal(canalId) {
 
   const FRAGMENT_CANAL = document.createDocumentFragment();
   if (señal.tipo === 'm3u8') {
-    FRAGMENT_CANAL.append(crearVideoJs(señal.url));
+    FRAGMENT_CANAL.append(await crearVideoJs(señal.url));
   } else {
     FRAGMENT_CANAL.append(crearIframe(canalId, señal));
   }

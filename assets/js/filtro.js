@@ -46,12 +46,14 @@ export const filtro = () => {
         if (esCoincidencia) totalCoincidencias++;
     });
 
-    // Oculta ambos mensajes por defecto
-    mensajeSinResultadosPrincipal.classList.replace('d-block', 'd-none');
-    mensajeSinResultadosSecundario.classList.replace('d-block', 'd-none');
+    // Oculta mensajes solo si hay botones que filtrar
+    if (botonesFiltrar.length > 0) {
+        mensajeSinResultadosPrincipal.classList.replace('d-block', 'd-none');
+        mensajeSinResultadosSecundario.classList.replace('d-block', 'd-none');
+    }
 
-    // Si input no vacío y sin coincidencias, muestra mensaje en el contenedor activo
-    if (inputNoVacio && totalCoincidencias === 0) {
+    // Si input no vacío y sin coincidencias (y hay botones), muestra mensaje
+    if (inputNoVacio && totalCoincidencias === 0 && botonesFiltrar.length > 0) {
         if (esPrincipalVisible) {
             mensajeSinResultadosPrincipal.textContent = `SIN RESULTADOS PARA "${INPUT_FILTRADO_CANALES.value}"`;
             mensajeSinResultadosPrincipal.classList.replace('d-none', 'd-block');
@@ -59,5 +61,14 @@ export const filtro = () => {
             mensajeSinResultadosSecundario.textContent = `SIN RESULTADOS PARA "${INPUT_FILTRADO_CANALES.value}"`;
             mensajeSinResultadosSecundario.classList.replace('d-none', 'd-block');
         }
+    }
+
+    // Si no hay botones ni búsqueda, muestra mensaje persistente
+    if (!inputNoVacio && botonesFiltrar.length === 0) {
+        const msg = esPrincipalVisible ? mensajeSinResultadosPrincipal : mensajeSinResultadosSecundario;
+        if (!msg.textContent) {
+            msg.textContent = 'NO HAY CANALES DISPONIBLES';
+        }
+        msg.classList.replace('d-none', 'd-block');
     }
 };

@@ -1,5 +1,4 @@
-// Main v0.14 por Alplox
-import { setVideojsLang } from './videojs-lang.js';
+// Main v0.15 por Alplox
 import { SHOW_OVERLAY, toggleOverlay } from './overlay.js';
 import { fetchCanalesPrincipales, fetchCanalesSecundarios } from './fetch.js';
 import { limpiarTransmisionActiva, cambiarTabindex, debounce, safeGetItem } from './ui-utils.js';
@@ -22,9 +21,9 @@ const BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES = document.querySelector('#boton-
 const CONTAINER_FLIP = document.querySelector('#flip-container');
 export const INPUT_FILTRADO_CANALES = document.querySelector('#filtro');
 const DURACION_FLIP_MS = 610;
+let secundarioCargado = false;
 
 showModal();
-
 
 BOTON_QUITAR_SEÑAL.addEventListener('click', limpiarTransmisionActiva);
 
@@ -50,6 +49,10 @@ BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.addEventListener('click', () => {
             filtro();
         }, DURACION_FLIP_MS);
     } else {
+        if (!secundarioCargado) {
+            secundarioCargado = true;
+            fetchCanalesSecundarios();
+        }
         cambiarTabindex(CONTAINER_BOTONES_CANALES_PRINCIPAL, "-1");
         cambiarTabindex(CONTAINER_BOTONES_CANALES_SECUNDARIOS, "0");
         BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.querySelector('i').classList.replace('ai-arrow-forward-thick', 'ai-arrow-back-thick');
@@ -66,10 +69,7 @@ BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.addEventListener('click', () => {
 
 INPUT_FILTRADO_CANALES.addEventListener('input', debounce(filtro, 150));
 
-setVideojsLang(window.videojs);
-
 fetchCanalesPrincipales();
-fetchCanalesSecundarios();
 
 setupObserver();
 

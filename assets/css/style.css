@@ -1,4 +1,4 @@
-/* Style v0.14 por Alplox */
+/* Style v0.15 por Alplox */
 
 :root {
   --main: #acbdce;
@@ -257,6 +257,37 @@ a {
 .sin-resultados-canal {
   text-align: center;
   padding: 1rem;
+}
+
+/* Skeleton loading ---------------------------*/
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.skeleton-boton {
+  min-height: 44px;
+  border-radius: var(--border-radius-inner);
+  background: linear-gradient(
+    110deg,
+    var(--secondary) 30%,
+    rgba(172, 189, 206, 0.15) 50%,
+    var(--secondary) 70%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .lista-botones {
@@ -534,14 +565,12 @@ a {
   right: -25px;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   clip-path: polygon(
-    0 0,
+    0% 0%,
     13% 16%,
     20% 33%,
     20% 100%,
-    75% 100%,
-    100% 67%,
-    100% 33%,
-    75% 0,
+    100% 100%,
+    100% 0%,
     20% 0
   );
 }
@@ -573,21 +602,25 @@ a {
   inset: 0;
   width: 100%;
   height: 100%;
-  padding: 4rem;
+  padding: 1rem;
   overflow: auto;
   color: var(--black);
   background-color: rgba(0, 0, 0, 0.7);
+
+  @media (min-width: 729px) {
+    padding: 2rem;
+  }
 
   .modal-content {
     display: grid;
     grid-template-rows: auto 1fr auto;
     border-radius: var(--border-radius);
     background-color: var(--main);
-    min-height: 500px;
+    max-width: 580px;
     margin: 0 auto;
-    padding: 15px 15px 0;
-    border: 5px solid var(--white);
-    font-size: calc(16px + 0.390625vw);
+    padding: 12px 12px 0;
+    border: 3px solid var(--white);
+    font-size: 1rem;
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
   }
 
@@ -613,7 +646,6 @@ a {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    min-height: 200px;
 
     a {
       color: inherit;
@@ -629,7 +661,7 @@ a {
     }
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 0.6rem;
     }
 
     p {
@@ -673,5 +705,17 @@ a {
     grid-template-rows: 1fr 2fr;
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .modal {
+    padding: 0.5rem;
+
+    .modal-content {
+      border-width: 2px;
+    }
+  }
+
+  .boton-modal-entendido {
+    width: 100%;
   }
 }

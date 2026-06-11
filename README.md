@@ -36,7 +36,10 @@
               http://www.apache.org/licenses/LICENSE-2.0
 - Botón señales:             https://codepen.io/AriTheElk/pen/XvgzKQ
     Licencia: https://codepen.io/AriTheElk/pen/XvgzKQ#:~:text=Copyright%20(c)%202024%20by%20Aria%20McKinley%20(https%3A//codepen.io/AriTheElk/pen/XvgzKQ)
-- Canales M3U8:              https://github.com/iptv-org/iptv
+- Canales Chile principales: https://github.com/Alplox/json-teles
+    Licencia: https://github.com/Alplox/json-teles/blob/main/LICENSE
+- Canales M3U8 secundarios:  https://github.com/iptv-org/iptv
+    Licencia: https://github.com/iptv-org/iptv/blob/master/LICENSE
 - Star History:              https://github.com/star-history/star-history
     Licencia: https://github.com/star-history/star-history/blob/main/LICENSE
 ```

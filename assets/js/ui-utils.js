@@ -1,9 +1,11 @@
-import { CONTAINER_TRANSMISION_ACTIVA, SPAN_NOMBRE_OVERLAY, UL_OVERLAY_SEÑALES } from "./main.js";
+import { CONTAINER_TRANSMISION_ACTIVA, SPAN_NOMBRE_OVERLAY, TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA, UL_OVERLAY_SEÑALES } from "./main.js";
+import { TEXTO_APAGADO } from "./config.js";
 import { limpiarActivePlayer } from "./canal.js";
 
 export function limpiarTransmisionActiva() {
   limpiarActivePlayer();
   CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
+  TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = TEXTO_APAGADO;
   SPAN_NOMBRE_OVERLAY.textContent = '';
   SPAN_NOMBRE_OVERLAY.removeAttribute('href');
   UL_OVERLAY_SEÑALES.innerHTML = '';

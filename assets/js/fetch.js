@@ -16,29 +16,21 @@ function procesarCanales(data) {
   const canalesCL = data.channels;
   const FRAGMENT_CONTENEDOR_BOTONES_LISTA_PRINCIPAL = document.createDocumentFragment();
   canalesCL.forEach(canal => {
-    const BOTON_PARA_CANAL = document.createElement('button');
-    BOTON_PARA_CANAL.setAttribute('type', 'button');
-    BOTON_PARA_CANAL.setAttribute('tabindex', '0');
-    BOTON_PARA_CANAL.classList.add('boton', 'boton-canal');
-    BOTON_PARA_CANAL.innerHTML = canal.name;
-    BOTON_PARA_CANAL.addEventListener('click', async () => {
-      if (BOTON_PARA_CANAL.classList.contains('boton-activo')) {
-        limpiarTransmisionActiva();
-      } else {
-        limpiarTransmisionActiva();
-        BOTON_PARA_CANAL.classList.add('boton-activo');
+    const btn = crearBoton(canal.name, '0', async () => {
+      limpiarTransmisionActiva();
+      if (!btn.classList.contains('boton-activo')) {
+        btn.classList.add('boton-activo');
         TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = TEXTO_CARGANDO;
         const fragment = await crearFragmentCanal(canal.id);
         CONTAINER_TRANSMISION_ACTIVA.append(fragment);
         reproducirActivePlayer();
-        SPAN_NOMBRE_OVERLAY.innerHTML = `${canal.name} <i class="ai-link-out"></i>`;
+        SPAN_NOMBRE_OVERLAY.innerHTML = `${canal.name} <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
         SPAN_NOMBRE_OVERLAY.title = 'Ir a la página oficial de esta transmisión';
         SPAN_NOMBRE_OVERLAY.href = canal.website || '';
-        const dropdownSeñales = document.querySelector('.dropdown-señales');
-        if (dropdownSeñales) dropdownSeñales.classList.remove('hide');
+        document.querySelector('.dropdown-señales')?.classList.remove('hide');
       }
     });
-    FRAGMENT_CONTENEDOR_BOTONES_LISTA_PRINCIPAL.append(BOTON_PARA_CANAL);
+    FRAGMENT_CONTENEDOR_BOTONES_LISTA_PRINCIPAL.append(btn);
   });
   CONTAINER_BOTONES_CANALES_PRINCIPAL.append(FRAGMENT_CONTENEDOR_BOTONES_LISTA_PRINCIPAL);
   const mensajeSinResultados = document.querySelector('#sin-resultados-canal-principal');
@@ -50,33 +42,31 @@ function procesarCanales(data) {
   if (SKELETON) SKELETON.classList.add('d-none');
 }
 
-export function fetchCanalesPrincipales() {
-  const SKELETON = document.querySelector('#skeleton-canales');
-  if (SKELETON) SKELETON.classList.remove('d-none');
+function crearBoton(texto, tabindex, alHacerClick) {
+  const btn = document.createElement('button');
+  btn.setAttribute('type', 'button');
+  btn.setAttribute('tabindex', tabindex);
+  btn.classList.add('boton', 'boton-canal');
+  btn.innerHTML = texto;
+  btn.addEventListener('click', alHacerClick);
+  return btn;
+}
 
-  function intentarFetch(url) {
-    return fetch(url)
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.json();
-      })
-      .then(data => procesarCanales(data));
-  }
-
-  intentarFetch(URL_JSON_CANALES_PRINCIPAL)
-    .catch(() => {
-      console.warn('URL principal falló, intentando fallback...');
-      return intentarFetch(URL_JSON_CANALES_PRINCIPAL_FALLBACK);
-    })
+function fetchConFallback(primaria, fallback, leer, procesar, skeletonId, errorId) {
+  const skeleton = document.getElementById(skeletonId);
+  skeleton?.classList.remove('d-none');
+  const intentar = url => fetch(url).then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return leer(r); }).then(d => procesar(d));
+  intentar(primaria).catch(() => { console.warn('Falló primario, intentando fallback...'); return intentar(fallback); })
     .catch(error => {
-      console.error('Error fetching data:', error);
-      if (SKELETON) SKELETON.classList.add('d-none');
-      const mensajeError = document.querySelector('#sin-resultados-canal-principal');
-      if (mensajeError) {
-        mensajeError.textContent = 'ERROR AL CARGAR CANALES';
-        mensajeError.classList.replace('d-none', 'd-block');
-      }
+      console.error('Error:', error);
+      skeleton?.classList.add('d-none');
+      const errEl = document.getElementById(errorId);
+      if (errEl) { errEl.textContent = 'ERROR AL CARGAR CANALES'; errEl.classList.replace('d-none', 'd-block'); }
     });
+}
+
+export function fetchCanalesPrincipales() {
+  fetchConFallback(URL_JSON_CANALES_PRINCIPAL, URL_JSON_CANALES_PRINCIPAL_FALLBACK, r => r.json(), procesarCanales, 'skeleton-canales', 'sin-resultados-canal-principal');
 }
 
 function procesarM3U(data) {
@@ -84,17 +74,10 @@ function procesarM3U(data) {
   const FRAGMENT_CONTENEDOR_BOTONES_LISTA_SECUNDARIA = document.createDocumentFragment();
   for (const canal of Object.keys(M3U_CONVERTIDO_JSON)) {
     let { nombre, señales } = M3U_CONVERTIDO_JSON[canal];
-    const BOTON_PARA_CANAL = document.createElement('button');
-    BOTON_PARA_CANAL.setAttribute('type', 'button');
-    BOTON_PARA_CANAL.setAttribute('tabindex', '-1');
-    BOTON_PARA_CANAL.classList.add('boton', 'boton-canal');
-    BOTON_PARA_CANAL.innerHTML = nombre;
-    BOTON_PARA_CANAL.addEventListener('click', async () => {
-      if (BOTON_PARA_CANAL.classList.contains('boton-activo')) {
-        limpiarTransmisionActiva();
-      } else {
-        limpiarTransmisionActiva();
-        BOTON_PARA_CANAL.classList.add('boton-activo');
+    const btn = crearBoton(nombre, '-1', async () => {
+      limpiarTransmisionActiva();
+      if (!btn.classList.contains('boton-activo')) {
+        btn.classList.add('boton-activo');
         TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = TEXTO_CARGANDO;
         const urlM3u8 = señales?.m3u8_url?.[0];
         if (!urlM3u8) {
@@ -108,11 +91,10 @@ function procesarM3U(data) {
         SPAN_NOMBRE_OVERLAY.innerHTML = `${nombre} | IPTV-ORG`;
         SPAN_NOMBRE_OVERLAY.title = 'Ir a lista m3u iptv-org';
         SPAN_NOMBRE_OVERLAY.href = URL_M3U_CANALES_IPTV;
-        const dropdownSeñales2 = document.querySelector('.dropdown-señales');
-        if (dropdownSeñales2) dropdownSeñales2.classList.add('hide');
+        document.querySelector('.dropdown-señales')?.classList.add('hide');
       }
     });
-    FRAGMENT_CONTENEDOR_BOTONES_LISTA_SECUNDARIA.append(BOTON_PARA_CANAL);
+    FRAGMENT_CONTENEDOR_BOTONES_LISTA_SECUNDARIA.append(btn);
   }
   CONTAINER_BOTONES_CANALES_SECUNDARIOS.append(FRAGMENT_CONTENEDOR_BOTONES_LISTA_SECUNDARIA);
   const mensajeSinResultados = document.querySelector('#sin-resultados-canal-secundario');
@@ -125,30 +107,5 @@ function procesarM3U(data) {
 }
 
 export function fetchCanalesSecundarios() {
-  const SKELETON = document.querySelector('#skeleton-canales-secundario');
-  if (SKELETON) SKELETON.classList.remove('d-none');
-
-  function intentarFetchM3U(url) {
-    return fetch(url)
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.text();
-      })
-      .then(data => procesarM3U(data));
-  }
-
-  intentarFetchM3U(URL_M3U_CANALES_IPTV)
-    .catch(() => {
-      console.warn('URL IPTV falló, intentando fallback...');
-      return intentarFetchM3U(URL_M3U_CANALES_IPTV_FALLBACK);
-    })
-    .catch(error => {
-      console.error('Error al cargar archivo m3u:', error);
-      if (SKELETON) SKELETON.classList.add('d-none');
-      const mensajeError = document.querySelector('#sin-resultados-canal-secundario');
-      if (mensajeError) {
-        mensajeError.textContent = 'ERROR AL CARGAR CANALES';
-        mensajeError.classList.replace('d-none', 'd-block');
-      }
-    });
+  fetchConFallback(URL_M3U_CANALES_IPTV, URL_M3U_CANALES_IPTV_FALLBACK, r => r.text(), procesarM3U, 'skeleton-canales-secundario', 'sin-resultados-canal-secundario');
 }

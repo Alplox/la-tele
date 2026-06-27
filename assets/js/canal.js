@@ -1,5 +1,4 @@
 // Funciones para crear iframes, videojs y fragmentos de canal
-import { TWITCH_PARENT } from './config.js';
 import { guardarSeñalPreferida } from './overlay.js';
 import { UL_OVERLAY_SEÑALES, CONTAINER_TRANSMISION_ACTIVA, TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA } from './main.js';
 import { listaCanales } from './fetch.js';
@@ -75,7 +74,7 @@ function señalPreferida(señales, canalId) {
   return señales[0];
 }
 
-export function crearIframe(canalId, señalObj) {
+function crearIframe(canalId, señalObj) {
   const DIV_ELEMENT = document.createElement('div');
   DIV_ELEMENT.classList.add('h-100');
   const canal = listaCanales[canalId];
@@ -92,7 +91,7 @@ export function crearIframe(canalId, señalObj) {
   } else if (señalObj.tipo === 'youtube_video') {
     src = `https://www.youtube-nocookie.com/embed/${señalObj.videoId}?autoplay=1&mute=1&modestbranding=1&showinfo=0`;
   } else if (señalObj.tipo === 'twitch') {
-    src = `https://player.twitch.tv/?channel=${señalObj.channel}&parent=${TWITCH_PARENT}`;
+    src = `https://player.twitch.tv/?channel=${señalObj.channel}&parent=alplox.github.io`;
   } else {
     console.warn(`crearIframe: tipo de señal desconocido "${señalObj.tipo}" para canal "${name || canalId}"`);
   }

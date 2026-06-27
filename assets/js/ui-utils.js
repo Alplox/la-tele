@@ -25,14 +25,6 @@ export function normalizeText(text) {
   return text.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-export function debounce(fn, ms) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), ms);
-  };
-}
-
 function storageAvailable() {
   try {
     const k = '__storage_test__';
@@ -54,11 +46,6 @@ export function safeGetItem(key) {
 export function safeSetItem(key, value) {
   if (!storageOk) return;
   try { localStorage.setItem(key, value); } catch { /* quota exceeded or blocked */ }
-}
-
-export function safeRemoveItem(key) {
-  if (!storageOk) return;
-  try { localStorage.removeItem(key); } catch { /* ignored */ }
 }
 
 export function safeParseItem(key, fallback = {}) {

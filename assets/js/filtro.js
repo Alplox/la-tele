@@ -7,53 +7,27 @@ if (!mensajeSinResultadosPrincipal || !mensajeSinResultadosSecundario) {
     console.error('filtro.js: elementos #sin-resultados-canal no encontrados en el DOM');
 }
 
-let cachePrincipal = null;
-let cacheSecundario = null;
-
-export const resetFiltroCache = () => {
-    cachePrincipal = null;
-    cacheSecundario = null;
-};
-
 export const filtro = () => {
     let valorInput = normalizeText(INPUT_FILTRADO_CANALES.value);
     let inputNoVacio = INPUT_FILTRADO_CANALES.value.trim().length > 0;
     let esPrincipalVisible = CONTAINER_BOTONES_CANALES_PRINCIPAL.style.display !== 'none';
 
-    let botonesFiltrar = [];
-    if (esPrincipalVisible) {
-        if (!cachePrincipal) {
-            cachePrincipal = [...CONTAINER_BOTONES_CANALES_PRINCIPAL.querySelectorAll('button')].map(btn => ({
-                element: btn,
-                normalizedText: normalizeText(btn.textContent)
-            }));
-        }
-        botonesFiltrar = cachePrincipal;
-    } else {
-        if (!cacheSecundario) {
-            cacheSecundario = [...CONTAINER_BOTONES_CANALES_SECUNDARIOS.querySelectorAll('button')].map(btn => ({
-                element: btn,
-                normalizedText: normalizeText(btn.textContent)
-            }));
-        }
-        botonesFiltrar = cacheSecundario;
-    }
+    const container = esPrincipalVisible ? CONTAINER_BOTONES_CANALES_PRINCIPAL : CONTAINER_BOTONES_CANALES_SECUNDARIOS;
+    const botones = [...container.querySelectorAll('button')];
 
     let totalCoincidencias = 0;
-    botonesFiltrar.forEach(item => {
-        let esCoincidencia = item.normalizedText.includes(valorInput);
-        item.element.classList.toggle('d-none', inputNoVacio ? !esCoincidencia : false);
+    botones.forEach(btn => {
+        let esCoincidencia = normalizeText(btn.textContent).includes(valorInput);
+        btn.classList.toggle('d-none', inputNoVacio ? !esCoincidencia : false);
         if (esCoincidencia) totalCoincidencias++;
     });
 
-    // Oculta mensajes solo si hay botones que filtrar
-    if (botonesFiltrar.length > 0) {
+    if (botones.length > 0) {
         mensajeSinResultadosPrincipal.classList.replace('d-block', 'd-none');
         mensajeSinResultadosSecundario.classList.replace('d-block', 'd-none');
     }
 
-    // Si input no vacío y sin coincidencias (y hay botones), muestra mensaje
-    if (inputNoVacio && totalCoincidencias === 0 && botonesFiltrar.length > 0) {
+    if (inputNoVacio && totalCoincidencias === 0 && botones.length > 0) {
         if (esPrincipalVisible) {
             mensajeSinResultadosPrincipal.textContent = `SIN RESULTADOS PARA "${INPUT_FILTRADO_CANALES.value}"`;
             mensajeSinResultadosPrincipal.classList.replace('d-none', 'd-block');
@@ -63,8 +37,7 @@ export const filtro = () => {
         }
     }
 
-    // Si no hay botones ni búsqueda, muestra mensaje persistente
-    if (!inputNoVacio && botonesFiltrar.length === 0) {
+    if (!inputNoVacio && botones.length === 0) {
         const msg = esPrincipalVisible ? mensajeSinResultadosPrincipal : mensajeSinResultadosSecundario;
         if (!msg.textContent) {
             msg.textContent = 'NO HAY CANALES DISPONIBLES';

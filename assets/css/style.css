@@ -28,6 +28,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
 }
 
 body {
@@ -35,9 +41,22 @@ body {
   color: var(--main);
   background: var(--bg);
   font-family: var(--font);
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-wrap: pretty;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button svg,
+a svg {
+  vertical-align: middle;
 }
 
 a {
@@ -625,19 +644,33 @@ a {
   }
 
   .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0 0;
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      order: 1;
+      padding: 0;
+    }
+
     .modal-cerrar {
-      float: right;
-      font-weight: bold;
+      order: 2;
       cursor: pointer;
       background: none;
       border: none;
       color: inherit;
-      font-size: inherit;
-      transition: color 0.15s var(--ease-out);
+      padding: 4px;
+      line-height: 1;
+      border-radius: 6px;
+      transition: color 0.15s var(--ease-out), background 0.15s var(--ease-out);
 
       &:hover,
       &:focus-visible {
         color: var(--dark-red);
+        background: rgba(126, 9, 9, 0.1);
       }
     }
   }
@@ -658,10 +691,12 @@ a {
 
     ul {
       margin: 0;
+      padding: 0 0 0 1.2rem;
     }
 
     li {
       margin-bottom: 0.6rem;
+      line-height: 1.5;
     }
 
     p {

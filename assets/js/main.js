@@ -1,10 +1,10 @@
 // Main v0.15 por Alplox
 import { SHOW_OVERLAY, toggleOverlay } from './overlay.js';
 import { fetchCanalesPrincipales, fetchCanalesSecundarios } from './fetch.js';
-import { limpiarTransmisionActiva, cambiarTabindex, debounce, safeGetItem } from './ui-utils.js';
+import { limpiarTransmisionActiva, cambiarTabindex, safeGetItem } from './ui-utils.js';
 import { setupObserver } from './observer.js';
 import { showModal } from './modal.js';
-import { filtro, resetFiltroCache } from './filtro.js';
+import { filtro } from './filtro.js';
 
 // Elementos del DOM
 export const CONTAINER_OVERLAY = document.querySelector('.container-overlay');
@@ -22,6 +22,8 @@ const CONTAINER_FLIP = document.querySelector('#flip-container');
 export const INPUT_FILTRADO_CANALES = document.querySelector('#filtro');
 const DURACION_FLIP_MS = 610;
 let secundarioCargado = false;
+const SVG_ARROW_FWD = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+const SVG_ARROW_BACK = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
 
 showModal();
 
@@ -41,7 +43,7 @@ BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.addEventListener('click', () => {
     if (CONTAINER_BOTONES_CANALES_PRINCIPAL.style.display === 'none') {
         cambiarTabindex(CONTAINER_BOTONES_CANALES_PRINCIPAL, "0");
         cambiarTabindex(CONTAINER_BOTONES_CANALES_SECUNDARIOS, "-1");
-        BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.querySelector('i').classList.replace('ai-arrow-back-thick', 'ai-arrow-forward-thick');
+        BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.innerHTML = 'Alternar listado ' + SVG_ARROW_FWD;
         BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.disabled = true;
         CONTAINER_BOTONES_CANALES_PRINCIPAL.style.display = 'grid';
         setTimeout(() => {
@@ -55,7 +57,7 @@ BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.addEventListener('click', () => {
         }
         cambiarTabindex(CONTAINER_BOTONES_CANALES_PRINCIPAL, "-1");
         cambiarTabindex(CONTAINER_BOTONES_CANALES_SECUNDARIOS, "0");
-        BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.querySelector('i').classList.replace('ai-arrow-forward-thick', 'ai-arrow-back-thick');
+        BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.innerHTML = 'Alternar listado ' + SVG_ARROW_BACK;
         BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.disabled = true;
         setTimeout(() => {
             BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.disabled = false;
@@ -64,10 +66,10 @@ BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES.addEventListener('click', () => {
         }, DURACION_FLIP_MS);
     }
     CONTAINER_FLIP.classList.toggle('flipped');
-    resetFiltroCache();
 });
 
-INPUT_FILTRADO_CANALES.addEventListener('input', debounce(filtro, 150));
+let _timer;
+INPUT_FILTRADO_CANALES.addEventListener('input', () => { clearTimeout(_timer); _timer = setTimeout(filtro, 150); });
 
 fetchCanalesPrincipales();
 

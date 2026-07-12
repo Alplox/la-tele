@@ -198,16 +198,19 @@ export async function crearFragmentCanal(canalId) {
     listItem.classList.add('dropdown-item');
     if (s.key === señal.key) listItem.classList.add('boton-activo');
     listItem.innerHTML = `${ICONOS[getGroup(s)]} ${s.label}`;
-    listItem.addEventListener('click', async () => {
+    listItem.addEventListener('click', () => {
       UL_OVERLAY_SEÑALES.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('boton-activo'));
       listItem.classList.add('boton-activo');
       guardarSeñalPreferida(canalId, s.key);
-      CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
-      const fragment = await crearFragmentCanal(canalId);
-      CONTAINER_TRANSMISION_ACTIVA.append(fragment);
-      reproducirActivePlayer();
-      const dropdown = document.querySelector('.dropdown-señales');
-      if (dropdown) dropdown.removeAttribute('open');
+      // defer player rebuild to next frame, keeps click handler fast for INP
+      requestAnimationFrame(async () => {
+        CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
+        const fragment = await crearFragmentCanal(canalId);
+        CONTAINER_TRANSMISION_ACTIVA.append(fragment);
+        reproducirActivePlayer();
+        const dropdown = document.querySelector('.dropdown-señales');
+        if (dropdown) dropdown.removeAttribute('open');
+      });
     });
     UL_OVERLAY_SEÑALES.append(listItem);
   });

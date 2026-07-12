@@ -16,11 +16,16 @@ function procesarCanales(data) {
   const canalesCL = data.channels;
   const FRAGMENT_CONTENEDOR_BOTONES_LISTA_PRINCIPAL = document.createDocumentFragment();
   canalesCL.forEach(canal => {
-    const btn = crearBoton(canal.name, '0', async () => {
+    const btn = crearBoton(canal.name, '0', () => {
+      if (btn.classList.contains('boton-activo')) {
+        limpiarTransmisionActiva();
+        return;
+      }
       limpiarTransmisionActiva();
-      if (!btn.classList.contains('boton-activo')) {
-        btn.classList.add('boton-activo');
-        TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = TEXTO_CARGANDO;
+      btn.classList.add('boton-activo');
+      TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = TEXTO_CARGANDO;
+      // defer player rebuild to next frame for INP
+      requestAnimationFrame(async () => {
         const fragment = await crearFragmentCanal(canal.id);
         CONTAINER_TRANSMISION_ACTIVA.append(fragment);
         reproducirActivePlayer();
@@ -28,7 +33,7 @@ function procesarCanales(data) {
         SPAN_NOMBRE_OVERLAY.title = 'Ir a la página oficial de esta transmisión';
         SPAN_NOMBRE_OVERLAY.href = canal.website || '';
         document.querySelector('.dropdown-señales')?.classList.remove('hide');
-      }
+      });
     });
     FRAGMENT_CONTENEDOR_BOTONES_LISTA_PRINCIPAL.append(btn);
   });
@@ -74,16 +79,21 @@ function procesarM3U(data) {
   const FRAGMENT_CONTENEDOR_BOTONES_LISTA_SECUNDARIA = document.createDocumentFragment();
   for (const canal of Object.keys(M3U_CONVERTIDO_JSON)) {
     let { nombre, señales } = M3U_CONVERTIDO_JSON[canal];
-    const btn = crearBoton(nombre, '-1', async () => {
+    const btn = crearBoton(nombre, '-1', () => {
+      if (btn.classList.contains('boton-activo')) {
+        limpiarTransmisionActiva();
+        return;
+      }
       limpiarTransmisionActiva();
-      if (!btn.classList.contains('boton-activo')) {
-        btn.classList.add('boton-activo');
-        TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = TEXTO_CARGANDO;
-        const urlM3u8 = señales?.m3u8_url?.[0];
-        if (!urlM3u8) {
-          TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = `${nombre}: URL M3U8 NO DISPONIBLE`;
-          return;
-        }
+      btn.classList.add('boton-activo');
+      TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = TEXTO_CARGANDO;
+      const urlM3u8 = señales?.m3u8_url?.[0];
+      if (!urlM3u8) {
+        TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = `${nombre}: URL M3U8 NO DISPONIBLE`;
+        return;
+      }
+      // defer player creation to next frame for INP
+      requestAnimationFrame(async () => {
         const FRAGMENT_CANAL = document.createDocumentFragment();
         FRAGMENT_CANAL.append(await crearVideoJs(urlM3u8));
         CONTAINER_TRANSMISION_ACTIVA.append(FRAGMENT_CANAL);
@@ -92,7 +102,7 @@ function procesarM3U(data) {
         SPAN_NOMBRE_OVERLAY.title = 'Ir a lista m3u iptv-org';
         SPAN_NOMBRE_OVERLAY.href = URL_M3U_CANALES_IPTV;
         document.querySelector('.dropdown-señales')?.classList.add('hide');
-      }
+      });
     });
     FRAGMENT_CONTENEDOR_BOTONES_LISTA_SECUNDARIA.append(btn);
   }

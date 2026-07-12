@@ -2,8 +2,8 @@
 
 ## Sitio: <https://alplox.github.io/la-tele/>
 
-[![Ejemplo 1](/assets/img/Previews/shots_la_tele_v0-10.jpg)](https://alplox.github.io/la-tele/)
-[![Ejemplo 2](/assets/img/Previews/shots_la_tele_movil_v0-10.jpg)](https://alplox.github.io/la-tele/)
+[![Ejemplo 1](/assets/img/Previews/shots_la_tele_v0-10.webp)](https://alplox.github.io/la-tele/)
+[![Ejemplo 2](/assets/img/Previews/shots_la_tele_movil_v0-10.webp)](https://alplox.github.io/la-tele/)
 
 ## Listado canales disponibles junto a su fuente
 

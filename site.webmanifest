@@ -22,23 +22,23 @@
     "theme_color": "#051320",
     "screenshots": [
         {
-            "src": "./assets/img/PWA/1.jpg",
-            "type": "image/jpeg",
+            "src": "./assets/img/PWA/1.webp",
+            "type": "image/webp",
             "sizes": "1080x1920"
         },
         {
-            "src": "./assets/img/PWA/2.jpg",
-            "type": "image/jpeg",
+            "src": "./assets/img/PWA/2.webp",
+            "type": "image/webp",
             "sizes": "1080x1920"
         },
         {
-            "src": "./assets/img/PWA/3.jpg",
-            "type": "image/jpeg",
+            "src": "./assets/img/PWA/3.webp",
+            "type": "image/webp",
             "sizes": "1080x1920"
         },
         {
-            "src": "./assets/img/Previews/shots_la_tele_v0-10.jpg",
-            "type": "image/jpeg",
+            "src": "./assets/img/Previews/shots_la_tele_v0-10.webp",
+            "type": "image/webp",
             "form_factor": "wide",
             "sizes": "1920x1080",
             "label": "Versión escritorio"

@@ -3,7 +3,7 @@ import { safeGetItem, safeSetItem, safeParseItem } from "./ui-utils.js";
 
 // Overlay y señal preferida
 export const SHOW_OVERLAY = 'show';
-const HIDE_OVERLAY = 'hide';
+export const HIDE_OVERLAY = 'hide';
 
 export const toggleOverlay = (show) => {
   safeSetItem('estado_overlay', show ? SHOW_OVERLAY : HIDE_OVERLAY);

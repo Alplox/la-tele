@@ -22,18 +22,14 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const { request: r } = e;
   if (!r.url.startsWith(self.location.origin)) return;
-  if (r.destination === 'document') {
-    e.respondWith(fetch(r).catch(() => caches.match(r)));
-  } else {
-    e.respondWith(
-      caches.open(CACHE).then(c =>
-        c.match(r).then(cached => {
-          const fetched = fetch(r).then(res => { c.put(r, res.clone()); return res; }).catch(() => cached);
-          return cached || fetched;
-        })
-      )
-    );
-  }
+  e.respondWith(
+    caches.open(CACHE).then(c =>
+      c.match(r).then(cached => {
+        const fetched = fetch(r).then(res => { c.put(r, res.clone()); return res; }).catch(() => cached);
+        return cached || fetched;
+      })
+    )
+  );
 });
 
 self.addEventListener('message', e => {

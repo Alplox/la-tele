@@ -1,4 +1,4 @@
-import { CONTAINER_TRANSMISION_ACTIVA, SPAN_NOMBRE_OVERLAY, TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA, UL_OVERLAY_SEÑALES } from "./main.js";
+import { CONTAINER_TRANSMISION_ACTIVA, SPAN_NOMBRE_OVERLAY, TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA, UL_OVERLAY_SEÑALES, CONTAINER_BOTONES_CANALES_PRINCIPAL, CONTAINER_BOTONES_CANALES_SECUNDARIOS } from "./main.js";
 import { TEXTO_APAGADO } from "./config.js";
 import { limpiarActivePlayer } from "./canal.js";
 
@@ -9,7 +9,10 @@ export function limpiarTransmisionActiva() {
   SPAN_NOMBRE_OVERLAY.textContent = '';
   SPAN_NOMBRE_OVERLAY.removeAttribute('href');
   UL_OVERLAY_SEÑALES.innerHTML = '';
-  document.querySelectorAll('button.boton-activo').forEach(button => {
+  CONTAINER_BOTONES_CANALES_PRINCIPAL.querySelectorAll('button.boton-activo').forEach(button => {
+    button.classList.remove('boton-activo');
+  });
+  CONTAINER_BOTONES_CANALES_SECUNDARIOS.querySelectorAll('button.boton-activo').forEach(button => {
     button.classList.remove('boton-activo');
   });
 }

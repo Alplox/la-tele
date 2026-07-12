@@ -14,6 +14,14 @@ const ICONOS = {
 const GROUP_MAP = { iframe: 'iframe', m3u8: 'm3u8', youtube: 'yt', youtube_video: 'yt', twitch: 'twitch' };
 const getGroup = s => GROUP_MAP[s.tipo] || 'iframe';
 
+// Race condition guard
+let playerGeneration = 0;
+export function nextGeneration() { return ++playerGeneration; }
+export function currentGeneration() { return playerGeneration; }
+
+// cache localStorage parse, invalidated on write in overlay.js
+let prefCache = null;
+
 function obtenerSeñales(canal) {
   const señales = [];
   if (canal.signals) {
@@ -60,10 +68,12 @@ function obtenerSeñales(canal) {
   return señales;
 }
 
+export function invalidatePrefCache() { prefCache = null; }
+
 function señalPreferida(señales, canalId) {
-  const lsPref = safeParseItem('preferencia_señal_canales_la_tele');
-  if (lsPref[canalId]) {
-    const keyPref = Object.keys(lsPref[canalId])[0];
+  if (prefCache === null) prefCache = safeParseItem('preferencia_señal_canales_la_tele');
+  if (prefCache[canalId]) {
+    const keyPref = Object.keys(prefCache[canalId])[0];
     const encontrada = señales.find(s => s.key === keyPref);
     if (encontrada) return encontrada;
   }
@@ -98,7 +108,6 @@ function crearIframe(canalId, señalObj) {
   const IFRAME_ELEMENT = document.createElement('iframe');
   IFRAME_ELEMENT.src = src;
   IFRAME_ELEMENT.classList.add('pe-auto');
-  IFRAME_ELEMENT.setAttribute('contenedor-canal-cambio', canalId);
   IFRAME_ELEMENT.allowFullscreen = true;
   IFRAME_ELEMENT.title = name;
   if (señalObj.tipo === 'youtube' || señalObj.tipo === 'youtube_video') {
@@ -136,6 +145,7 @@ async function loadVideoJs() {
     setVideojsLang(window.videojs);
   })();
 
+  videoJsLoading.catch(() => { videoJsLoading = null; });
   return videoJsLoading;
 }
 
@@ -179,16 +189,17 @@ export function reproducirActivePlayer() {
 export async function crearFragmentCanal(canalId) {
   limpiarActivePlayer();
   const canal = listaCanales[canalId];
+  const FRAGMENT_CANAL = document.createDocumentFragment();
   if (!canal) {
-    TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = `CANAL NO ENCONTRADO: ${canalId}`;
+    FRAGMENT_CANAL.append(document.createTextNode(`CANAL NO ENCONTRADO: ${canalId}`));
     console.error(`${canalId} no encontrado.`);
-    return;
+    return FRAGMENT_CANAL;
   }
   const señales = obtenerSeñales(canal);
   if (señales.length === 0) {
-    TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.innerHTML = `${canal.name || canalId}: SIN SEÑALES DISPONIBLES`;
+    FRAGMENT_CANAL.append(document.createTextNode(`${canal.name || canalId}: SIN SEÑALES DISPONIBLES`));
     console.error(`${canalId} no tiene señales definidas.`);
-    return;
+    return FRAGMENT_CANAL;
   }
   const señal = señalPreferida(señales, canalId);
 
@@ -197,25 +208,31 @@ export async function crearFragmentCanal(canalId) {
     const listItem = document.createElement('li');
     listItem.classList.add('dropdown-item');
     if (s.key === señal.key) listItem.classList.add('boton-activo');
-    listItem.innerHTML = `${ICONOS[getGroup(s)]} ${s.label}`;
+    listItem.innerHTML = ICONOS[getGroup(s)];
+    listItem.append(document.createTextNode(' ' + s.label));
     listItem.addEventListener('click', () => {
       UL_OVERLAY_SEÑALES.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('boton-activo'));
       listItem.classList.add('boton-activo');
       guardarSeñalPreferida(canalId, s.key);
-      // defer player rebuild to next frame, keeps click handler fast for INP
       requestAnimationFrame(async () => {
-        CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
-        const fragment = await crearFragmentCanal(canalId);
-        CONTAINER_TRANSMISION_ACTIVA.append(fragment);
-        reproducirActivePlayer();
-        const dropdown = document.querySelector('.dropdown-señales');
-        if (dropdown) dropdown.removeAttribute('open');
+        try {
+          CONTAINER_TRANSMISION_ACTIVA.innerHTML = '';
+          const gen = ++playerGeneration;
+          const fragment = await crearFragmentCanal(canalId);
+          if (gen !== playerGeneration) return;
+          CONTAINER_TRANSMISION_ACTIVA.append(fragment);
+          reproducirActivePlayer();
+          const dropdown = document.querySelector('.dropdown-señales');
+          if (dropdown) dropdown.removeAttribute('open');
+        } catch (e) {
+          console.error('Error loading signal:', e);
+          TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA.textContent = 'Error al cargar señal';
+        }
       });
     });
     UL_OVERLAY_SEÑALES.append(listItem);
   });
 
-  const FRAGMENT_CANAL = document.createDocumentFragment();
   if (señal.tipo === 'm3u8') {
     FRAGMENT_CANAL.append(await crearVideoJs(señal.url));
   } else {

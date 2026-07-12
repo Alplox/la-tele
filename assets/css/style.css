@@ -1,6 +1,7 @@
 /* Style v0.15 por Alplox */
 
 :root {
+  color-scheme: dark;
   --main: #acbdce;
   --secondary: #38444d;
   --bg: #051320;
@@ -141,6 +142,26 @@ a {
   border-radius: 4px;
 }
 
+.badge-version {
+  position: absolute;
+  top: -0.3rem;
+  right: -1.6rem;
+  font-size: 0.5rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+  border-radius: 100px;
+  background: var(--secondary);
+  color: var(--light-green);
+  pointer-events: none;
+}
+
+.header-principal a {
+  line-height: 1;
+  white-space: nowrap;
+  position: relative;
+}
+
 /* MARK: Main */
 .main-grid {
   display: grid;
@@ -158,9 +179,6 @@ a {
   width: 100%;
   border-radius: var(--border-radius);
   border: 1px solid var(--secondary);
-  box-shadow:
-    0 0 0 1px rgba(172, 189, 206, 0.06),
-    0 4px 24px rgba(0, 0, 0, 0.4);
 
   iframe,
   video {
@@ -226,7 +244,7 @@ a {
 }
 
 /* Gear animation -------------------------------*/
-#gear {
+.gear {
   /* https://stackoverflow.com/a/17031363 */
   animation: animacion-rotate 1.5s linear infinite;
   transform-origin: 50% 50%;
@@ -385,6 +403,7 @@ a {
     background-color 0.2s var(--ease-out),
     transform 0.1s var(--ease-out);
   background: var(--white);
+  color: var(--bg);
   cursor: pointer;
   min-height: 40px;
 
@@ -532,6 +551,7 @@ a {
   background: linear-gradient(180deg, var(--bg) 30%, rgba(5, 19, 32, 0) 100%);
   border: none;
   transition: color 0.2s var(--ease-out);
+  color: var(--grey);
 
   &::-webkit-details-marker {
     display: none;
@@ -736,7 +756,6 @@ a {
 /* MARK: Media queries */
 @media only screen and (max-width: 728px) {
   .main-grid {
-    display: grid;
     grid-template-rows: 1fr 2fr;
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -750,7 +769,26 @@ a {
     }
   }
 
-  .boton-modal-entendido {
+  .container-texto-detras-container-transmision p {
+    white-space: normal;
+  }
+
+  .header-principal {
+    padding: 0.6rem 1rem 0;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.2rem;
+    }
+
+    .separator {
+      display: none;
+    }
+  }
+
+  .modal .boton-modal-entendido {
     width: 100%;
   }
 }

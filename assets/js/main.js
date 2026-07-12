@@ -16,6 +16,7 @@ export const CONTAINER_TRANSMISION_ACTIVA = document.querySelector('#container-t
 export const TEXTO_DETRAS_CONTAINER_TRANSMISION_ACTIVA = document.querySelector('#texto-detras-container-transmision');
 export const CONTAINER_BOTONES_CANALES_PRINCIPAL = document.querySelector('#lista-botones');
 export const CONTAINER_BOTONES_CANALES_SECUNDARIOS = document.querySelector('#lista-botones-m3u8');
+export const CONTAINER_VIDEO = document.querySelector('.container-video');
 const BOTON_QUITAR_SEÑAL = document.querySelector('#boton-overlay-quitar-señal');
 const BOTON_ALTERNAR_CONTAINER_BOTONES_CANALES = document.querySelector('#boton-alternar-lista-canales');
 const CONTAINER_FLIP = document.querySelector('#flip-container');
@@ -24,6 +25,8 @@ const DURACION_FLIP_MS = 610;
 let secundarioCargado = false;
 const SVG_ARROW_FWD = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
 const SVG_ARROW_BACK = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
+export const SVG_EYE_OPEN = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+export const SVG_EYE_CLOSED = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
 
 showModal();
 
@@ -75,13 +78,15 @@ fetchCanalesPrincipales();
 
 setupObserver();
 
-// Close any .dropdown-señales when clicking outside
-document.addEventListener('click', (e) => {
-    document.querySelectorAll('.dropdown-señales[open]').forEach(dropdown => {
-        const summary = dropdown.querySelector('summary');
-        const list = dropdown.querySelector('ul');
-        if (summary && list && !summary.contains(e.target) && !list.contains(e.target)) {
-            dropdown.removeAttribute('open');
-        }
+// Close .dropdown-señales when clicking outside — scoped to .container-video
+if (CONTAINER_VIDEO) {
+    CONTAINER_VIDEO.addEventListener('click', (e) => {
+        document.querySelectorAll('.dropdown-señales[open]').forEach(dropdown => {
+            const summary = dropdown.querySelector('summary');
+            const list = dropdown.querySelector('ul');
+            if (summary && list && !summary.contains(e.target) && !list.contains(e.target)) {
+                dropdown.removeAttribute('open');
+            }
+        });
     });
-});
+}

@@ -17,7 +17,7 @@ export const filtro = () => {
 
     let totalCoincidencias = 0;
     botones.forEach(btn => {
-        let esCoincidencia = normalizeText(btn.textContent).includes(valorInput);
+        let esCoincidencia = (btn.dataset.label || normalizeText(btn.textContent)).includes(valorInput);
         btn.classList.toggle('d-none', inputNoVacio ? !esCoincidencia : false);
         if (esCoincidencia) totalCoincidencias++;
     });

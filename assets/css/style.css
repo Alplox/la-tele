@@ -129,7 +129,7 @@ a {
   overflow-wrap: anywhere;
   padding: 0.4rem 2rem 0;
 
-  a:first-child {
+  a {
     border-bottom: none;
   }
 }

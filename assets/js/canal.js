@@ -204,6 +204,7 @@ export async function crearFragmentCanal(canalId) {
   const señal = señalPreferida(señales, canalId);
 
   UL_OVERLAY_SEÑALES.innerHTML = '';
+  const signalFrag = document.createDocumentFragment();
   señales.forEach(s => {
     const listItem = document.createElement('li');
     listItem.classList.add('dropdown-item');
@@ -230,8 +231,9 @@ export async function crearFragmentCanal(canalId) {
         }
       });
     });
-    UL_OVERLAY_SEÑALES.append(listItem);
+    signalFrag.append(listItem);
   });
+  UL_OVERLAY_SEÑALES.append(signalFrag);
 
   if (señal.tipo === 'm3u8') {
     FRAGMENT_CANAL.append(await crearVideoJs(señal.url));

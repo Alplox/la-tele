@@ -2,18 +2,22 @@
 <html lang="es">
 <!-- 
     la tele por Alplox
-    https://github.com/Alplox/la-tele (v0.15)
+    https://github.com/Alplox/la-tele (v0.16)
 -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base target="_blank">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://unpkg.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
+    <link rel="preload" href="assets/fonts/Poppins-Thin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="modulepreload" href="assets/js/main.js">
+    <link rel="modulepreload" href="assets/js/fetch.js">
+    <link rel="modulepreload" href="assets/js/canal.js">
+    <link rel="modulepreload" href="assets/js/config.js">
+    <link rel="modulepreload" href="assets/js/ui-utils.js">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -35,23 +39,6 @@
     <meta property="twitter:title" content="La tele">
     <meta property="twitter:description" content="Canales de Chile a un toque.">
     <meta property="twitter:image" content="assets/img/Previews/shots_la_tele_v0-10.webp">
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('pwabuilder-sw.js').then(reg => {
-                reg.addEventListener('updatefound', () => {
-                    const w = reg.installing;
-                    w.addEventListener('statechange', () => {
-                        if (w.state === 'installed' && navigator.serviceWorker.controller) {
-                            if (confirm('Nueva versión disponible')) {
-                                w.postMessage({ type: 'SKIP_WAITING' });
-                                location.reload();
-                            }
-                        }
-                    });
-                });
-            });
-        }
-    </script>
     <script src="assets/js/main.js" type="module"></script>
 </head>
 
@@ -66,7 +53,7 @@
     <section class="wrapper-all">
         <header class="header-principal">
             <a href="./" target="_self">
-                <h1>La tele <span class="badge-version">v0.15</span></h1>
+                <h1>La tele <span class="badge-version">v0.16</span></h1>
             </a>
             <div>
                 <a href="https://alplox.github.io/teles/" rel="nofollow noreferrer noopener" target="_self">
@@ -270,6 +257,23 @@
             </div>
         </div>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('pwabuilder-sw.js').then(reg => {
+                reg.addEventListener('updatefound', () => {
+                    const w = reg.installing;
+                    w.addEventListener('statechange', () => {
+                        if (w.state === 'installed' && navigator.serviceWorker.controller) {
+                            if (confirm('Nueva versión disponible')) {
+                                w.postMessage({ type: 'SKIP_WAITING' });
+                                location.reload();
+                            }
+                        }
+                    });
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -40,6 +40,6 @@
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/chart?repos=Alplox/la-tele&type=date&legend=top-left)](https://www.star-history.com/?repos=Alplox%2Fla-tele&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/chart?repos=Alplox/la-tele&type=date&legend=top-left&sealed_token=IVLSCUIcvpJjiva737Vez9TQu191zdm7vj6yRy4gb3XpsozgGC2uRTj5AyorZa_AnHHNdS281wwkQ_cBodccdyi19M9MGbJDD_MajqTVEKwEBbWxw4efbQ)](https://www.star-history.com/?repos=Alplox%2Fla-tele&type=date&legend=top-left)
 
 [![Visits Badge](https://badges.strrl.dev/visits/Alplox/la-tele)](https://badges.strrl.dev)

@@ -39,6 +39,12 @@ export const filtro = () => {
 
     if (!inputNoVacio && botones.length === 0) {
         const msg = esPrincipalVisible ? mensajeSinResultadosPrincipal : mensajeSinResultadosSecundario;
+        // Si aún está cargando (skeleton visible), no mostrar "no hay canales"
+        const skeleton = container.querySelector('.skeleton-grid');
+        if (skeleton && !skeleton.classList.contains('d-none')) {
+            msg.classList.replace('d-block', 'd-none');
+            return;
+        }
         if (!msg.textContent) {
             msg.textContent = 'NO HAY CANALES DISPONIBLES';
         }

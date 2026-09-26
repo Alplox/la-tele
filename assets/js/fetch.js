@@ -52,6 +52,8 @@ function procesarCanales(data) {
   if (canalesCL.length === 0) {
     mensajeSinResultados.textContent = 'NO HAY CANALES DISPONIBLES';
     mensajeSinResultados.classList.replace('d-none', 'd-block');
+  } else {
+    mensajeSinResultados.classList.replace('d-block', 'd-none');
   }
   const SKELETON = document.querySelector('#skeleton-canales');
   if (SKELETON) SKELETON.classList.add('d-none');
@@ -128,6 +130,8 @@ function procesarM3U(data) {
   if (Object.keys(M3U_CONVERTIDO_JSON).length === 0) {
     mensajeSinResultados.textContent = 'NO HAY CANALES DISPONIBLES';
     mensajeSinResultados.classList.replace('d-none', 'd-block');
+  } else {
+    mensajeSinResultados.classList.replace('d-block', 'd-none');
   }
   const SKELETON = document.querySelector('#skeleton-canales-secundario');
   if (SKELETON) SKELETON.classList.add('d-none');
